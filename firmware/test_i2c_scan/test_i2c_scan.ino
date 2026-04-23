@@ -1,17 +1,14 @@
-// I2C bus scanner — lists every address that ACKs on the I2C bus.
+// I2C bus scanner. Lists every address that ACKs.
 // Use this to confirm the BMP280 is alive and find its actual address.
 //
-// Wiring reminder:
+// Wiring:
 //   ESP32 3.3V    -> BMP280 VCC
 //   ESP32 GND     -> BMP280 GND
 //   ESP32 GPIO21  -> BMP280 SDA
 //   ESP32 GPIO22  -> BMP280 SCL
 //
-// Expected output if the BMP280 is alive:
-//   "Found device at 0x76"  (or 0x77)
-//
-// If the scanner finds NOTHING:
-//   -> SDA/SCL swapped, VCC/GND swapped, bad solder joint, or dead chip.
+// Expected: "Found device at 0x76" or 0x77. If nothing is found the
+// wiring is wrong or the chip is dead.
 
 #include <Wire.h>
 
@@ -19,7 +16,7 @@ void setup() {
   Serial.begin(115200);
   delay(500);
   Serial.println("\n=== I2C scanner ===");
-  Wire.begin();   // default SDA=21, SCL=22 on ESP32
+  Wire.begin();
 }
 
 void loop() {
@@ -37,7 +34,7 @@ void loop() {
     Serial.println("  No I2C devices found.");
     Serial.println("  Check: SDA=GPIO21, SCL=GPIO22, VCC=3.3V, GND=GND.");
   } else {
-    Serial.printf("Done — %d device(s) found.\n", found);
+    Serial.printf("Done: %d device(s) found.\n", found);
   }
   delay(5000);
 }

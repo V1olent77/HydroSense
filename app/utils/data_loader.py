@@ -14,8 +14,6 @@ FORECAST_CSV = DATA_DIR / "forecast.csv"
 SENSOR_CSV = DATA_DIR / "sensor_data.csv"
 MAP_PNG = DATA_DIR / "drought_risk_map.png"
 
-# FAO GAUL Level-1 naming for East Kazakhstan can vary between exports; we
-# normalize by lowercased keyword match in `match_sensor_oblast`.
 SENSOR_LAT = 49.95
 SENSOR_LON = 82.61
 SENSOR_OBLAST_KEYWORDS = ("vostochno", "east kaz", "vostočno", "kazakhstanskaya")

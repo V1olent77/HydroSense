@@ -1,21 +1,13 @@
-"""
-Soil sensor calibration helper — walks you through recording the raw
-ADC values in dry air and fully submerged, then prints the two
-constants to paste into firmware/sensor_node/sensor_node.ino.
+"""Soil sensor calibration helper.
 
-What it expects:
-    - The ESP32 is plugged in via USB and running firmware/test_soil/.
-    - That sketch prints lines like "Soil raw ADC: 3412 (...)" every
-      500 ms at 115200 baud.
+Records raw ADC values in dry air and submerged, prints the two constants
+to paste into firmware/sensor_node/sensor_node.ino.
 
-How to run:
-    python -m pip install pyserial          # one-time, if not installed
-    python scripts/calibrate_soil.py        # lists available ports
+Requires the ESP32 to be running firmware/test_soil/ at 115200 baud.
+
+Usage:
+    python scripts/calibrate_soil.py                          # lists ports
     python scripts/calibrate_soil.py --port /dev/cu.usbserial-0001
-
-On macOS the ESP32 typically shows up as /dev/cu.usbserial-XXXX or
-/dev/cu.SLAB_USBtoUART depending on which USB-serial chip the dev
-board uses. Run the script with no arguments to see the full list.
 """
 import argparse
 import re

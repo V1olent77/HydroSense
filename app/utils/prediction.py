@@ -1,12 +1,8 @@
 """Weighted composite drought index.
 
-Two modes:
-  - satellite_only(sat): uses precip deficit + NDVI anomaly + temperature
-  - satellite_plus_sensor(sat, sensor): adds soil stress + evapotranspiration
-    pressure from the ground node to correct surface-level satellite estimates.
-
-Both return a 0–100 score (higher = worse drought). The numbers match the
-weighting in the HydroSense guide so the scores are directly comparable.
+satellite_only(sat): precip deficit + NDVI anomaly + temperature.
+satellite_plus_sensor(sat, sensor): adds soil stress + ET pressure from the sensor.
+Both return a 0-100 score (higher = worse drought).
 """
 from typing import Mapping, Optional
 

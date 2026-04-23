@@ -1,21 +1,13 @@
-// Test 3 of 4 — BMP280 (I2C temperature + barometric pressure).
+// BMP280 (I2C temperature + barometric pressure).
 //
-// Wiring (BMP280 headers MUST be soldered first — the board ships with
-// loose pins. See firmware/README.md for soldering tips):
-//   VCC → 3.3V
-//   GND → GND
-//   SDA → GPIO21
-//   SCL → GPIO22
+// Wiring:
+//   VCC -> 3.3V
+//   GND -> GND
+//   SDA -> GPIO21
+//   SCL -> GPIO22
 //
-// Libraries (Sketch → Include Library → Manage Libraries):
-//   - Adafruit BMP280 Library
-//   - Adafruit Unified Sensor   (dependency, install both)
-//
-// Expected output: temperature within ~1 °C of room temp, pressure
-// around 950–1020 hPa depending on altitude/weather.
-//
-// Common issue: "BMP280 not found" → the breakout uses I2C address 0x77
-// instead of 0x76 on some clone boards. The sketch tries both.
+// Libraries: Adafruit BMP280 Library, Adafruit Unified Sensor.
+// Some clone boards use I2C address 0x77 instead of 0x76; sketch tries both.
 
 #include <Wire.h>
 #include <Adafruit_BMP280.h>
@@ -30,10 +22,10 @@ void setup() {
   if (bmp.begin(0x76)) {
     Serial.println("BMP280 found at 0x76");
   } else if (bmp.begin(0x77)) {
-    Serial.println("BMP280 found at 0x77 (alternate address)");
+    Serial.println("BMP280 found at 0x77");
   } else {
     Serial.println("ERROR: BMP280 not found at 0x76 or 0x77.");
-    Serial.println("Check SDA→GPIO21, SCL→GPIO22, VCC→3.3V, GND→GND.");
+    Serial.println("Check SDA=GPIO21, SCL=GPIO22, VCC=3.3V, GND=GND.");
     while (true) delay(1000);
   }
 }

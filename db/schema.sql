@@ -1,12 +1,7 @@
--- HydroSense SQLite schema
--- One file at data/hydrosense.db, shared by api.py and the Streamlit app.
---
--- Apply with:  python db/init_db.py
--- (db/init_db.py is idempotent — safe to re-run.)
+-- HydroSense SQLite schema. Apply with:  python db/init_db.py
+-- (idempotent; safe to re-run)
 
--- ---------------------------------------------------------------
--- nodes — one row per deployed ESP32 sensor
--- ---------------------------------------------------------------
+-- nodes: one row per deployed ESP32 sensor
 CREATE TABLE IF NOT EXISTS nodes (
     node_id          TEXT PRIMARY KEY,
     name             TEXT NOT NULL,

@@ -1,7 +1,5 @@
-"""LSTM forecast page — 2-month-ahead drought risk per oblast.
-
-Reads data/processed/forecast.csv produced by forecast.py. Includes honest
-caveats: ~2000 training windows, single-site validation.
+"""LSTM forecast page: 2-month-ahead drought risk per oblast.
+Reads data/processed/forecast.csv produced by forecast.py.
 """
 from pathlib import Path
 import sys
@@ -83,14 +81,12 @@ st.dataframe(
     use_container_width=True,
 )
 
-with st.expander("Honest caveats"):
+with st.expander("Caveats"):
     st.markdown(
         """
-- Trained on ~2,000 monthly windows (2015–2022) · validated on 2023 · tested on 2024.
-- No field validation beyond the single ESP32 node — a 50-node network would let us
-  calibrate and improve the model.
-- RMSE/MAE above are on held-out 2024 windows; real-world drift may differ.
-- The LSTM is the forward-looking layer. For current conditions, trust the composite
-  index on the Regional Map and Prediction Comparison pages.
+- Trained on ~2,000 monthly windows (2015–2022), validated on 2023, tested on 2024.
+- No field validation beyond the single ESP32 node.
+- RMSE/MAE are on held-out 2024 windows; real-world drift may differ.
+- For current conditions, see the composite on the Regional Map and Prediction pages.
 """
     )

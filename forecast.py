@@ -1,7 +1,5 @@
-"""
-HydroSense forecast layer — LSTM trained on monthly per-oblast indices.
-
-Predicts drought_risk 2 months ahead (~8 weeks) from a 12-month lookback.
+"""HydroSense forecast layer. LSTM trained on monthly per-oblast indices.
+Predicts drought_risk 2 months ahead from a 12-month lookback.
 Reads data/processed/monthly_indices.csv produced by time_series.py.
 """
 import os
@@ -52,15 +50,12 @@ oblast_idx = {o: i for i, o in enumerate(oblasts)}
 N_OBLAST = len(oblasts)
 print(f"Loaded {len(df):,} rows · {N_OBLAST} oblasts · {df['date'].min().date()} → {df['date'].max().date()}")
 
-# Fill missing satellite readings BEFORE normalizing — MODIS skips
-# snow-covered pixels, so winter NDVI has gaps that would otherwise
-# produce NaN losses during training.
+# Fill NaN gaps in satellite features (MODIS skips snow, etc.) before normalizing.
 df[FEATURES] = (
     df.groupby("oblast")[FEATURES]
       .transform(lambda s: s.interpolate(limit_direction="both"))
 )
-# Anything still NaN (e.g. an oblast missing an entire feature) → 0,
-# which is the post-normalization mean and a safe neutral value.
+# Any remaining NaN -> 0 (post-normalization mean).
 df[FEATURES] = df[FEATURES].fillna(0.0)
 n_nan_remaining = int(df[FEATURES].isna().sum().sum())
 assert n_nan_remaining == 0, f"{n_nan_remaining} NaN values still in features"

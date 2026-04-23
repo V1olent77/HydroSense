@@ -50,8 +50,7 @@ void setup() {
     Serial.println("\nWiFi FAILED — readings will still print locally.");
   }
 
-  // Some BMP280 breakouts ship with SDO tied high → address 0x77 instead
-  // of the "standard" 0x76. Try both so the user doesn't have to care.
+  // Try 0x76 first, then 0x77 (clone boards tie SDO high).
   if (bmp.begin(0x76)) {
     Serial.println("BMP280 initialized at 0x76");
   } else if (bmp.begin(0x77)) {

@@ -1,8 +1,6 @@
-"""
-Initialize (or upgrade) the HydroSense SQLite database.
-
-Idempotent: safe to run repeatedly. Creates tables if missing and
-inserts the default Ust-Kamenogorsk node row if no nodes exist yet.
+"""Initialize the HydroSense SQLite database.
+Idempotent: creates tables if missing and inserts the default
+Ust-Kamenogorsk node row if no nodes exist.
 """
 import sqlite3
 from pathlib import Path
@@ -21,7 +19,7 @@ DEFAULT_NODE = {
     "status": "pending",
     "air_value": 3400,              # placeholder until real calibration
     "water_value": 1500,
-    "notes": "MVP prototype node — single sensor for proof-of-concept demo.",
+    "notes": "MVP prototype node.",
 }
 
 

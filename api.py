@@ -1,25 +1,20 @@
-"""
-HydroSense backend — minimal Flask API the ESP32 posts readings to,
-and the Streamlit dashboard pulls them from.
+"""HydroSense backend. Flask API the ESP32 posts readings to and the
+Streamlit dashboard reads from.
 
 Run locally:
-    python db/init_db.py        # one-time, creates data/hydrosense.db
-    python api.py               # serves on 0.0.0.0:5001 by default
-                                # (macOS uses 5000 for AirPlay Receiver)
+    python db/init_db.py     # one-time
+    python api.py            # serves on 0.0.0.0:5001
+    PORT=8080 python api.py  # override the port
 
-Expose to the ESP32 (which is on a different network):
-    ngrok http 5001             # gives you a public https URL to paste
-                                # into firmware/sensor_node/sensor_node.ino
+Expose to a remote ESP32:
+    ngrok http 5001
 
-Override the port with:  PORT=8080 python api.py
-
-Endpoints
----------
-POST /api/data       Receive one reading from a node (ESP32 calls this)
-GET  /api/recent     Recent readings for the dashboard
-GET  /api/nodes      Registered sensor nodes
-GET  /api/alerts     Alert history
-GET  /api/health     Health check
+Endpoints:
+    POST /api/data       Receive one reading from a node
+    GET  /api/recent     Recent readings for the dashboard
+    GET  /api/nodes      Registered sensor nodes
+    GET  /api/alerts     Alert history
+    GET  /api/health     Health check
 """
 import os
 import sqlite3
@@ -67,7 +62,6 @@ def ingest():
 
     try:
         with db() as conn:
-            # Reject readings from unknown nodes — keeps the schema honest.
             row = conn.execute(
                 "SELECT 1 FROM nodes WHERE node_id = ?", (payload["node_id"],)
             ).fetchone()

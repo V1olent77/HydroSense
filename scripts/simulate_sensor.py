@@ -1,21 +1,13 @@
-"""
-Generate a realistic 7-day stream of ESP32 sensor readings — for
-developing the dashboard before the real hardware is deployed.
+"""Generate a synthetic 7-day stream of ESP32 sensor readings for
+dashboard development before the real hardware is deployed.
 
 Models:
-    - Temperature: sinusoidal diurnal cycle (peak ~14:00 local), with
-      slow multi-day warming/cooling drift.
-    - Humidity: anti-correlated with temperature, plus noise.
-    - Pressure: random walk around 1010 hPa (weather fronts).
-    - Soil moisture: starts at 70%, depletes ~3%/day faster when temp
-      is high + humidity low, jumps back up after simulated rain events.
+  - Temperature: sinusoidal diurnal cycle + slow drift
+  - Humidity: anti-correlated with temperature
+  - Pressure: random walk around 1010 hPa
+  - Soil moisture: depletes with heat/low humidity, bumps up on rain
 
-Outputs:
-    --csv  path/to/file.csv     write to CSV (default: data/processed/sample_sensor.csv)
-    --db                        also insert rows into data/hydrosense.db
-                                (requires `python db/init_db.py` first)
-
-Examples:
+Usage:
     python scripts/simulate_sensor.py
     python scripts/simulate_sensor.py --days 5 --node-id node_01 --db
 """

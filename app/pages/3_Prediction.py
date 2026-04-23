@@ -1,8 +1,4 @@
-"""Prediction comparison — satellite-only vs satellite+sensor composite.
-
-This is the page that justifies the hardware. The delta shows where
-root-depth ground data corrects the satellite surface estimate.
-"""
+"""Prediction comparison: satellite-only vs satellite + sensor composite."""
 from pathlib import Path
 import sys
 
@@ -109,7 +105,5 @@ with bd_col2:
         st.caption("No sensor data loaded.")
 
 st.caption(
-    f"Satellite context from {sat_row['date'].strftime('%b %Y')} · oblast: {oblast}. "
-    f"The delta is the value that justifies one $24 sensor — and motivates scaling "
-    f"to a 50-node national network."
+    f"Satellite context from {sat_row['date'].strftime('%b %Y')} · oblast: {oblast}."
 )

@@ -1,6 +1,5 @@
-// Minimal ESP32 + BMP280 + DHT22 bring-up sketch.
-// No WiFi, no HTTP — just prints both sensors to Serial every 2 seconds.
-// Use this to verify wiring BEFORE flashing sensor_node.ino.
+// Bring-up sketch: ESP32 + BMP280 + DHT22. No WiFi, no HTTP.
+// Prints both sensors to Serial every 2 seconds.
 //
 // Wiring:
 //   ESP32 3.3V  -> BMP280 VCC, DHT22 VCC
@@ -9,10 +8,7 @@
 //   ESP32 GPIO22 (SCL) -> BMP280 SCL
 //   ESP32 GPIO4        -> DHT22 DATA
 //
-// Libraries needed (Library Manager):
-//   - Adafruit BMP280 Library
-//   - Adafruit Unified Sensor   (auto-installed as dependency)
-//   - DHT sensor library by Adafruit
+// Libraries: Adafruit BMP280, Adafruit Unified Sensor, DHT sensor library.
 
 #include <Wire.h>
 #include <Adafruit_BMP280.h>
@@ -31,8 +27,7 @@ void setup() {
   delay(500);
   Serial.println("\n=== ESP32 BMP280 + DHT22 test ===");
 
-  // Try both common I2C addresses — 0x76 is the "default",
-  // 0x77 is what many breakouts ship with (SDO tied high).
+  // 0x76 is the usual address; 0x77 is used by boards that tie SDO high.
   if (bmp.begin(0x76)) {
     Serial.println("BMP280 initialized at 0x76");
     bmpOk = true;
@@ -40,11 +35,7 @@ void setup() {
     Serial.println("BMP280 initialized at 0x77");
     bmpOk = true;
   } else {
-    Serial.println("BMP280 NOT FOUND — check wiring:");
-    Serial.println("  VCC -> ESP32 3.3V  (NOT 5V / VIN)");
-    Serial.println("  GND -> ESP32 GND");
-    Serial.println("  SDA -> ESP32 GPIO21");
-    Serial.println("  SCL -> ESP32 GPIO22");
+    Serial.println("BMP280 NOT FOUND. Check SDA=GPIO21, SCL=GPIO22, VCC=3.3V.");
   }
 
   dht.begin();
@@ -55,25 +46,19 @@ void setup() {
 void loop() {
   Serial.println("---- Reading ----");
 
-  // --- BMP280 ---------------------------------------------------------
   if (bmpOk) {
     float bmpTemp  = bmp.readTemperature();
-    float pressure = bmp.readPressure() / 100.0;  // Pa -> hPa
+    float pressure = bmp.readPressure() / 100.0;
     Serial.printf("BMP280  temp: %.2f C   pressure: %.2f hPa\n",
                   bmpTemp, pressure);
   } else {
-    Serial.println("BMP280  (not initialized — skip)");
+    Serial.println("BMP280  (not initialized, skipping)");
   }
 
-  // --- DHT22 ----------------------------------------------------------
-  // DHT22 is slow — readings can fail; the library returns NaN if so.
   float humidity = dht.readHumidity();
   float dhtTemp  = dht.readTemperature();
   if (isnan(humidity) || isnan(dhtTemp)) {
-    Serial.println("DHT22   NO RESPONSE — check wiring:");
-    Serial.println("  VCC  -> ESP32 3.3V");
-    Serial.println("  GND  -> ESP32 GND");
-    Serial.println("  DATA -> ESP32 GPIO4  (middle pin on 4-pin module)");
+    Serial.println("DHT22   NO RESPONSE. Check VCC=3.3V, DATA=GPIO4.");
   } else {
     Serial.printf("DHT22   humidity: %.1f %%   temp: %.2f C\n",
                   humidity, dhtTemp);

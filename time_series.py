@@ -14,7 +14,7 @@ END = "2024-12-31"
 OUT_DIR = "/Users/alanmusahitov/Desktop/sft stuff/data/processed"
 CSV_PATH = os.path.join(OUT_DIR, "monthly_indices.csv")
 PNG_PATH = os.path.join(OUT_DIR, "drought_time_series.png")
-SCALE = 5000  # metres — regional aggregation resolution
+SCALE = 5000  # metres, regional aggregation resolution
 
 # === INIT GEE =========================================================
 if not PROJECT:
@@ -50,11 +50,7 @@ TEMP = ee.ImageCollection("ECMWF/ERA5_LAND/MONTHLY_AGGR").select("temperature_2m
 
 def monthly_by_oblast(coll: ee.ImageCollection, band: str, agg: str) -> list:
     """One feature per (month, oblast) with the regional mean of `band`.
-
-    Issues one getInfo() per month so we don't trip GEE's
-    "too many concurrent aggregations" rate limit. ~120 calls per
-    dataset; the small per-call latency is fine and far more reliable
-    than a single huge server-side reduction.
+    One getInfo() per month to stay under GEE concurrency limits.
     """
     all_features = []
     total = len(months)
@@ -126,8 +122,7 @@ def vhi(s: pd.Series) -> pd.Series:
 
 df["vhi"] = df.groupby("oblast")["ndvi"].transform(vhi)
 
-# SPI / temp anomaly: z-score each calendar month against that oblast's
-# own climatology, so seasonal cycles and regional means don't dominate.
+# SPI / temp anomaly: per-oblast, per-calendar-month z-scores.
 df["month_num"] = df["date"].dt.month
 df["spi"] = df.groupby(["oblast", "month_num"])["precip_mm"].transform(
     lambda s: (s - s.mean()) / s.std() if s.std() > 0 else s * 0
