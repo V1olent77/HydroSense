@@ -201,7 +201,6 @@ Wiring diagram and pin assignments are in [`firmware/README.md`](firmware/README
 
 ## Credits
 
-- **HydroSense team** — Samsung Solve for Tomorrow Kazakhstan, 2026.
 - Satellite data: NASA MODIS, UCSB CHIRPS, ECMWF ERA5 (via Google Earth Engine).
 - Administrative boundaries: FAO GAUL 2015 level-1.
 - Libraries: PyTorch, pandas, Streamlit, Flask, Plotly, Folium, earthengine-api.

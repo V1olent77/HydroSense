@@ -63,7 +63,7 @@ st.markdown(
 
 ---
 
-**Built for:** Samsung Solve for Tomorrow · **Audience:** Kazakh government officials and NGOs
+**Audience:** Kazakh government officials and NGOs
 
 Navigate using the sidebar.
 """
