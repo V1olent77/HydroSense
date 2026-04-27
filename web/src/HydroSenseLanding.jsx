@@ -87,9 +87,8 @@ export default function HydroSenseLanding() {
   };
 
   // Public open-source project: one contact email + repo link.
-  // ↓ Replace GITHUB_URL with your real repo when you publish it.
   const CONTACT_EMAIL = 'mailto:alan4personal.use@gmail.com?subject=HydroSense';
-  const GITHUB_URL    = 'https://github.com/';
+  const GITHUB_URL    = 'https://github.com/V1olent77/HydroSense';
 
   // Honest counters — pulled from /api/stats. Falls back to em-dashes
   // until the backend responds, so the layout never flashes empty.
