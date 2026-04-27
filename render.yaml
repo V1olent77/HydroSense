@@ -1,0 +1,22 @@
+# Render blueprint. Deploy with: render.com → New → Blueprint → connect repo.
+# Render will read this file and provision both the API + a persistent disk.
+services:
+  - type: web
+    name: hydrosense-api
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn api:app --bind 0.0.0.0:$PORT --workers 2 --timeout 60
+    # Re-init schema + reseed demo data on every deploy. Safe — both are
+    # idempotent / only run if empty.
+    preDeployCommand: python db/init_db.py && python scripts/seed_demo_data.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: ALLOWED_ORIGINS
+        # Update this to your Vercel URL after the frontend deploys.
+        value: "*"
+    disk:
+      name: hydrosense-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1

@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS nodes (
 
 -- ---------------------------------------------------------------
 -- readings — one row per 15-min sample from each node
+-- (BMP280 / DHT22 columns dropped; only soil + DS18B20 now)
 -- ---------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS readings (
     id               INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -25,10 +26,7 @@ CREATE TABLE IF NOT EXISTS readings (
     timestamp        TEXT NOT NULL,       -- ISO 8601 UTC
     soil_moisture    REAL,                -- 0–100 %
     soil_raw         INTEGER,             -- raw ADC for re-calibration
-    temperature_bmp  REAL,                -- °C
-    temperature_dht  REAL,                -- °C
-    humidity         REAL,                -- %
-    pressure         REAL,                -- hPa
+    soil_temperature REAL,                -- °C, from DS18B20
     rssi             INTEGER,             -- WiFi signal strength, optional
     received_at      TEXT DEFAULT (datetime('now')),
     FOREIGN KEY (node_id) REFERENCES nodes(node_id)

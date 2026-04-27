@@ -13,6 +13,9 @@ __pycache__/
 .env
 .env.*
 !.env.example
+# Vite public-config files — they hold the public API URL, not secrets.
+!web/.env.development
+!web/.env.production
 *.pem
 *.key
 credentials.json
@@ -45,3 +48,13 @@ firmware/**/*.hex
 
 # --- Streamlit cache ------------------------------------------------------
 .streamlit/secrets.toml
+
+# --- Node / React (web/ landing page) -------------------------------------
+web/node_modules/
+web/dist/
+web/.vite/
+web/npm-debug.log*
+web/yarn-debug.log*
+web/yarn-error.log*
+web/.env.local
+web/.env.*.local

@@ -30,6 +30,12 @@ def init() -> None:
         with open(SCHEMA_PATH, "r") as f:
             conn.executescript(f.read())
 
+        # Migration: add soil_temperature to existing DBs that predate it.
+        existing_cols = {row[1] for row in conn.execute("PRAGMA table_info(readings)")}
+        if "soil_temperature" not in existing_cols:
+            conn.execute("ALTER TABLE readings ADD COLUMN soil_temperature REAL")
+            print("Migrated readings: added soil_temperature column")
+
         cur = conn.execute("SELECT COUNT(*) FROM nodes")
         if cur.fetchone()[0] == 0:
             cols = ",".join(DEFAULT_NODE.keys())

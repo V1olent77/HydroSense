@@ -1,14 +1,19 @@
-streamlit>=1.30
-pandas>=2.0
-numpy>=1.24
-plotly>=5.18
-folium>=0.15
-streamlit-folium>=0.18
-Pillow>=10.0
-earthengine-api>=0.1.385
-torch>=2.1
-matplotlib>=3.8
 flask>=3.0
-requests>=2.31
-pyserial>=3.5
+flask-cors>=4.0
 gunicorn>=21.2
+requests>=2.31
+
+# --- below are only needed if/when you run the ML / Streamlit side locally ---
+# Uncomment as you need them. Render web dyno doesn't need them and they're
+# heavy, so leaving them commented keeps the deploy fast.
+# streamlit>=1.30
+# pandas>=2.0
+# numpy>=1.24
+# plotly>=5.18
+# folium>=0.15
+# streamlit-folium>=0.18
+# Pillow>=10.0
+# earthengine-api>=0.1.385
+# torch>=2.1
+# matplotlib>=3.8
+# pyserial>=3.5
