@@ -806,7 +806,7 @@ function LiveSnapshot({ oblasts, selectedOblast, forecast, latest, apiUp }) {
         {/* (3) LSTM peak forecast for the selected oblast */}
         <SnapBlock
           tag="LSTM ▸ 8-week peak"
-          label={`wk +${peak?.week_offset ?? '—'}`}
+          label={peak ? `Wk +${peak.week_offset}` : 'Wk —'}
           value={peak ? num(peak.composite_index * 100, 0) : '—'}
           unit="%"
           accent="#c9824a"
@@ -815,7 +815,7 @@ function LiveSnapshot({ oblasts, selectedOblast, forecast, latest, apiUp }) {
         {/* (4) Live IoT moisture from the field node */}
         <SnapBlock
           tag="IoT ▸ Node 01"
-          label="Field Soil"
+          label="Soil"
           value={num(r?.soil_moisture, 1)}
           unit="%"
           accent="#1a3a2e"
@@ -836,19 +836,31 @@ function LiveSnapshot({ oblasts, selectedOblast, forecast, latest, apiUp }) {
 }
 
 function SnapBlock({ tag, label, value, unit, accent, sub }) {
+  // Stacked layout — label on its own row above the big numeric value, so
+  // narrow grid columns can't squeeze them into "Aktobe: 0.6…" overflow.
+  // `min-w-0` is required so children inside a CSS grid track can shrink
+  // below their intrinsic content width and `truncate` actually clips.
   return (
-    <div className="p-5 lg:p-6 relative overflow-hidden">
-      <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.22em] text-[#1a3a2e]/55 mb-3">
+    <div className="p-5 lg:p-6 relative overflow-hidden min-w-0">
+      <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.22em] text-[#1a3a2e]/55 mb-3 truncate">
         {tag}
       </div>
-      <div className="font-num text-[2.4rem] lg:text-[2.75rem] leading-none tracking-tight text-[#1c1f1a] flex items-baseline gap-2">
-        <span className="num-label" style={{ color: accent }}>
-          {label}:
-        </span>
-        <span className="num-value tabular-nums">{value}</span>
-        <span className="num-unit text-[1.1rem] lg:text-[1.25rem]">{unit}</span>
+      <div
+        className="font-num num-label text-[1rem] lg:text-[1.1rem] leading-tight mb-1.5 truncate"
+        style={{ color: accent }}
+        title={label}
+      >
+        {label}
       </div>
-      <div className="mt-3 font-mono-c text-[0.6rem] uppercase tracking-[0.18em] text-[#1c1f1a]/55">
+      <div className="font-num leading-none tracking-tight text-[#1c1f1a] flex items-baseline gap-1.5 min-w-0">
+        <span className="num-value tabular-nums text-[1.95rem] lg:text-[2.35rem] truncate">
+          {value}
+        </span>
+        <span className="num-unit text-[0.95rem] lg:text-[1.05rem] shrink-0">
+          {unit}
+        </span>
+      </div>
+      <div className="mt-3 font-mono-c text-[0.6rem] uppercase tracking-[0.18em] text-[#1c1f1a]/55 truncate" title={sub}>
         {sub}
       </div>
       <div className="absolute left-0 top-0 bottom-0 w-[3px]" style={{ backgroundColor: accent, opacity: 0.6 }} />
