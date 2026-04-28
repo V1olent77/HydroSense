@@ -151,18 +151,7 @@ export default function HydroSenseLanding() {
     },
   ];
 
-  // Synthetic NDVI heatmap for the satellite mock — 8 rows × 12 cols.
-  // Values 0 (healthiest) → 5 (severe drought). Picked by hand to look real.
-  const heatmap = [
-    [0,0,0,1,1,1,2,2,3,3,3,4],
-    [0,0,1,1,1,2,2,3,3,3,4,4],
-    [0,1,1,1,2,2,3,3,3,4,4,4],
-    [1,1,1,2,2,2,3,3,4,4,4,5],
-    [1,1,2,2,3,3,3,4,4,4,5,5],
-    [1,2,2,3,3,3,4,4,5,5,5,4],
-    [2,2,3,3,4,4,4,5,5,5,4,3],
-    [2,3,3,4,4,5,5,5,4,3,3,2],
-  ];
+  // 6-step palette for the SatelliteCard tiles, ramped composite_index → color.
   const heatColors = [
     'bg-[#1a3a2e]', // healthy
     'bg-[#2d4a3e]',
@@ -447,8 +436,8 @@ export default function HydroSenseLanding() {
                 oblasts={oblasts}
                 onSelect={setSelectedOblast}
                 selected={selectedOblast}
-                fallbackHeatmap={heatmap}
                 heatColors={heatColors}
+                apiUp={apiUp}
               />
             </div>
 
@@ -876,10 +865,10 @@ function severityColor(sev) {
 
 /* ----- BENTO: Satellite ----- */
 // `oblasts` is the response of /api/oblasts: { count, oblasts: [...] }.
-// We render one tile per oblast, colored by its composite drought index,
-// and let the user pick one to drive the AI forecast card on the right.
-// Falls back to the synthetic 8×12 heatmap if the API can't be reached.
-function SatelliteCard({ oblasts, onSelect, selected, fallbackHeatmap, heatColors }) {
+// Renders the 14 oblasts as a clickable color grid (composite index → palette).
+// When the API isn't ready yet we still render 14 dim placeholder tiles
+// (matching the same layout) instead of a misleading non-clickable mock.
+function SatelliteCard({ oblasts, onSelect, selected, heatColors, apiUp }) {
   const list = oblasts?.oblasts ?? [];
   const haveData = list.length > 0;
 
@@ -894,29 +883,47 @@ function SatelliteCard({ oblasts, onSelect, selected, fallbackHeatmap, heatColor
     return heatColors[5];
   };
 
-  // Severity buckets → percentages for the right-hand sidebar.
-  const counts = list.reduce(
-    (acc, o) => {
-      const sev = (o.severity || '').toLowerCase();
-      if (sev === 'healthy') acc.healthy += 1;
-      else if (sev === 'severe') acc.drought += 1;
-      else acc.stressed += 1; // moderate / unknown → stressed bucket
-      return acc;
-    },
-    { healthy: 0, stressed: 0, drought: 0 },
-  );
-  const total = list.length || 1;
-  const pct = (n) => Math.round((n / total) * 100);
+  // Long oblast names get a compact form so they fit inside a tile.
+  const shortName = (name) => {
+    if (!name) return '—';
+    if (name.startsWith('East '))  return 'E. Kaz';
+    if (name.startsWith('North ')) return 'N. Kaz';
+    if (name.startsWith('West '))  return 'W. Kaz';
+    if (name.startsWith('South ')) return 'S. Kaz';
+    if (name.length > 9) return name.slice(0, 8) + '.';
+    return name;
+  };
 
-  // The selected oblast drives the readout under the heatmap.
+  // Severity buckets → percentages for the right-hand sidebar.
+  const counts = haveData
+    ? list.reduce(
+        (acc, o) => {
+          const sev = (o.severity || '').toLowerCase();
+          if (sev === 'healthy') acc.healthy += 1;
+          else if (sev === 'severe') acc.drought += 1;
+          else acc.stressed += 1; // moderate / unknown → stressed bucket
+          return acc;
+        },
+        { healthy: 0, stressed: 0, drought: 0 },
+      )
+    : null;
+  const pct = (n) => (counts && list.length > 0 ? Math.round((n / list.length) * 100) : null);
+
   const sel = list.find(
     (o) => (o.oblast || '').toLowerCase() === (selected || '').toLowerCase(),
   );
-
-  // Compact UTC stamp, e.g. "2026-04-25 ▸ 16:42".
   const stamp = sel?.updated_at
     ? sel.updated_at.replace('T', ' ▸ ').slice(0, 19)
     : '—';
+
+  // Always render 14 cells; placeholder when the API hasn't responded yet.
+  const cells = haveData
+    ? list
+    : Array.from({ length: 14 }, (_, i) => ({ _placeholder: true, _i: i }));
+
+  // Live-state pill text + accent color.
+  const statusText  = haveData ? 'Live' : (apiUp === false ? 'Backend offline' : 'Connecting…');
+  const statusTone  = haveData ? '#d4a574' : (apiUp === false ? '#c9824a' : '#a8b89e');
 
   return (
     <div className="h-full flex flex-col">
@@ -937,126 +944,136 @@ function SatelliteCard({ oblasts, onSelect, selected, fallbackHeatmap, heatColor
         </div>
       </div>
 
-      {/* Mock dashboard */}
-      <div className="bg-[#0e2820] border border-[#d4a574]/15 p-4 lg:p-5 flex-1 relative overflow-hidden mt-auto">
-        {/* header bar */}
-        <div className="flex items-center justify-between border-b border-[#d4a574]/15 pb-3 mb-4 font-mono-c text-[0.6rem] uppercase tracking-[0.18em]">
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1.5 text-[#d4a574]">
+      {/* Dashboard panel */}
+      <div className="bg-[#0e2820] border border-[#d4a574]/15 p-5 lg:p-6 flex-1 relative overflow-hidden mt-auto">
+        {/* Status bar */}
+        <div className="flex items-center justify-between border-b border-[#d4a574]/15 pb-4 mb-5 font-mono-c text-[0.6rem] uppercase tracking-[0.18em]">
+          <div className="flex items-center gap-3 min-w-0">
+            <span className="flex items-center gap-1.5 shrink-0" style={{ color: statusTone }}>
               <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c9824a] opacity-75" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#d4a574]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: statusTone }} />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5" style={{ backgroundColor: statusTone }} />
               </span>
-              {haveData ? 'Live' : 'Offline'}
+              {statusText}
             </span>
-            <span className="text-[#dde5d2]/55 hidden sm:inline">
-              NDVI ▸ {sel ? sel.oblast : 'select oblast'} ▸ 250m
+            <span className="text-[#dde5d2]/55 truncate hidden sm:inline">
+              NDVI ▸ {sel ? sel.oblast : (haveData ? 'select an oblast' : '—')} ▸ 250 m
             </span>
           </div>
-          <div className="flex items-center gap-3 text-[#dde5d2]/55">
-            <span className="hidden md:inline">{stamp} UTC</span>
+          <div className="flex items-center gap-3 text-[#dde5d2]/55 shrink-0">
+            <span className="hidden md:inline tabular-nums">{stamp} UTC</span>
             <Layers className="w-3 h-3" />
           </div>
         </div>
 
-        <div className="grid grid-cols-12 gap-4">
-          {/* Oblast tiles (or fallback synthetic heatmap) */}
+        <div className="grid grid-cols-12 gap-5 lg:gap-6">
+          {/* Oblast tiles */}
           <div className="col-span-12 md:col-span-8 relative">
-            {haveData ? (
-              <div className="grid grid-cols-4 sm:grid-cols-7 gap-[3px] relative">
-                {list.map((o) => {
-                  const isSel =
-                    (o.oblast || '').toLowerCase() ===
-                    (selected || '').toLowerCase();
-                  const sev = (o.severity || '').toLowerCase();
-                  return (
-                    <button
-                      key={o.oblast}
-                      type="button"
-                      onClick={() => onSelect?.(o.oblast)}
-                      title={`${o.oblast} — composite ${Number(o.composite_index ?? 0).toFixed(2)} (${o.severity})`}
-                      className={`aspect-square ${colorForIndex(o.composite_index)} relative ring-1 ring-inset ring-[#d4a574]/10 hover:ring-[#d4a574]/70 focus:outline-none focus:ring-[#d4a574] transition`}
-                    >
-                      {sev === 'severe' && (
-                        <div className="absolute inset-0 bg-[#c9824a]/30 animate-pulse-soft pointer-events-none" />
-                      )}
-                      {isSel && (
-                        <>
-                          <div className="absolute inset-0 ring-1 ring-[#d4a574] pointer-events-none" />
-                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div className="w-3 h-3 border border-[#f5f1e8] rounded-full" />
-                          </div>
-                        </>
-                      )}
-                    </button>
-                  );
-                })}
-                {/* scan line */}
+            <div className="grid grid-cols-4 sm:grid-cols-7 gap-[5px] relative">
+              {cells.map((o, i) => {
+                const isPh  = !!o._placeholder;
+                const isSel = !isPh && (o.oblast || '').toLowerCase() === (selected || '').toLowerCase();
+                const sev   = (o.severity || '').toLowerCase();
+                return (
+                  <button
+                    key={isPh ? `ph-${i}` : o.oblast}
+                    type="button"
+                    disabled={isPh}
+                    onClick={isPh ? undefined : () => onSelect?.(o.oblast)}
+                    title={isPh
+                      ? (apiUp === false ? 'Backend offline' : 'Loading…')
+                      : `${o.oblast} — composite ${Number(o.composite_index ?? 0).toFixed(2)} (${o.severity})`}
+                    className={`aspect-[5/4] relative ring-1 ring-inset ring-[#d4a574]/10 focus:outline-none transition flex flex-col justify-between p-1.5 lg:p-2 text-left ${isPh ? 'bg-[#1a3a2e]/35 animate-pulse-soft cursor-default' : `${colorForIndex(o.composite_index)} hover:ring-[#d4a574]/70 focus:ring-[#d4a574] cursor-pointer`}`}
+                  >
+                    {!isPh && (
+                      <>
+                        <span className="font-mono-c text-[0.5rem] lg:text-[0.55rem] uppercase tracking-[0.12em] text-[#f5f1e8]/85 leading-none">
+                          {shortName(o.oblast)}
+                        </span>
+                        <span className="font-num num-value text-[0.95rem] lg:text-[1.05rem] text-[#f5f1e8] leading-none tabular-nums self-end">
+                          {Number(o.composite_index ?? 0).toFixed(2)}
+                        </span>
+                      </>
+                    )}
+                    {sev === 'severe' && (
+                      <div className="absolute inset-0 bg-[#c9824a]/25 animate-pulse-soft pointer-events-none" />
+                    )}
+                    {isSel && (
+                      <div className="absolute inset-0 ring-2 ring-[#d4a574] pointer-events-none" />
+                    )}
+                  </button>
+                );
+              })}
+              {/* scan line — only when we actually have live data, otherwise it's noise */}
+              {haveData && (
                 <div className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4a574]/70 to-transparent animate-scan-line pointer-events-none" />
-              </div>
-            ) : (
-              <div className="grid grid-cols-12 gap-[2px] relative">
-                {fallbackHeatmap.flat().map((level, i) => (
-                  <div key={i} className={`aspect-square ${heatColors[level]} relative`}>
-                    {level >= 4 && <div className="absolute inset-0 bg-[#c9824a]/30 animate-pulse-soft" />}
-                  </div>
-                ))}
-                <div className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4a574]/70 to-transparent animate-scan-line pointer-events-none" />
-              </div>
-            )}
-
-            {/* Big readout for the selected oblast — 4 bold metric tiles. */}
-            <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-[3px]">
-              <SatBigStat
-                label="NDVI"
-                value={sel ? Number(sel.ndvi ?? 0).toFixed(2) : '—'}
-                unit="0–1"
-                tone="#a8b89e"
-              />
-              <SatBigStat
-                label="Soil"
-                value={sel ? Number(sel.soil_moisture_pct ?? 0).toFixed(0) : '—'}
-                unit="%"
-                tone="#6b8e5a"
-              />
-              <SatBigStat
-                label="Precip"
-                value={sel ? Number(sel.precipitation_mm ?? 0).toFixed(0) : '—'}
-                unit="mm/30d"
-                tone="#dde5d2"
-              />
-              <SatBigStat
-                label="Comp"
-                value={sel ? Number(sel.composite_index ?? 0).toFixed(2) : '—'}
-                unit={sel ? (sel.severity || '').toUpperCase() : '—'}
-                tone={sel ? severityColor(sel.severity) : '#d4a574'}
-                strong
-              />
+              )}
             </div>
-            <div className="mt-2 font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#dde5d2]/55">
-              {sel ? `${sel.oblast} · ${(sel.latitude ?? 0).toFixed(2)}°N · ${(sel.longitude ?? 0).toFixed(2)}°E` : (haveData ? 'Pick a tile to inspect →' : 'Loading oblasts…')}
+
+            {/* SELECTION BLOCK below the grid */}
+            <div className="mt-6">
+              <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.22em] text-[#dde5d2]/55 mb-3 flex items-baseline justify-between">
+                <span>
+                  ▸ <span className="text-[#d4a574]">{sel ? sel.oblast : 'Selection'}</span>
+                </span>
+                {sel && (
+                  <span className="tabular-nums">
+                    {(sel.latitude ?? 0).toFixed(2)}°N · {(sel.longitude ?? 0).toFixed(2)}°E
+                  </span>
+                )}
+              </div>
+
+              {sel ? (
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-[5px]">
+                  <SatBigStat label="NDVI"   value={Number(sel.ndvi ?? 0).toFixed(2)}              unit="0–1"      tone="#a8b89e" />
+                  <SatBigStat label="Soil"   value={Number(sel.soil_moisture_pct ?? 0).toFixed(0)} unit="%"        tone="#6b8e5a" />
+                  <SatBigStat label="Precip" value={Number(sel.precipitation_mm ?? 0).toFixed(0)}  unit="mm / 30d" tone="#dde5d2" />
+                  <SatBigStat
+                    label="Comp"
+                    value={Number(sel.composite_index ?? 0).toFixed(2)}
+                    unit={(sel.severity || '').toUpperCase()}
+                    tone={severityColor(sel.severity)}
+                    strong
+                  />
+                </div>
+              ) : (
+                <div className="bg-[#0e2820]/80 border border-dashed border-[#d4a574]/25 px-5 py-6 lg:py-7">
+                  <div className="font-mono-c text-[0.6rem] uppercase tracking-[0.22em] text-[#d4a574] mb-2">
+                    {haveData ? 'Pick any of the 14 oblast tiles' : (apiUp === false ? 'Backend offline · retrying every 30 s' : 'Connecting to backend…')}
+                  </div>
+                  <div className="text-[0.85rem] text-[#dde5d2]/55 leading-relaxed">
+                    Each tile maps to one Kazakhstan oblast. Select one to inspect its NDVI, soil moisture, 30-day precipitation, and composite drought index.
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
-          {/* Sidebar — real severity counts + per-oblast bars */}
-          <div className="col-span-12 md:col-span-4 space-y-4">
-            <SatStat label="Healthy"  value={pct(counts.healthy)}  color="#6b8e5a" />
-            <SatStat label="Stressed" value={pct(counts.stressed)} color="#d4a574" />
-            <SatStat label="Drought"  value={pct(counts.drought)}  color="#c9824a" />
+          {/* Sidebar */}
+          <div className="col-span-12 md:col-span-4 space-y-5">
+            <SatStat label="Healthy"  value={pct(counts?.healthy ?? 0)}  color="#6b8e5a" haveData={haveData} />
+            <SatStat label="Stressed" value={pct(counts?.stressed ?? 0)} color="#d4a574" haveData={haveData} />
+            <SatStat label="Drought"  value={pct(counts?.drought ?? 0)}  color="#c9824a" haveData={haveData} />
 
-            <div className="pt-3 mt-3 border-t border-[#d4a574]/15">
-              <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#dde5d2]/55 mb-2 flex justify-between">
+            <div className="pt-4 mt-1 border-t border-[#d4a574]/15">
+              <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#dde5d2]/55 mb-3 flex justify-between">
                 <span>Composite ▸ All</span>
-                <span className="text-[#d4a574]">{list.length} obl.</span>
+                <span className="text-[#d4a574] tabular-nums">{haveData ? `${list.length} obl.` : '— obl.'}</span>
               </div>
-              <div className="flex items-end gap-[2px] h-10">
+              <div className="flex items-end gap-[2px] h-12">
                 {(haveData ? list : Array.from({ length: 14 })).map((o, i) => {
-                  const ci = haveData ? Number(o.composite_index ?? 0) : 0.3 + (i % 5) * 0.1;
+                  const ci = haveData ? Number(o.composite_index ?? 0) : 0;
+                  const h  = haveData ? Math.max(8, ci * 100) : 14;
+                  const fill = haveData ? '#d4a574' : '#d4a574';
                   return (
                     <div
                       key={i}
-                      className="flex-1 bg-[#d4a574]/55"
-                      style={{ height: `${Math.max(8, ci * 100)}%` }}
+                      className={`flex-1 ${haveData ? '' : 'animate-pulse-soft'}`}
+                      style={{
+                        height: `${h}%`,
+                        backgroundColor: fill,
+                        opacity: haveData ? 0.55 : 0.18,
+                      }}
                       title={haveData ? `${o.oblast}: ${ci.toFixed(2)}` : undefined}
                     />
                   );
@@ -1074,15 +1091,22 @@ function SatelliteCard({ oblasts, onSelect, selected, fallbackHeatmap, heatColor
   );
 }
 
-function SatStat({ label, value, color }) {
+function SatStat({ label, value, color, haveData }) {
+  // When data isn't loaded yet, show a real "—" + skeleton bar instead of
+  // a misleading "0%" — that bug bit us in the offline-state screenshot.
   return (
     <div>
-      <div className="flex items-baseline justify-between mb-1.5">
+      <div className="flex items-baseline justify-between mb-2">
         <span className="font-mono-c text-[0.6rem] uppercase tracking-[0.18em] text-[#dde5d2]/70">{label}</span>
-        <span className="font-display text-lg text-[#f5f1e8] tabular-nums">{value}<span className="font-mono-c text-[0.55rem] text-[#dde5d2]/55 ml-0.5">%</span></span>
+        <span className="font-num leading-none text-[#f5f1e8] tabular-nums">
+          <span className="num-value text-[1.15rem]">{haveData ? value : '—'}</span>
+          {haveData && <span className="num-unit text-[0.7rem]">%</span>}
+        </span>
       </div>
-      <div className="h-[3px] bg-[#d4a574]/10">
-        <div className="h-full" style={{ width: `${value}%`, backgroundColor: color }} />
+      <div className="h-[3px] bg-[#d4a574]/10 overflow-hidden">
+        {haveData
+          ? <div className="h-full" style={{ width: `${value}%`, backgroundColor: color }} />
+          : <div className="h-full w-full bg-[#d4a574]/15 animate-pulse-soft" />}
       </div>
     </div>
   );
@@ -1092,14 +1116,14 @@ function SatStat({ label, value, color }) {
  * Helvetica numerals, label colored by tone, big value front-and-center. */
 function SatBigStat({ label, value, unit, tone, strong }) {
   return (
-    <div className={`bg-[#0e2820]/80 px-3 py-3 ${strong ? 'ring-1 ring-inset ring-[#d4a574]/35' : ''}`}>
-      <div className="font-mono-c text-[0.5rem] uppercase tracking-[0.22em] mb-1.5" style={{ color: tone, opacity: 0.8 }}>
+    <div className={`bg-[#0e2820]/80 px-4 py-4 lg:py-5 ${strong ? 'ring-1 ring-inset ring-[#d4a574]/40' : 'ring-1 ring-inset ring-[#d4a574]/8'}`}>
+      <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.22em] mb-2.5" style={{ color: tone }}>
         {label}
       </div>
       <div className="font-num text-[#f5f1e8] leading-none tracking-tight">
-        <span className="num-value tabular-nums text-[1.6rem] lg:text-[1.85rem]">{value}</span>
+        <span className="num-value tabular-nums text-[1.85rem] lg:text-[2.1rem]">{value}</span>
       </div>
-      <div className="font-mono-c text-[0.5rem] uppercase tracking-[0.18em] text-[#dde5d2]/55 mt-1.5">
+      <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#dde5d2]/55 mt-3">
         {unit}
       </div>
     </div>
