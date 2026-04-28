@@ -134,8 +134,13 @@ export default function HydroSenseLanding() {
       a: 'Our composite drought index achieves 95% directional accuracy at the oblast level, validated against ground-truth from 10,000+ IoT sensors. Spatial resolution is 250m for NDVI and 5km for precipitation, refreshed every 16 days from MODIS and daily from CHIRPS.',
     },
     {
-      q: 'Can I integrate my own sensors?',
-      a: 'Yes. The platform documents an open ingest format (HTTP POST to /api/ingest with a simple JSON schema) and accepts data from any LoRaWAN, Zigbee, or HTTP-based soil and weather sensor. Calibration scripts and our reference ESP32 firmware are in the public repo — bring your own hardware or fork ours.',
+      q: 'What do NDVI, soil moisture, precipitation, and the composite index actually measure?',
+      a:
+        'NDVI (Normalized Difference Vegetation Index) — a 0-to-1 score derived from MODIS Terra reflectance bands; ' +
+        'healthy green canopy ≈ 0.6-0.9, stressed crops ≈ 0.2-0.4, bare or burned soil ≈ 0-0.15. ' +
+        'Soil moisture (%) — top-layer volumetric water content from ERA5-Land reanalysis, cross-checked against our ESP32 capacitive probes; under 20 % is the agricultural drought threshold for Kazakh steppe. ' +
+        'Precipitation (mm / 30 d) — rolling 30-day rainfall total from CHIRPS satellite-gauge fusion; for context, a healthy spring month in northern oblasts is 30-50 mm. ' +
+        'Composite drought index (0-1) — our weighted fusion of all three (40 % NDVI deficit, 35 % soil deficit, 25 % precip deficit), bucketed into healthy < 0.35, moderate 0.35-0.6, severe ≥ 0.6.',
     },
     {
       q: 'How early do drought warnings arrive?',
@@ -252,29 +257,7 @@ export default function HydroSenseLanding() {
 
         {/* ======================= HERO ======================= */}
         <section id="home" className="relative scroll-mt-24">
-          {/* corner field-report stamps */}
-          <div className="absolute top-8 left-6 lg:left-10 hidden md:block font-mono-c text-[0.62rem] uppercase tracking-[0.18em] text-[#1a3a2e]/45 space-y-1 pointer-events-none">
-            <div>Field Report № 247</div>
-            <div>2026 ▸ Q2 ▸ Issue 04</div>
-          </div>
-          <div className="absolute top-8 right-6 lg:right-10 hidden md:block font-mono-c text-[0.62rem] uppercase tracking-[0.18em] text-[#1a3a2e]/45 text-right space-y-1 pointer-events-none">
-            <div>48.0196°N ▸ 66.9237°E</div>
-            <div>Republic of Kazakhstan</div>
-          </div>
-
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10 pt-24 pb-16 lg:pt-32 lg:pb-24">
-            {/* badge */}
-            <div className="inline-flex items-center gap-2.5 border border-[#1a3a2e]/20 bg-[#f5f1e8] rounded-full pl-1.5 pr-4 py-1.5 mb-10 animate-fade-up">
-              <span className="flex items-center gap-1.5 bg-[#1a3a2e] text-[#dde5d2] text-[0.62rem] font-mono-c uppercase tracking-[0.18em] px-2 py-1 rounded-full">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c9824a] opacity-75" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#d4a574]" />
-                </span>
-                Live
-              </span>
-              <span className="text-xs text-[#1c1f1a]/75">Satellite Monitoring for Central Asia</span>
-            </div>
-
             <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
               <div className="lg:col-span-8 animate-fade-up" style={{ animationDelay: '120ms' }}>
                 <h1 className="font-display font-light text-[2.5rem] sm:text-[3.5rem] lg:text-[5.25rem] leading-[0.95] tracking-[-0.03em] text-[#1c1f1a]">
