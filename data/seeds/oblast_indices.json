@@ -1,0 +1,156 @@
+[
+  {
+    "oblast": "Akmola",
+    "latitude": 51.2,
+    "longitude": 71.42,
+    "ndvi": 0.412,
+    "precipitation_mm": 23.5,
+    "soil_moisture_pct": 20.1,
+    "composite_index": 0.542,
+    "severity": "moderate",
+    "updated_at": "2026-04-27T16:47:39+00:00"
+  },
+  {
+    "oblast": "Aktobe",
+    "latitude": 50.3,
+    "longitude": 57.18,
+    "ndvi": 0.275,
+    "precipitation_mm": 21.3,
+    "soil_moisture_pct": 14.3,
+    "composite_index": 0.661,
+    "severity": "severe",
+    "updated_at": "2026-04-27T16:47:39+00:00"
+  },
+  {
+    "oblast": "Almaty",
+    "latitude": 45.5,
+    "longitude": 78.5,
+    "ndvi": 0.491,
+    "precipitation_mm": 41.0,
+    "soil_moisture_pct": 22.6,
+    "composite_index": 0.399,
+    "severity": "moderate",
+    "updated_at": "2026-04-27T16:47:39+00:00"
+  },
+  {
+    "oblast": "Atyrau",
+    "latitude": 47.1,
+    "longitude": 51.92,
+    "ndvi": 0.165,
+    "precipitation_mm": 11.0,
+    "soil_moisture_pct": 10.4,
+    "composite_index": 0.793,
+    "severity": "severe",
+    "updated_at": "2026-04-27T16:47:39+00:00"
+  },
+  {
+    "oblast": "East Kazakhstan",
+    "latitude": 49.93,
+    "longitude": 82.58,
+    "ndvi": 0.431,
+    "precipitation_mm": 32.4,
+    "soil_moisture_pct": 19.8,
+    "composite_index": 0.49,
+    "severity": "moderate",
+    "updated_at": "2026-04-27T16:47:39+00:00"
+  },
+  {
+    "oblast": "Jambyl",
+    "latitude": 43.5,
+    "longitude": 71.5,
+    "ndvi": 0.273,
+    "precipitation_mm": 21.9,
+    "soil_moisture_pct": 13.6,
+    "composite_index": 0.663,
+    "severity": "severe",
+    "updated_at": "2026-04-27T16:47:39+00:00"
+  },
+  {
+    "oblast": "Karaganda",
+    "latitude": 47.5,
+    "longitude": 73.0,
+    "ndvi": 0.257,
+    "precipitation_mm": 19.0,
+    "soil_moisture_pct": 15.5,
+    "composite_index": 0.673,
+    "severity": "severe",
+    "updated_at": "2026-04-27T16:47:39+00:00"
+  },
+  {
+    "oblast": "Kostanay",
+    "latitude": 53.21,
+    "longitude": 63.62,
+    "ndvi": 0.428,
+    "precipitation_mm": 24.7,
+    "soil_moisture_pct": 19.9,
+    "composite_index": 0.53,
+    "severity": "moderate",
+    "updated_at": "2026-04-27T16:47:39+00:00"
+  },
+  {
+    "oblast": "Kyzylorda",
+    "latitude": 44.85,
+    "longitude": 65.5,
+    "ndvi": 0.184,
+    "precipitation_mm": 11.8,
+    "soil_moisture_pct": 13.6,
+    "composite_index": 0.758,
+    "severity": "severe",
+    "updated_at": "2026-04-27T16:47:39+00:00"
+  },
+  {
+    "oblast": "Mangystau",
+    "latitude": 43.69,
+    "longitude": 51.2,
+    "ndvi": 0.078,
+    "precipitation_mm": 7.9,
+    "soil_moisture_pct": 8.9,
+    "composite_index": 0.862,
+    "severity": "severe",
+    "updated_at": "2026-04-27T16:47:39+00:00"
+  },
+  {
+    "oblast": "North Kazakhstan",
+    "latitude": 54.87,
+    "longitude": 69.15,
+    "ndvi": 0.419,
+    "precipitation_mm": 39.7,
+    "soil_moisture_pct": 24.8,
+    "composite_index": 0.427,
+    "severity": "moderate",
+    "updated_at": "2026-04-27T16:47:39+00:00"
+  },
+  {
+    "oblast": "Pavlodar",
+    "latitude": 52.3,
+    "longitude": 76.95,
+    "ndvi": 0.424,
+    "precipitation_mm": 22.8,
+    "soil_moisture_pct": 18.1,
+    "composite_index": 0.553,
+    "severity": "moderate",
+    "updated_at": "2026-04-27T16:47:39+00:00"
+  },
+  {
+    "oblast": "Turkestan",
+    "latitude": 43.3,
+    "longitude": 68.27,
+    "ndvi": 0.281,
+    "precipitation_mm": 18.5,
+    "soil_moisture_pct": 10.7,
+    "composite_index": 0.696,
+    "severity": "severe",
+    "updated_at": "2026-04-27T16:47:39+00:00"
+  },
+  {
+    "oblast": "West Kazakhstan",
+    "latitude": 51.23,
+    "longitude": 51.37,
+    "ndvi": 0.298,
+    "precipitation_mm": 20.9,
+    "soil_moisture_pct": 11.6,
+    "composite_index": 0.669,
+    "severity": "severe",
+    "updated_at": "2026-04-27T16:47:39+00:00"
+  }
+]

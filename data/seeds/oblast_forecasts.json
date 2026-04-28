@@ -1,0 +1,822 @@
+{
+  "_meta": {
+    "model_version": "lstm_v1",
+    "weeks_ahead": 8,
+    "generated_at": "2026-04-27",
+    "n_oblasts": 14
+  },
+  "forecasts": {
+    "Akmola": [
+      {
+        "week_offset": 1,
+        "forecast_date": "2026-05-04",
+        "composite_index": 0.522,
+        "confidence_lower": 0.474,
+        "confidence_upper": 0.57
+      },
+      {
+        "week_offset": 2,
+        "forecast_date": "2026-05-11",
+        "composite_index": 0.503,
+        "confidence_lower": 0.45,
+        "confidence_upper": 0.556
+      },
+      {
+        "week_offset": 3,
+        "forecast_date": "2026-05-18",
+        "composite_index": 0.483,
+        "confidence_lower": 0.425,
+        "confidence_upper": 0.541
+      },
+      {
+        "week_offset": 4,
+        "forecast_date": "2026-05-25",
+        "composite_index": 0.464,
+        "confidence_lower": 0.402,
+        "confidence_upper": 0.526
+      },
+      {
+        "week_offset": 5,
+        "forecast_date": "2026-06-01",
+        "composite_index": 0.459,
+        "confidence_lower": 0.392,
+        "confidence_upper": 0.526
+      },
+      {
+        "week_offset": 6,
+        "forecast_date": "2026-06-08",
+        "composite_index": 0.454,
+        "confidence_lower": 0.382,
+        "confidence_upper": 0.526
+      },
+      {
+        "week_offset": 7,
+        "forecast_date": "2026-06-15",
+        "composite_index": 0.45,
+        "confidence_lower": 0.373,
+        "confidence_upper": 0.527
+      },
+      {
+        "week_offset": 8,
+        "forecast_date": "2026-06-22",
+        "composite_index": 0.445,
+        "confidence_lower": 0.363,
+        "confidence_upper": 0.527
+      }
+    ],
+    "Aktobe": [
+      {
+        "week_offset": 1,
+        "forecast_date": "2026-05-04",
+        "composite_index": 0.645,
+        "confidence_lower": 0.597,
+        "confidence_upper": 0.693
+      },
+      {
+        "week_offset": 2,
+        "forecast_date": "2026-05-11",
+        "composite_index": 0.63,
+        "confidence_lower": 0.577,
+        "confidence_upper": 0.683
+      },
+      {
+        "week_offset": 3,
+        "forecast_date": "2026-05-18",
+        "composite_index": 0.614,
+        "confidence_lower": 0.556,
+        "confidence_upper": 0.672
+      },
+      {
+        "week_offset": 4,
+        "forecast_date": "2026-05-25",
+        "composite_index": 0.599,
+        "confidence_lower": 0.537,
+        "confidence_upper": 0.661
+      },
+      {
+        "week_offset": 5,
+        "forecast_date": "2026-06-01",
+        "composite_index": 0.596,
+        "confidence_lower": 0.529,
+        "confidence_upper": 0.663
+      },
+      {
+        "week_offset": 6,
+        "forecast_date": "2026-06-08",
+        "composite_index": 0.594,
+        "confidence_lower": 0.522,
+        "confidence_upper": 0.666
+      },
+      {
+        "week_offset": 7,
+        "forecast_date": "2026-06-15",
+        "composite_index": 0.591,
+        "confidence_lower": 0.514,
+        "confidence_upper": 0.668
+      },
+      {
+        "week_offset": 8,
+        "forecast_date": "2026-06-22",
+        "composite_index": 0.589,
+        "confidence_lower": 0.507,
+        "confidence_upper": 0.671
+      }
+    ],
+    "Almaty": [
+      {
+        "week_offset": 1,
+        "forecast_date": "2026-05-04",
+        "composite_index": 0.376,
+        "confidence_lower": 0.328,
+        "confidence_upper": 0.424
+      },
+      {
+        "week_offset": 2,
+        "forecast_date": "2026-05-11",
+        "composite_index": 0.352,
+        "confidence_lower": 0.299,
+        "confidence_upper": 0.405
+      },
+      {
+        "week_offset": 3,
+        "forecast_date": "2026-05-18",
+        "composite_index": 0.329,
+        "confidence_lower": 0.271,
+        "confidence_upper": 0.387
+      },
+      {
+        "week_offset": 4,
+        "forecast_date": "2026-05-25",
+        "composite_index": 0.306,
+        "confidence_lower": 0.244,
+        "confidence_upper": 0.368
+      },
+      {
+        "week_offset": 5,
+        "forecast_date": "2026-06-01",
+        "composite_index": 0.3,
+        "confidence_lower": 0.233,
+        "confidence_upper": 0.367
+      },
+      {
+        "week_offset": 6,
+        "forecast_date": "2026-06-08",
+        "composite_index": 0.294,
+        "confidence_lower": 0.222,
+        "confidence_upper": 0.366
+      },
+      {
+        "week_offset": 7,
+        "forecast_date": "2026-06-15",
+        "composite_index": 0.289,
+        "confidence_lower": 0.212,
+        "confidence_upper": 0.366
+      },
+      {
+        "week_offset": 8,
+        "forecast_date": "2026-06-22",
+        "composite_index": 0.283,
+        "confidence_lower": 0.201,
+        "confidence_upper": 0.365
+      }
+    ],
+    "Atyrau": [
+      {
+        "week_offset": 1,
+        "forecast_date": "2026-05-04",
+        "composite_index": 0.788,
+        "confidence_lower": 0.74,
+        "confidence_upper": 0.836
+      },
+      {
+        "week_offset": 2,
+        "forecast_date": "2026-05-11",
+        "composite_index": 0.782,
+        "confidence_lower": 0.729,
+        "confidence_upper": 0.835
+      },
+      {
+        "week_offset": 3,
+        "forecast_date": "2026-05-18",
+        "composite_index": 0.777,
+        "confidence_lower": 0.719,
+        "confidence_upper": 0.835
+      },
+      {
+        "week_offset": 4,
+        "forecast_date": "2026-05-25",
+        "composite_index": 0.771,
+        "confidence_lower": 0.709,
+        "confidence_upper": 0.833
+      },
+      {
+        "week_offset": 5,
+        "forecast_date": "2026-06-01",
+        "composite_index": 0.774,
+        "confidence_lower": 0.707,
+        "confidence_upper": 0.841
+      },
+      {
+        "week_offset": 6,
+        "forecast_date": "2026-06-08",
+        "composite_index": 0.776,
+        "confidence_lower": 0.704,
+        "confidence_upper": 0.848
+      },
+      {
+        "week_offset": 7,
+        "forecast_date": "2026-06-15",
+        "composite_index": 0.779,
+        "confidence_lower": 0.702,
+        "confidence_upper": 0.856
+      },
+      {
+        "week_offset": 8,
+        "forecast_date": "2026-06-22",
+        "composite_index": 0.781,
+        "confidence_lower": 0.699,
+        "confidence_upper": 0.863
+      }
+    ],
+    "East Kazakhstan": [
+      {
+        "week_offset": 1,
+        "forecast_date": "2026-05-04",
+        "composite_index": 0.456,
+        "confidence_lower": 0.408,
+        "confidence_upper": 0.504
+      },
+      {
+        "week_offset": 2,
+        "forecast_date": "2026-05-11",
+        "composite_index": 0.423,
+        "confidence_lower": 0.37,
+        "confidence_upper": 0.476
+      },
+      {
+        "week_offset": 3,
+        "forecast_date": "2026-05-18",
+        "composite_index": 0.389,
+        "confidence_lower": 0.331,
+        "confidence_upper": 0.447
+      },
+      {
+        "week_offset": 4,
+        "forecast_date": "2026-05-25",
+        "composite_index": 0.355,
+        "confidence_lower": 0.293,
+        "confidence_upper": 0.417
+      },
+      {
+        "week_offset": 5,
+        "forecast_date": "2026-06-01",
+        "composite_index": 0.35,
+        "confidence_lower": 0.283,
+        "confidence_upper": 0.417
+      },
+      {
+        "week_offset": 6,
+        "forecast_date": "2026-06-08",
+        "composite_index": 0.344,
+        "confidence_lower": 0.272,
+        "confidence_upper": 0.416
+      },
+      {
+        "week_offset": 7,
+        "forecast_date": "2026-06-15",
+        "composite_index": 0.338,
+        "confidence_lower": 0.261,
+        "confidence_upper": 0.415
+      },
+      {
+        "week_offset": 8,
+        "forecast_date": "2026-06-22",
+        "composite_index": 0.332,
+        "confidence_lower": 0.25,
+        "confidence_upper": 0.414
+      }
+    ],
+    "Jambyl": [
+      {
+        "week_offset": 1,
+        "forecast_date": "2026-05-04",
+        "composite_index": 0.646,
+        "confidence_lower": 0.598,
+        "confidence_upper": 0.694
+      },
+      {
+        "week_offset": 2,
+        "forecast_date": "2026-05-11",
+        "composite_index": 0.629,
+        "confidence_lower": 0.576,
+        "confidence_upper": 0.682
+      },
+      {
+        "week_offset": 3,
+        "forecast_date": "2026-05-18",
+        "composite_index": 0.611,
+        "confidence_lower": 0.553,
+        "confidence_upper": 0.669
+      },
+      {
+        "week_offset": 4,
+        "forecast_date": "2026-05-25",
+        "composite_index": 0.594,
+        "confidence_lower": 0.532,
+        "confidence_upper": 0.656
+      },
+      {
+        "week_offset": 5,
+        "forecast_date": "2026-06-01",
+        "composite_index": 0.59,
+        "confidence_lower": 0.523,
+        "confidence_upper": 0.657
+      },
+      {
+        "week_offset": 6,
+        "forecast_date": "2026-06-08",
+        "composite_index": 0.586,
+        "confidence_lower": 0.514,
+        "confidence_upper": 0.658
+      },
+      {
+        "week_offset": 7,
+        "forecast_date": "2026-06-15",
+        "composite_index": 0.581,
+        "confidence_lower": 0.504,
+        "confidence_upper": 0.658
+      },
+      {
+        "week_offset": 8,
+        "forecast_date": "2026-06-22",
+        "composite_index": 0.577,
+        "confidence_lower": 0.495,
+        "confidence_upper": 0.659
+      }
+    ],
+    "Karaganda": [
+      {
+        "week_offset": 1,
+        "forecast_date": "2026-05-04",
+        "composite_index": 0.657,
+        "confidence_lower": 0.609,
+        "confidence_upper": 0.705
+      },
+      {
+        "week_offset": 2,
+        "forecast_date": "2026-05-11",
+        "composite_index": 0.641,
+        "confidence_lower": 0.588,
+        "confidence_upper": 0.694
+      },
+      {
+        "week_offset": 3,
+        "forecast_date": "2026-05-18",
+        "composite_index": 0.626,
+        "confidence_lower": 0.568,
+        "confidence_upper": 0.684
+      },
+      {
+        "week_offset": 4,
+        "forecast_date": "2026-05-25",
+        "composite_index": 0.61,
+        "confidence_lower": 0.548,
+        "confidence_upper": 0.672
+      },
+      {
+        "week_offset": 5,
+        "forecast_date": "2026-06-01",
+        "composite_index": 0.605,
+        "confidence_lower": 0.538,
+        "confidence_upper": 0.672
+      },
+      {
+        "week_offset": 6,
+        "forecast_date": "2026-06-08",
+        "composite_index": 0.6,
+        "confidence_lower": 0.528,
+        "confidence_upper": 0.672
+      },
+      {
+        "week_offset": 7,
+        "forecast_date": "2026-06-15",
+        "composite_index": 0.595,
+        "confidence_lower": 0.518,
+        "confidence_upper": 0.672
+      },
+      {
+        "week_offset": 8,
+        "forecast_date": "2026-06-22",
+        "composite_index": 0.59,
+        "confidence_lower": 0.508,
+        "confidence_upper": 0.672
+      }
+    ],
+    "Kostanay": [
+      {
+        "week_offset": 1,
+        "forecast_date": "2026-05-04",
+        "composite_index": 0.504,
+        "confidence_lower": 0.456,
+        "confidence_upper": 0.552
+      },
+      {
+        "week_offset": 2,
+        "forecast_date": "2026-05-11",
+        "composite_index": 0.477,
+        "confidence_lower": 0.424,
+        "confidence_upper": 0.53
+      },
+      {
+        "week_offset": 3,
+        "forecast_date": "2026-05-18",
+        "composite_index": 0.451,
+        "confidence_lower": 0.393,
+        "confidence_upper": 0.509
+      },
+      {
+        "week_offset": 4,
+        "forecast_date": "2026-05-25",
+        "composite_index": 0.425,
+        "confidence_lower": 0.363,
+        "confidence_upper": 0.487
+      },
+      {
+        "week_offset": 5,
+        "forecast_date": "2026-06-01",
+        "composite_index": 0.419,
+        "confidence_lower": 0.352,
+        "confidence_upper": 0.486
+      },
+      {
+        "week_offset": 6,
+        "forecast_date": "2026-06-08",
+        "composite_index": 0.413,
+        "confidence_lower": 0.341,
+        "confidence_upper": 0.485
+      },
+      {
+        "week_offset": 7,
+        "forecast_date": "2026-06-15",
+        "composite_index": 0.407,
+        "confidence_lower": 0.33,
+        "confidence_upper": 0.484
+      },
+      {
+        "week_offset": 8,
+        "forecast_date": "2026-06-22",
+        "composite_index": 0.401,
+        "confidence_lower": 0.319,
+        "confidence_upper": 0.483
+      }
+    ],
+    "Kyzylorda": [
+      {
+        "week_offset": 1,
+        "forecast_date": "2026-05-04",
+        "composite_index": 0.747,
+        "confidence_lower": 0.699,
+        "confidence_upper": 0.795
+      },
+      {
+        "week_offset": 2,
+        "forecast_date": "2026-05-11",
+        "composite_index": 0.736,
+        "confidence_lower": 0.683,
+        "confidence_upper": 0.789
+      },
+      {
+        "week_offset": 3,
+        "forecast_date": "2026-05-18",
+        "composite_index": 0.726,
+        "confidence_lower": 0.668,
+        "confidence_upper": 0.784
+      },
+      {
+        "week_offset": 4,
+        "forecast_date": "2026-05-25",
+        "composite_index": 0.715,
+        "confidence_lower": 0.653,
+        "confidence_upper": 0.777
+      },
+      {
+        "week_offset": 5,
+        "forecast_date": "2026-06-01",
+        "composite_index": 0.714,
+        "confidence_lower": 0.647,
+        "confidence_upper": 0.781
+      },
+      {
+        "week_offset": 6,
+        "forecast_date": "2026-06-08",
+        "composite_index": 0.713,
+        "confidence_lower": 0.641,
+        "confidence_upper": 0.785
+      },
+      {
+        "week_offset": 7,
+        "forecast_date": "2026-06-15",
+        "composite_index": 0.712,
+        "confidence_lower": 0.635,
+        "confidence_upper": 0.789
+      },
+      {
+        "week_offset": 8,
+        "forecast_date": "2026-06-22",
+        "composite_index": 0.711,
+        "confidence_lower": 0.629,
+        "confidence_upper": 0.793
+      }
+    ],
+    "Mangystau": [
+      {
+        "week_offset": 1,
+        "forecast_date": "2026-05-04",
+        "composite_index": 0.853,
+        "confidence_lower": 0.805,
+        "confidence_upper": 0.901
+      },
+      {
+        "week_offset": 2,
+        "forecast_date": "2026-05-11",
+        "composite_index": 0.843,
+        "confidence_lower": 0.79,
+        "confidence_upper": 0.896
+      },
+      {
+        "week_offset": 3,
+        "forecast_date": "2026-05-18",
+        "composite_index": 0.834,
+        "confidence_lower": 0.776,
+        "confidence_upper": 0.892
+      },
+      {
+        "week_offset": 4,
+        "forecast_date": "2026-05-25",
+        "composite_index": 0.825,
+        "confidence_lower": 0.763,
+        "confidence_upper": 0.887
+      },
+      {
+        "week_offset": 5,
+        "forecast_date": "2026-06-01",
+        "composite_index": 0.825,
+        "confidence_lower": 0.758,
+        "confidence_upper": 0.892
+      },
+      {
+        "week_offset": 6,
+        "forecast_date": "2026-06-08",
+        "composite_index": 0.825,
+        "confidence_lower": 0.753,
+        "confidence_upper": 0.897
+      },
+      {
+        "week_offset": 7,
+        "forecast_date": "2026-06-15",
+        "composite_index": 0.825,
+        "confidence_lower": 0.748,
+        "confidence_upper": 0.902
+      },
+      {
+        "week_offset": 8,
+        "forecast_date": "2026-06-22",
+        "composite_index": 0.825,
+        "confidence_lower": 0.743,
+        "confidence_upper": 0.907
+      }
+    ],
+    "North Kazakhstan": [
+      {
+        "week_offset": 1,
+        "forecast_date": "2026-05-04",
+        "composite_index": 0.391,
+        "confidence_lower": 0.343,
+        "confidence_upper": 0.439
+      },
+      {
+        "week_offset": 2,
+        "forecast_date": "2026-05-11",
+        "composite_index": 0.354,
+        "confidence_lower": 0.301,
+        "confidence_upper": 0.407
+      },
+      {
+        "week_offset": 3,
+        "forecast_date": "2026-05-18",
+        "composite_index": 0.318,
+        "confidence_lower": 0.26,
+        "confidence_upper": 0.376
+      },
+      {
+        "week_offset": 4,
+        "forecast_date": "2026-05-25",
+        "composite_index": 0.282,
+        "confidence_lower": 0.22,
+        "confidence_upper": 0.344
+      },
+      {
+        "week_offset": 5,
+        "forecast_date": "2026-06-01",
+        "composite_index": 0.273,
+        "confidence_lower": 0.206,
+        "confidence_upper": 0.34
+      },
+      {
+        "week_offset": 6,
+        "forecast_date": "2026-06-08",
+        "composite_index": 0.265,
+        "confidence_lower": 0.193,
+        "confidence_upper": 0.337
+      },
+      {
+        "week_offset": 7,
+        "forecast_date": "2026-06-15",
+        "composite_index": 0.257,
+        "confidence_lower": 0.18,
+        "confidence_upper": 0.334
+      },
+      {
+        "week_offset": 8,
+        "forecast_date": "2026-06-22",
+        "composite_index": 0.248,
+        "confidence_lower": 0.166,
+        "confidence_upper": 0.33
+      }
+    ],
+    "Pavlodar": [
+      {
+        "week_offset": 1,
+        "forecast_date": "2026-05-04",
+        "composite_index": 0.523,
+        "confidence_lower": 0.475,
+        "confidence_upper": 0.571
+      },
+      {
+        "week_offset": 2,
+        "forecast_date": "2026-05-11",
+        "composite_index": 0.493,
+        "confidence_lower": 0.44,
+        "confidence_upper": 0.546
+      },
+      {
+        "week_offset": 3,
+        "forecast_date": "2026-05-18",
+        "composite_index": 0.463,
+        "confidence_lower": 0.405,
+        "confidence_upper": 0.521
+      },
+      {
+        "week_offset": 4,
+        "forecast_date": "2026-05-25",
+        "composite_index": 0.433,
+        "confidence_lower": 0.371,
+        "confidence_upper": 0.495
+      },
+      {
+        "week_offset": 5,
+        "forecast_date": "2026-06-01",
+        "composite_index": 0.429,
+        "confidence_lower": 0.362,
+        "confidence_upper": 0.496
+      },
+      {
+        "week_offset": 6,
+        "forecast_date": "2026-06-08",
+        "composite_index": 0.425,
+        "confidence_lower": 0.353,
+        "confidence_upper": 0.497
+      },
+      {
+        "week_offset": 7,
+        "forecast_date": "2026-06-15",
+        "composite_index": 0.422,
+        "confidence_lower": 0.345,
+        "confidence_upper": 0.499
+      },
+      {
+        "week_offset": 8,
+        "forecast_date": "2026-06-22",
+        "composite_index": 0.418,
+        "confidence_lower": 0.336,
+        "confidence_upper": 0.5
+      }
+    ],
+    "Turkestan": [
+      {
+        "week_offset": 1,
+        "forecast_date": "2026-05-04",
+        "composite_index": 0.689,
+        "confidence_lower": 0.641,
+        "confidence_upper": 0.737
+      },
+      {
+        "week_offset": 2,
+        "forecast_date": "2026-05-11",
+        "composite_index": 0.682,
+        "confidence_lower": 0.629,
+        "confidence_upper": 0.735
+      },
+      {
+        "week_offset": 3,
+        "forecast_date": "2026-05-18",
+        "composite_index": 0.675,
+        "confidence_lower": 0.617,
+        "confidence_upper": 0.733
+      },
+      {
+        "week_offset": 4,
+        "forecast_date": "2026-05-25",
+        "composite_index": 0.668,
+        "confidence_lower": 0.606,
+        "confidence_upper": 0.73
+      },
+      {
+        "week_offset": 5,
+        "forecast_date": "2026-06-01",
+        "composite_index": 0.664,
+        "confidence_lower": 0.597,
+        "confidence_upper": 0.731
+      },
+      {
+        "week_offset": 6,
+        "forecast_date": "2026-06-08",
+        "composite_index": 0.659,
+        "confidence_lower": 0.587,
+        "confidence_upper": 0.731
+      },
+      {
+        "week_offset": 7,
+        "forecast_date": "2026-06-15",
+        "composite_index": 0.655,
+        "confidence_lower": 0.578,
+        "confidence_upper": 0.732
+      },
+      {
+        "week_offset": 8,
+        "forecast_date": "2026-06-22",
+        "composite_index": 0.651,
+        "confidence_lower": 0.569,
+        "confidence_upper": 0.733
+      }
+    ],
+    "West Kazakhstan": [
+      {
+        "week_offset": 1,
+        "forecast_date": "2026-05-04",
+        "composite_index": 0.651,
+        "confidence_lower": 0.603,
+        "confidence_upper": 0.699
+      },
+      {
+        "week_offset": 2,
+        "forecast_date": "2026-05-11",
+        "composite_index": 0.633,
+        "confidence_lower": 0.58,
+        "confidence_upper": 0.686
+      },
+      {
+        "week_offset": 3,
+        "forecast_date": "2026-05-18",
+        "composite_index": 0.614,
+        "confidence_lower": 0.556,
+        "confidence_upper": 0.672
+      },
+      {
+        "week_offset": 4,
+        "forecast_date": "2026-05-25",
+        "composite_index": 0.596,
+        "confidence_lower": 0.534,
+        "confidence_upper": 0.658
+      },
+      {
+        "week_offset": 5,
+        "forecast_date": "2026-06-01",
+        "composite_index": 0.594,
+        "confidence_lower": 0.527,
+        "confidence_upper": 0.661
+      },
+      {
+        "week_offset": 6,
+        "forecast_date": "2026-06-08",
+        "composite_index": 0.592,
+        "confidence_lower": 0.52,
+        "confidence_upper": 0.664
+      },
+      {
+        "week_offset": 7,
+        "forecast_date": "2026-06-15",
+        "composite_index": 0.59,
+        "confidence_lower": 0.513,
+        "confidence_upper": 0.667
+      },
+      {
+        "week_offset": 8,
+        "forecast_date": "2026-06-22",
+        "composite_index": 0.588,
+        "confidence_lower": 0.506,
+        "confidence_upper": 0.67
+      }
+    ]
+  }
+}

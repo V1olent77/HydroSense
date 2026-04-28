@@ -1,0 +1,6777 @@
+{
+  "_meta": {
+    "generated_with": "ml/build_history.py (synthetic, deterministic seed=42)",
+    "year_range": [
+      "2021",
+      "2026"
+    ],
+    "samples_per_oblast": 60,
+    "oblasts": [
+      "Akmola",
+      "Aktobe",
+      "Almaty",
+      "Atyrau",
+      "East Kazakhstan",
+      "Jambyl",
+      "Karaganda",
+      "Kostanay",
+      "Kyzylorda",
+      "Mangystau",
+      "North Kazakhstan",
+      "Pavlodar",
+      "Turkestan",
+      "West Kazakhstan"
+    ],
+    "note": "Replace with output of ml/gee_pull.py once GEE creds are wired in."
+  },
+  "oblasts": {
+    "Akmola": [
+      {
+        "month": "2021-04",
+        "ndvi": 0.485,
+        "precipitation_mm": 32.0,
+        "soil_moisture_pct": 26.0,
+        "composite_index": 0.425,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-05",
+        "ndvi": 0.58,
+        "precipitation_mm": 29.9,
+        "soil_moisture_pct": 25.4,
+        "composite_index": 0.391,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-06",
+        "ndvi": 0.595,
+        "precipitation_mm": 23.6,
+        "soil_moisture_pct": 25.8,
+        "composite_index": 0.413,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-07",
+        "ndvi": 0.563,
+        "precipitation_mm": 16.9,
+        "soil_moisture_pct": 23.8,
+        "composite_index": 0.475,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-08",
+        "ndvi": 0.509,
+        "precipitation_mm": 8.5,
+        "soil_moisture_pct": 15.5,
+        "composite_index": 0.6,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-09",
+        "ndvi": 0.363,
+        "precipitation_mm": 2.9,
+        "soil_moisture_pct": 13.0,
+        "composite_index": 0.717,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-10",
+        "ndvi": 0.299,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 7.8,
+        "composite_index": 0.796,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-11",
+        "ndvi": 0.185,
+        "precipitation_mm": 1.2,
+        "soil_moisture_pct": 6.3,
+        "composite_index": 0.86,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-12",
+        "ndvi": 0.229,
+        "precipitation_mm": 7.4,
+        "soil_moisture_pct": 7.6,
+        "composite_index": 0.798,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-01",
+        "ndvi": 0.236,
+        "precipitation_mm": 22.4,
+        "soil_moisture_pct": 12.0,
+        "composite_index": 0.69,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-02",
+        "ndvi": 0.315,
+        "precipitation_mm": 25.5,
+        "soil_moisture_pct": 16.5,
+        "composite_index": 0.604,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-03",
+        "ndvi": 0.376,
+        "precipitation_mm": 34.7,
+        "soil_moisture_pct": 28.6,
+        "composite_index": 0.448,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-04",
+        "ndvi": 0.509,
+        "precipitation_mm": 36.5,
+        "soil_moisture_pct": 33.6,
+        "composite_index": 0.339,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-05",
+        "ndvi": 0.529,
+        "precipitation_mm": 37.2,
+        "soil_moisture_pct": 33.7,
+        "composite_index": 0.325,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-06",
+        "ndvi": 0.588,
+        "precipitation_mm": 32.5,
+        "soil_moisture_pct": 33.2,
+        "composite_index": 0.321,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-07",
+        "ndvi": 0.57,
+        "precipitation_mm": 22.0,
+        "soil_moisture_pct": 28.0,
+        "composite_index": 0.418,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-08",
+        "ndvi": 0.471,
+        "precipitation_mm": 7.9,
+        "soil_moisture_pct": 19.8,
+        "composite_index": 0.594,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-09",
+        "ndvi": 0.409,
+        "precipitation_mm": 1.9,
+        "soil_moisture_pct": 17.2,
+        "composite_index": 0.672,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-10",
+        "ndvi": 0.274,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 9.8,
+        "composite_index": 0.795,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-11",
+        "ndvi": 0.271,
+        "precipitation_mm": 4.2,
+        "soil_moisture_pct": 8.1,
+        "composite_index": 0.79,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-12",
+        "ndvi": 0.245,
+        "precipitation_mm": 9.7,
+        "soil_moisture_pct": 6.5,
+        "composite_index": 0.785,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-01",
+        "ndvi": 0.212,
+        "precipitation_mm": 17.3,
+        "soil_moisture_pct": 7.7,
+        "composite_index": 0.756,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-02",
+        "ndvi": 0.299,
+        "precipitation_mm": 22.4,
+        "soil_moisture_pct": 14.3,
+        "composite_index": 0.643,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-03",
+        "ndvi": 0.415,
+        "precipitation_mm": 28.7,
+        "soil_moisture_pct": 23.1,
+        "composite_index": 0.494,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-04",
+        "ndvi": 0.508,
+        "precipitation_mm": 27.1,
+        "soil_moisture_pct": 22.4,
+        "composite_index": 0.461,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-05",
+        "ndvi": 0.534,
+        "precipitation_mm": 29.8,
+        "soil_moisture_pct": 23.7,
+        "composite_index": 0.426,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-06",
+        "ndvi": 0.583,
+        "precipitation_mm": 23.9,
+        "soil_moisture_pct": 22.2,
+        "composite_index": 0.441,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-07",
+        "ndvi": 0.551,
+        "precipitation_mm": 8.9,
+        "soil_moisture_pct": 18.0,
+        "composite_index": 0.56,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-08",
+        "ndvi": 0.472,
+        "precipitation_mm": 8.5,
+        "soil_moisture_pct": 16.5,
+        "composite_index": 0.611,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-09",
+        "ndvi": 0.393,
+        "precipitation_mm": 2.7,
+        "soil_moisture_pct": 10.1,
+        "composite_index": 0.723,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-10",
+        "ndvi": 0.331,
+        "precipitation_mm": 2.7,
+        "soil_moisture_pct": 6.6,
+        "composite_index": 0.777,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-11",
+        "ndvi": 0.198,
+        "precipitation_mm": 4.6,
+        "soil_moisture_pct": 5.5,
+        "composite_index": 0.841,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-12",
+        "ndvi": 0.239,
+        "precipitation_mm": 7.1,
+        "soil_moisture_pct": 9.2,
+        "composite_index": 0.784,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-01",
+        "ndvi": 0.217,
+        "precipitation_mm": 17.9,
+        "soil_moisture_pct": 9.1,
+        "composite_index": 0.741,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-02",
+        "ndvi": 0.283,
+        "precipitation_mm": 16.3,
+        "soil_moisture_pct": 13.2,
+        "composite_index": 0.69,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-03",
+        "ndvi": 0.436,
+        "precipitation_mm": 26.9,
+        "soil_moisture_pct": 18.9,
+        "composite_index": 0.521,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-04",
+        "ndvi": 0.418,
+        "precipitation_mm": 28.4,
+        "soil_moisture_pct": 21.9,
+        "composite_index": 0.503,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-05",
+        "ndvi": 0.543,
+        "precipitation_mm": 22.6,
+        "soil_moisture_pct": 22.3,
+        "composite_index": 0.467,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-06",
+        "ndvi": 0.637,
+        "precipitation_mm": 16.5,
+        "soil_moisture_pct": 20.5,
+        "composite_index": 0.463,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-07",
+        "ndvi": 0.6,
+        "precipitation_mm": 11.8,
+        "soil_moisture_pct": 17.3,
+        "composite_index": 0.526,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-08",
+        "ndvi": 0.492,
+        "precipitation_mm": 2.8,
+        "soil_moisture_pct": 13.7,
+        "composite_index": 0.648,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-09",
+        "ndvi": 0.357,
+        "precipitation_mm": 4.4,
+        "soil_moisture_pct": 8.9,
+        "composite_index": 0.74,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-10",
+        "ndvi": 0.367,
+        "precipitation_mm": 0.8,
+        "soil_moisture_pct": 7.7,
+        "composite_index": 0.761,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-11",
+        "ndvi": 0.189,
+        "precipitation_mm": 1.4,
+        "soil_moisture_pct": 4.9,
+        "composite_index": 0.866,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-12",
+        "ndvi": 0.255,
+        "precipitation_mm": 1.5,
+        "soil_moisture_pct": 7.1,
+        "composite_index": 0.817,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-01",
+        "ndvi": 0.246,
+        "precipitation_mm": 20.1,
+        "soil_moisture_pct": 11.6,
+        "composite_index": 0.699,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-02",
+        "ndvi": 0.3,
+        "precipitation_mm": 21.7,
+        "soil_moisture_pct": 13.9,
+        "composite_index": 0.649,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-03",
+        "ndvi": 0.4,
+        "precipitation_mm": 28.3,
+        "soil_moisture_pct": 24.1,
+        "composite_index": 0.498,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-04",
+        "ndvi": 0.471,
+        "precipitation_mm": 32.0,
+        "soil_moisture_pct": 22.6,
+        "composite_index": 0.454,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-05",
+        "ndvi": 0.548,
+        "precipitation_mm": 29.7,
+        "soil_moisture_pct": 27.6,
+        "composite_index": 0.394,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-06",
+        "ndvi": 0.628,
+        "precipitation_mm": 23.1,
+        "soil_moisture_pct": 23.3,
+        "composite_index": 0.415,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-07",
+        "ndvi": 0.573,
+        "precipitation_mm": 17.1,
+        "soil_moisture_pct": 21.8,
+        "composite_index": 0.483,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-08",
+        "ndvi": 0.468,
+        "precipitation_mm": 11.2,
+        "soil_moisture_pct": 16.0,
+        "composite_index": 0.604,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-09",
+        "ndvi": 0.415,
+        "precipitation_mm": 5.9,
+        "soil_moisture_pct": 11.5,
+        "composite_index": 0.687,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-10",
+        "ndvi": 0.307,
+        "precipitation_mm": 6.5,
+        "soil_moisture_pct": 7.1,
+        "composite_index": 0.767,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-11",
+        "ndvi": 0.219,
+        "precipitation_mm": 2.4,
+        "soil_moisture_pct": 7.5,
+        "composite_index": 0.828,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-12",
+        "ndvi": 0.206,
+        "precipitation_mm": 9.3,
+        "soil_moisture_pct": 8.5,
+        "composite_index": 0.794,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-01",
+        "ndvi": 0.213,
+        "precipitation_mm": 9.0,
+        "soil_moisture_pct": 10.1,
+        "composite_index": 0.781,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-02",
+        "ndvi": 0.305,
+        "precipitation_mm": 19.5,
+        "soil_moisture_pct": 15.8,
+        "composite_index": 0.645,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-03",
+        "ndvi": 0.412,
+        "precipitation_mm": 23.5,
+        "soil_moisture_pct": 20.1,
+        "composite_index": 0.542,
+        "severity": "moderate"
+      }
+    ],
+    "Aktobe": [
+      {
+        "month": "2021-04",
+        "ndvi": 0.342,
+        "precipitation_mm": 18.6,
+        "soil_moisture_pct": 18.7,
+        "composite_index": 0.611,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-05",
+        "ndvi": 0.396,
+        "precipitation_mm": 19.3,
+        "soil_moisture_pct": 19.8,
+        "composite_index": 0.573,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-06",
+        "ndvi": 0.431,
+        "precipitation_mm": 15.6,
+        "soil_moisture_pct": 18.6,
+        "composite_index": 0.583,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-07",
+        "ndvi": 0.428,
+        "precipitation_mm": 9.4,
+        "soil_moisture_pct": 15.8,
+        "composite_index": 0.634,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-08",
+        "ndvi": 0.348,
+        "precipitation_mm": 12.6,
+        "soil_moisture_pct": 8.6,
+        "composite_index": 0.706,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-09",
+        "ndvi": 0.301,
+        "precipitation_mm": 0.6,
+        "soil_moisture_pct": 7.5,
+        "composite_index": 0.797,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-10",
+        "ndvi": 0.269,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 8.2,
+        "composite_index": 0.808,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-11",
+        "ndvi": 0.149,
+        "precipitation_mm": 2.6,
+        "soil_moisture_pct": 3.1,
+        "composite_index": 0.892,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-12",
+        "ndvi": 0.123,
+        "precipitation_mm": 5.9,
+        "soil_moisture_pct": 4.4,
+        "composite_index": 0.879,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-01",
+        "ndvi": 0.168,
+        "precipitation_mm": 7.9,
+        "soil_moisture_pct": 12.4,
+        "composite_index": 0.793,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-02",
+        "ndvi": 0.207,
+        "precipitation_mm": 26.6,
+        "soil_moisture_pct": 12.6,
+        "composite_index": 0.68,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-03",
+        "ndvi": 0.289,
+        "precipitation_mm": 36.1,
+        "soil_moisture_pct": 17.5,
+        "composite_index": 0.559,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-04",
+        "ndvi": 0.303,
+        "precipitation_mm": 26.8,
+        "soil_moisture_pct": 23.0,
+        "composite_index": 0.561,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-05",
+        "ndvi": 0.419,
+        "precipitation_mm": 30.4,
+        "soil_moisture_pct": 23.1,
+        "composite_index": 0.484,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-06",
+        "ndvi": 0.368,
+        "precipitation_mm": 20.0,
+        "soil_moisture_pct": 24.1,
+        "composite_index": 0.555,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-07",
+        "ndvi": 0.412,
+        "precipitation_mm": 8.4,
+        "soil_moisture_pct": 18.8,
+        "composite_index": 0.627,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-08",
+        "ndvi": 0.39,
+        "precipitation_mm": 13.5,
+        "soil_moisture_pct": 15.0,
+        "composite_index": 0.638,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-09",
+        "ndvi": 0.289,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 8.1,
+        "composite_index": 0.799,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-10",
+        "ndvi": 0.213,
+        "precipitation_mm": 1.5,
+        "soil_moisture_pct": 6.8,
+        "composite_index": 0.84,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-11",
+        "ndvi": 0.148,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 3.5,
+        "composite_index": 0.9,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-12",
+        "ndvi": 0.109,
+        "precipitation_mm": 9.0,
+        "soil_moisture_pct": 2.5,
+        "composite_index": 0.883,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-01",
+        "ndvi": 0.152,
+        "precipitation_mm": 11.6,
+        "soil_moisture_pct": 9.1,
+        "composite_index": 0.805,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-02",
+        "ndvi": 0.214,
+        "precipitation_mm": 18.4,
+        "soil_moisture_pct": 9.6,
+        "composite_index": 0.737,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-03",
+        "ndvi": 0.258,
+        "precipitation_mm": 17.1,
+        "soil_moisture_pct": 15.9,
+        "composite_index": 0.68,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-04",
+        "ndvi": 0.378,
+        "precipitation_mm": 22.0,
+        "soil_moisture_pct": 21.0,
+        "composite_index": 0.561,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-05",
+        "ndvi": 0.397,
+        "precipitation_mm": 21.0,
+        "soil_moisture_pct": 17.4,
+        "composite_index": 0.581,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-06",
+        "ndvi": 0.409,
+        "precipitation_mm": 22.3,
+        "soil_moisture_pct": 18.3,
+        "composite_index": 0.562,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-07",
+        "ndvi": 0.356,
+        "precipitation_mm": 9.1,
+        "soil_moisture_pct": 14.2,
+        "composite_index": 0.682,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-08",
+        "ndvi": 0.371,
+        "precipitation_mm": 1.1,
+        "soil_moisture_pct": 6.8,
+        "composite_index": 0.764,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-09",
+        "ndvi": 0.223,
+        "precipitation_mm": 1.2,
+        "soil_moisture_pct": 6.6,
+        "composite_index": 0.839,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-10",
+        "ndvi": 0.222,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.5,
+        "composite_index": 0.87,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-11",
+        "ndvi": 0.102,
+        "precipitation_mm": 2.4,
+        "soil_moisture_pct": 3.9,
+        "composite_index": 0.911,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-12",
+        "ndvi": 0.174,
+        "precipitation_mm": 7.5,
+        "soil_moisture_pct": 4.0,
+        "composite_index": 0.849,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-01",
+        "ndvi": 0.203,
+        "precipitation_mm": 8.9,
+        "soil_moisture_pct": 5.2,
+        "composite_index": 0.82,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-02",
+        "ndvi": 0.196,
+        "precipitation_mm": 12.2,
+        "soil_moisture_pct": 6.0,
+        "composite_index": 0.801,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-03",
+        "ndvi": 0.285,
+        "precipitation_mm": 18.1,
+        "soil_moisture_pct": 11.8,
+        "composite_index": 0.689,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-04",
+        "ndvi": 0.327,
+        "precipitation_mm": 19.7,
+        "soil_moisture_pct": 17.1,
+        "composite_index": 0.624,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-05",
+        "ndvi": 0.399,
+        "precipitation_mm": 15.8,
+        "soil_moisture_pct": 14.5,
+        "composite_index": 0.625,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-06",
+        "ndvi": 0.414,
+        "precipitation_mm": 10.2,
+        "soil_moisture_pct": 14.4,
+        "composite_index": 0.646,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-07",
+        "ndvi": 0.4,
+        "precipitation_mm": 14.8,
+        "soil_moisture_pct": 13.7,
+        "composite_index": 0.634,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-08",
+        "ndvi": 0.379,
+        "precipitation_mm": 2.5,
+        "soil_moisture_pct": 10.2,
+        "composite_index": 0.73,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-09",
+        "ndvi": 0.246,
+        "precipitation_mm": 2.2,
+        "soil_moisture_pct": 6.8,
+        "composite_index": 0.821,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-10",
+        "ndvi": 0.189,
+        "precipitation_mm": 6.0,
+        "soil_moisture_pct": 4.8,
+        "composite_index": 0.844,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-11",
+        "ndvi": 0.105,
+        "precipitation_mm": 2.9,
+        "soil_moisture_pct": 2.5,
+        "composite_index": 0.916,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-12",
+        "ndvi": 0.144,
+        "precipitation_mm": 6.1,
+        "soil_moisture_pct": 4.5,
+        "composite_index": 0.868,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-01",
+        "ndvi": 0.101,
+        "precipitation_mm": 7.5,
+        "soil_moisture_pct": 8.4,
+        "composite_index": 0.856,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-02",
+        "ndvi": 0.251,
+        "precipitation_mm": 22.2,
+        "soil_moisture_pct": 13.6,
+        "composite_index": 0.673,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-03",
+        "ndvi": 0.218,
+        "precipitation_mm": 22.8,
+        "soil_moisture_pct": 11.7,
+        "composite_index": 0.699,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-04",
+        "ndvi": 0.396,
+        "precipitation_mm": 22.8,
+        "soil_moisture_pct": 15.5,
+        "composite_index": 0.585,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-05",
+        "ndvi": 0.458,
+        "precipitation_mm": 22.5,
+        "soil_moisture_pct": 15.3,
+        "composite_index": 0.556,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-06",
+        "ndvi": 0.425,
+        "precipitation_mm": 14.3,
+        "soil_moisture_pct": 17.4,
+        "composite_index": 0.6,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-07",
+        "ndvi": 0.384,
+        "precipitation_mm": 15.1,
+        "soil_moisture_pct": 12.4,
+        "composite_index": 0.65,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-08",
+        "ndvi": 0.358,
+        "precipitation_mm": 10.9,
+        "soil_moisture_pct": 9.7,
+        "composite_index": 0.702,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-09",
+        "ndvi": 0.286,
+        "precipitation_mm": 2.1,
+        "soil_moisture_pct": 6.2,
+        "composite_index": 0.805,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-10",
+        "ndvi": 0.231,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 3.2,
+        "composite_index": 0.86,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-11",
+        "ndvi": 0.215,
+        "precipitation_mm": 3.8,
+        "soil_moisture_pct": 3.4,
+        "composite_index": 0.851,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-12",
+        "ndvi": 0.125,
+        "precipitation_mm": 3.1,
+        "soil_moisture_pct": 6.5,
+        "composite_index": 0.879,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-01",
+        "ndvi": 0.158,
+        "precipitation_mm": 11.5,
+        "soil_moisture_pct": 6.4,
+        "composite_index": 0.821,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-02",
+        "ndvi": 0.23,
+        "precipitation_mm": 14.8,
+        "soil_moisture_pct": 11.1,
+        "composite_index": 0.737,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-03",
+        "ndvi": 0.275,
+        "precipitation_mm": 21.3,
+        "soil_moisture_pct": 14.3,
+        "composite_index": 0.661,
+        "severity": "severe"
+      }
+    ],
+    "Almaty": [
+      {
+        "month": "2021-04",
+        "ndvi": 0.562,
+        "precipitation_mm": 47.7,
+        "soil_moisture_pct": 30.1,
+        "composite_index": 0.28,
+        "severity": "healthy"
+      },
+      {
+        "month": "2021-05",
+        "ndvi": 0.624,
+        "precipitation_mm": 44.0,
+        "soil_moisture_pct": 34.6,
+        "composite_index": 0.237,
+        "severity": "healthy"
+      },
+      {
+        "month": "2021-06",
+        "ndvi": 0.675,
+        "precipitation_mm": 42.4,
+        "soil_moisture_pct": 35.0,
+        "composite_index": 0.217,
+        "severity": "healthy"
+      },
+      {
+        "month": "2021-07",
+        "ndvi": 0.647,
+        "precipitation_mm": 20.5,
+        "soil_moisture_pct": 26.1,
+        "composite_index": 0.4,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-08",
+        "ndvi": 0.563,
+        "precipitation_mm": 8.1,
+        "soil_moisture_pct": 19.6,
+        "composite_index": 0.547,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-09",
+        "ndvi": 0.464,
+        "precipitation_mm": 2.0,
+        "soil_moisture_pct": 12.2,
+        "composite_index": 0.677,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-10",
+        "ndvi": 0.322,
+        "precipitation_mm": 5.4,
+        "soil_moisture_pct": 8.2,
+        "composite_index": 0.758,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-11",
+        "ndvi": 0.239,
+        "precipitation_mm": 2.2,
+        "soil_moisture_pct": 8.1,
+        "composite_index": 0.815,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-12",
+        "ndvi": 0.213,
+        "precipitation_mm": 14.0,
+        "soil_moisture_pct": 9.5,
+        "composite_index": 0.76,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-01",
+        "ndvi": 0.286,
+        "precipitation_mm": 35.3,
+        "soil_moisture_pct": 15.6,
+        "composite_index": 0.576,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-02",
+        "ndvi": 0.378,
+        "precipitation_mm": 44.2,
+        "soil_moisture_pct": 24.1,
+        "composite_index": 0.429,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-03",
+        "ndvi": 0.491,
+        "precipitation_mm": 60.4,
+        "soil_moisture_pct": 32.9,
+        "composite_index": 0.285,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-04",
+        "ndvi": 0.53,
+        "precipitation_mm": 63.8,
+        "soil_moisture_pct": 38.0,
+        "composite_index": 0.232,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-05",
+        "ndvi": 0.619,
+        "precipitation_mm": 56.0,
+        "soil_moisture_pct": 41.5,
+        "composite_index": 0.164,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-06",
+        "ndvi": 0.612,
+        "precipitation_mm": 47.7,
+        "soil_moisture_pct": 39.2,
+        "composite_index": 0.194,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-07",
+        "ndvi": 0.629,
+        "precipitation_mm": 34.2,
+        "soil_moisture_pct": 33.9,
+        "composite_index": 0.289,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-08",
+        "ndvi": 0.547,
+        "precipitation_mm": 13.5,
+        "soil_moisture_pct": 25.7,
+        "composite_index": 0.487,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-09",
+        "ndvi": 0.41,
+        "precipitation_mm": 3.2,
+        "soil_moisture_pct": 15.5,
+        "composite_index": 0.676,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-10",
+        "ndvi": 0.347,
+        "precipitation_mm": 0.6,
+        "soil_moisture_pct": 10.5,
+        "composite_index": 0.754,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-11",
+        "ndvi": 0.298,
+        "precipitation_mm": 4.8,
+        "soil_moisture_pct": 7.8,
+        "composite_index": 0.775,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-12",
+        "ndvi": 0.198,
+        "precipitation_mm": 17.7,
+        "soil_moisture_pct": 11.2,
+        "composite_index": 0.738,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-01",
+        "ndvi": 0.307,
+        "precipitation_mm": 20.1,
+        "soil_moisture_pct": 11.9,
+        "composite_index": 0.666,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-02",
+        "ndvi": 0.343,
+        "precipitation_mm": 33.3,
+        "soil_moisture_pct": 17.8,
+        "composite_index": 0.543,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-03",
+        "ndvi": 0.404,
+        "precipitation_mm": 44.2,
+        "soil_moisture_pct": 24.7,
+        "composite_index": 0.412,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-04",
+        "ndvi": 0.599,
+        "precipitation_mm": 51.5,
+        "soil_moisture_pct": 27.6,
+        "composite_index": 0.266,
+        "severity": "healthy"
+      },
+      {
+        "month": "2023-05",
+        "ndvi": 0.645,
+        "precipitation_mm": 41.8,
+        "soil_moisture_pct": 32.6,
+        "composite_index": 0.251,
+        "severity": "healthy"
+      },
+      {
+        "month": "2023-06",
+        "ndvi": 0.624,
+        "precipitation_mm": 35.0,
+        "soil_moisture_pct": 25.9,
+        "composite_index": 0.34,
+        "severity": "healthy"
+      },
+      {
+        "month": "2023-07",
+        "ndvi": 0.569,
+        "precipitation_mm": 16.3,
+        "soil_moisture_pct": 21.7,
+        "composite_index": 0.49,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-08",
+        "ndvi": 0.598,
+        "precipitation_mm": 8.6,
+        "soil_moisture_pct": 17.5,
+        "composite_index": 0.542,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-09",
+        "ndvi": 0.42,
+        "precipitation_mm": 4.8,
+        "soil_moisture_pct": 10.2,
+        "composite_index": 0.698,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-10",
+        "ndvi": 0.384,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 6.4,
+        "composite_index": 0.763,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-11",
+        "ndvi": 0.267,
+        "precipitation_mm": 3.1,
+        "soil_moisture_pct": 8.1,
+        "composite_index": 0.797,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-12",
+        "ndvi": 0.238,
+        "precipitation_mm": 7.6,
+        "soil_moisture_pct": 6.7,
+        "composite_index": 0.799,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-01",
+        "ndvi": 0.246,
+        "precipitation_mm": 22.5,
+        "soil_moisture_pct": 11.3,
+        "composite_index": 0.689,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-02",
+        "ndvi": 0.341,
+        "precipitation_mm": 33.1,
+        "soil_moisture_pct": 15.4,
+        "composite_index": 0.562,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-03",
+        "ndvi": 0.451,
+        "precipitation_mm": 38.4,
+        "soil_moisture_pct": 23.8,
+        "composite_index": 0.423,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-04",
+        "ndvi": 0.563,
+        "precipitation_mm": 39.6,
+        "soil_moisture_pct": 23.9,
+        "composite_index": 0.362,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-05",
+        "ndvi": 0.667,
+        "precipitation_mm": 36.1,
+        "soil_moisture_pct": 27.4,
+        "composite_index": 0.303,
+        "severity": "healthy"
+      },
+      {
+        "month": "2024-06",
+        "ndvi": 0.619,
+        "precipitation_mm": 33.6,
+        "soil_moisture_pct": 23.5,
+        "composite_index": 0.366,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-07",
+        "ndvi": 0.623,
+        "precipitation_mm": 23.5,
+        "soil_moisture_pct": 19.5,
+        "composite_index": 0.441,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-08",
+        "ndvi": 0.563,
+        "precipitation_mm": 10.4,
+        "soil_moisture_pct": 14.7,
+        "composite_index": 0.569,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-09",
+        "ndvi": 0.495,
+        "precipitation_mm": 7.2,
+        "soil_moisture_pct": 7.8,
+        "composite_index": 0.664,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-10",
+        "ndvi": 0.301,
+        "precipitation_mm": 2.4,
+        "soil_moisture_pct": 4.9,
+        "composite_index": 0.805,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-11",
+        "ndvi": 0.252,
+        "precipitation_mm": 3.1,
+        "soil_moisture_pct": 6.4,
+        "composite_index": 0.816,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-12",
+        "ndvi": 0.227,
+        "precipitation_mm": 10.4,
+        "soil_moisture_pct": 5.7,
+        "composite_index": 0.796,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-01",
+        "ndvi": 0.302,
+        "precipitation_mm": 22.5,
+        "soil_moisture_pct": 13.2,
+        "composite_index": 0.648,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-02",
+        "ndvi": 0.329,
+        "precipitation_mm": 36.3,
+        "soil_moisture_pct": 18.8,
+        "composite_index": 0.528,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-03",
+        "ndvi": 0.45,
+        "precipitation_mm": 41.7,
+        "soil_moisture_pct": 26.6,
+        "composite_index": 0.389,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-04",
+        "ndvi": 0.608,
+        "precipitation_mm": 48.7,
+        "soil_moisture_pct": 31.2,
+        "composite_index": 0.244,
+        "severity": "healthy"
+      },
+      {
+        "month": "2025-05",
+        "ndvi": 0.672,
+        "precipitation_mm": 47.6,
+        "soil_moisture_pct": 32.3,
+        "composite_index": 0.211,
+        "severity": "healthy"
+      },
+      {
+        "month": "2025-06",
+        "ndvi": 0.682,
+        "precipitation_mm": 38.6,
+        "soil_moisture_pct": 30.2,
+        "composite_index": 0.264,
+        "severity": "healthy"
+      },
+      {
+        "month": "2025-07",
+        "ndvi": 0.617,
+        "precipitation_mm": 24.1,
+        "soil_moisture_pct": 22.6,
+        "composite_index": 0.42,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-08",
+        "ndvi": 0.565,
+        "precipitation_mm": 13.2,
+        "soil_moisture_pct": 20.9,
+        "composite_index": 0.512,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-09",
+        "ndvi": 0.46,
+        "precipitation_mm": 6.0,
+        "soil_moisture_pct": 12.7,
+        "composite_index": 0.655,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-10",
+        "ndvi": 0.314,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 6.6,
+        "composite_index": 0.797,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-11",
+        "ndvi": 0.223,
+        "precipitation_mm": 5.1,
+        "soil_moisture_pct": 6.1,
+        "composite_index": 0.823,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-12",
+        "ndvi": 0.251,
+        "precipitation_mm": 12.2,
+        "soil_moisture_pct": 9.6,
+        "composite_index": 0.749,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-01",
+        "ndvi": 0.295,
+        "precipitation_mm": 20.1,
+        "soil_moisture_pct": 11.3,
+        "composite_index": 0.677,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-02",
+        "ndvi": 0.329,
+        "precipitation_mm": 28.1,
+        "soil_moisture_pct": 18.5,
+        "composite_index": 0.572,
+        "severity": "moderate"
+      },
+      {
+        "month": "2026-03",
+        "ndvi": 0.491,
+        "precipitation_mm": 41.0,
+        "soil_moisture_pct": 22.6,
+        "composite_index": 0.399,
+        "severity": "moderate"
+      }
+    ],
+    "Atyrau": [
+      {
+        "month": "2021-04",
+        "ndvi": 0.228,
+        "precipitation_mm": 7.6,
+        "soil_moisture_pct": 12.9,
+        "composite_index": 0.762,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-05",
+        "ndvi": 0.228,
+        "precipitation_mm": 12.0,
+        "soil_moisture_pct": 15.4,
+        "composite_index": 0.723,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-06",
+        "ndvi": 0.263,
+        "precipitation_mm": 10.2,
+        "soil_moisture_pct": 12.5,
+        "composite_index": 0.734,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-07",
+        "ndvi": 0.212,
+        "precipitation_mm": 5.8,
+        "soil_moisture_pct": 8.7,
+        "composite_index": 0.807,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-08",
+        "ndvi": 0.237,
+        "precipitation_mm": 6.8,
+        "soil_moisture_pct": 9.2,
+        "composite_index": 0.786,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-09",
+        "ndvi": 0.125,
+        "precipitation_mm": 7.2,
+        "soil_moisture_pct": 8.3,
+        "composite_index": 0.846,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-10",
+        "ndvi": 0.125,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.1,
+        "composite_index": 0.921,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-11",
+        "ndvi": 0.104,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.6,
+        "composite_index": 0.928,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-12",
+        "ndvi": 0.114,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 6.4,
+        "composite_index": 0.898,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-01",
+        "ndvi": 0.138,
+        "precipitation_mm": 5.3,
+        "soil_moisture_pct": 4.5,
+        "composite_index": 0.874,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-02",
+        "ndvi": 0.111,
+        "precipitation_mm": 10.5,
+        "soil_moisture_pct": 9.5,
+        "composite_index": 0.829,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-03",
+        "ndvi": 0.08,
+        "precipitation_mm": 16.2,
+        "soil_moisture_pct": 15.9,
+        "composite_index": 0.773,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-04",
+        "ndvi": 0.162,
+        "precipitation_mm": 17.3,
+        "soil_moisture_pct": 13.4,
+        "composite_index": 0.743,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-05",
+        "ndvi": 0.243,
+        "precipitation_mm": 16.2,
+        "soil_moisture_pct": 19.4,
+        "composite_index": 0.668,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-06",
+        "ndvi": 0.24,
+        "precipitation_mm": 12.5,
+        "soil_moisture_pct": 16.4,
+        "composite_index": 0.708,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-07",
+        "ndvi": 0.209,
+        "precipitation_mm": 5.0,
+        "soil_moisture_pct": 13.6,
+        "composite_index": 0.78,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-08",
+        "ndvi": 0.191,
+        "precipitation_mm": 5.0,
+        "soil_moisture_pct": 10.4,
+        "composite_index": 0.81,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-09",
+        "ndvi": 0.142,
+        "precipitation_mm": 2.5,
+        "soil_moisture_pct": 9.2,
+        "composite_index": 0.855,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-10",
+        "ndvi": 0.086,
+        "precipitation_mm": 5.2,
+        "soil_moisture_pct": 3.8,
+        "composite_index": 0.906,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-11",
+        "ndvi": 0.068,
+        "precipitation_mm": 8.5,
+        "soil_moisture_pct": 3.5,
+        "composite_index": 0.9,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-12",
+        "ndvi": 0.122,
+        "precipitation_mm": 7.0,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.891,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-01",
+        "ndvi": 0.095,
+        "precipitation_mm": 4.9,
+        "soil_moisture_pct": 2.7,
+        "composite_index": 0.91,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-02",
+        "ndvi": 0.066,
+        "precipitation_mm": 10.1,
+        "soil_moisture_pct": 8.0,
+        "composite_index": 0.863,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-03",
+        "ndvi": 0.169,
+        "precipitation_mm": 11.3,
+        "soil_moisture_pct": 8.3,
+        "composite_index": 0.804,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-04",
+        "ndvi": 0.166,
+        "precipitation_mm": 11.4,
+        "soil_moisture_pct": 9.7,
+        "composite_index": 0.795,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-05",
+        "ndvi": 0.218,
+        "precipitation_mm": 12.1,
+        "soil_moisture_pct": 10.5,
+        "composite_index": 0.76,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-06",
+        "ndvi": 0.227,
+        "precipitation_mm": 7.5,
+        "soil_moisture_pct": 11.2,
+        "composite_index": 0.774,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-07",
+        "ndvi": 0.239,
+        "precipitation_mm": 7.1,
+        "soil_moisture_pct": 10.2,
+        "composite_index": 0.777,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-08",
+        "ndvi": 0.146,
+        "precipitation_mm": 2.1,
+        "soil_moisture_pct": 7.5,
+        "composite_index": 0.866,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-09",
+        "ndvi": 0.177,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.0,
+        "composite_index": 0.876,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-10",
+        "ndvi": 0.155,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.9,
+        "composite_index": 0.901,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-11",
+        "ndvi": 0.105,
+        "precipitation_mm": 1.6,
+        "soil_moisture_pct": 3.4,
+        "composite_index": 0.917,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-12",
+        "ndvi": 0.083,
+        "precipitation_mm": 3.7,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.926,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-01",
+        "ndvi": 0.086,
+        "precipitation_mm": 9.7,
+        "soil_moisture_pct": 4.0,
+        "composite_index": 0.882,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-02",
+        "ndvi": 0.114,
+        "precipitation_mm": 7.4,
+        "soil_moisture_pct": 7.6,
+        "composite_index": 0.855,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-03",
+        "ndvi": 0.132,
+        "precipitation_mm": 13.8,
+        "soil_moisture_pct": 7.2,
+        "composite_index": 0.817,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-04",
+        "ndvi": 0.164,
+        "precipitation_mm": 12.5,
+        "soil_moisture_pct": 10.4,
+        "composite_index": 0.786,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-05",
+        "ndvi": 0.233,
+        "precipitation_mm": 14.2,
+        "soil_moisture_pct": 10.2,
+        "composite_index": 0.745,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-06",
+        "ndvi": 0.247,
+        "precipitation_mm": 6.2,
+        "soil_moisture_pct": 12.1,
+        "composite_index": 0.765,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-07",
+        "ndvi": 0.243,
+        "precipitation_mm": 7.5,
+        "soil_moisture_pct": 8.9,
+        "composite_index": 0.782,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-08",
+        "ndvi": 0.172,
+        "precipitation_mm": 2.0,
+        "soil_moisture_pct": 7.2,
+        "composite_index": 0.856,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-09",
+        "ndvi": 0.157,
+        "precipitation_mm": 1.2,
+        "soil_moisture_pct": 2.3,
+        "composite_index": 0.901,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-10",
+        "ndvi": 0.125,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.922,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-11",
+        "ndvi": 0.087,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 3.2,
+        "composite_index": 0.933,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-12",
+        "ndvi": 0.107,
+        "precipitation_mm": 2.8,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.919,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-01",
+        "ndvi": 0.063,
+        "precipitation_mm": 6.5,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.922,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-02",
+        "ndvi": 0.125,
+        "precipitation_mm": 12.5,
+        "soil_moisture_pct": 7.2,
+        "composite_index": 0.827,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-03",
+        "ndvi": 0.143,
+        "precipitation_mm": 13.6,
+        "soil_moisture_pct": 10.7,
+        "composite_index": 0.789,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-04",
+        "ndvi": 0.229,
+        "precipitation_mm": 14.1,
+        "soil_moisture_pct": 11.0,
+        "composite_index": 0.742,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-05",
+        "ndvi": 0.21,
+        "precipitation_mm": 13.6,
+        "soil_moisture_pct": 15.1,
+        "composite_index": 0.727,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-06",
+        "ndvi": 0.224,
+        "precipitation_mm": 7.3,
+        "soil_moisture_pct": 10.7,
+        "composite_index": 0.779,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-07",
+        "ndvi": 0.161,
+        "precipitation_mm": 8.0,
+        "soil_moisture_pct": 8.1,
+        "composite_index": 0.825,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-08",
+        "ndvi": 0.159,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 6.0,
+        "composite_index": 0.878,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-09",
+        "ndvi": 0.175,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.5,
+        "composite_index": 0.894,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-10",
+        "ndvi": 0.125,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 3.9,
+        "composite_index": 0.909,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-11",
+        "ndvi": 0.113,
+        "precipitation_mm": 0.9,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.925,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-12",
+        "ndvi": 0.077,
+        "precipitation_mm": 5.0,
+        "soil_moisture_pct": 2.4,
+        "composite_index": 0.921,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-01",
+        "ndvi": 0.05,
+        "precipitation_mm": 9.7,
+        "soil_moisture_pct": 4.0,
+        "composite_index": 0.899,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-02",
+        "ndvi": 0.107,
+        "precipitation_mm": 9.7,
+        "soil_moisture_pct": 8.5,
+        "composite_index": 0.841,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-03",
+        "ndvi": 0.165,
+        "precipitation_mm": 11.0,
+        "soil_moisture_pct": 10.4,
+        "composite_index": 0.793,
+        "severity": "severe"
+      }
+    ],
+    "East Kazakhstan": [
+      {
+        "month": "2021-04",
+        "ndvi": 0.597,
+        "precipitation_mm": 48.2,
+        "soil_moisture_pct": 29.0,
+        "composite_index": 0.268,
+        "severity": "healthy"
+      },
+      {
+        "month": "2021-05",
+        "ndvi": 0.575,
+        "precipitation_mm": 52.3,
+        "soil_moisture_pct": 27.7,
+        "composite_index": 0.277,
+        "severity": "healthy"
+      },
+      {
+        "month": "2021-06",
+        "ndvi": 0.626,
+        "precipitation_mm": 30.9,
+        "soil_moisture_pct": 30.4,
+        "composite_index": 0.33,
+        "severity": "healthy"
+      },
+      {
+        "month": "2021-07",
+        "ndvi": 0.622,
+        "precipitation_mm": 17.7,
+        "soil_moisture_pct": 24.0,
+        "composite_index": 0.44,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-08",
+        "ndvi": 0.549,
+        "precipitation_mm": 10.0,
+        "soil_moisture_pct": 15.9,
+        "composite_index": 0.569,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-09",
+        "ndvi": 0.407,
+        "precipitation_mm": 1.6,
+        "soil_moisture_pct": 11.8,
+        "composite_index": 0.709,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-10",
+        "ndvi": 0.309,
+        "precipitation_mm": 2.2,
+        "soil_moisture_pct": 6.1,
+        "composite_index": 0.794,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-11",
+        "ndvi": 0.196,
+        "precipitation_mm": 0.7,
+        "soil_moisture_pct": 7.9,
+        "composite_index": 0.845,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-12",
+        "ndvi": 0.203,
+        "precipitation_mm": 18.0,
+        "soil_moisture_pct": 8.2,
+        "composite_index": 0.753,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-01",
+        "ndvi": 0.213,
+        "precipitation_mm": 24.7,
+        "soil_moisture_pct": 15.0,
+        "composite_index": 0.67,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-02",
+        "ndvi": 0.289,
+        "precipitation_mm": 47.9,
+        "soil_moisture_pct": 20.4,
+        "composite_index": 0.48,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-03",
+        "ndvi": 0.449,
+        "precipitation_mm": 55.1,
+        "soil_moisture_pct": 29.0,
+        "composite_index": 0.332,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-04",
+        "ndvi": 0.503,
+        "precipitation_mm": 53.5,
+        "soil_moisture_pct": 35.1,
+        "composite_index": 0.265,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-05",
+        "ndvi": 0.635,
+        "precipitation_mm": 50.9,
+        "soil_moisture_pct": 34.4,
+        "composite_index": 0.203,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-06",
+        "ndvi": 0.638,
+        "precipitation_mm": 38.7,
+        "soil_moisture_pct": 31.2,
+        "composite_index": 0.279,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-07",
+        "ndvi": 0.588,
+        "precipitation_mm": 22.9,
+        "soil_moisture_pct": 30.1,
+        "composite_index": 0.391,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-08",
+        "ndvi": 0.591,
+        "precipitation_mm": 19.2,
+        "soil_moisture_pct": 21.0,
+        "composite_index": 0.468,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-09",
+        "ndvi": 0.415,
+        "precipitation_mm": 5.7,
+        "soil_moisture_pct": 16.2,
+        "composite_index": 0.656,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-10",
+        "ndvi": 0.312,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 12.6,
+        "composite_index": 0.758,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-11",
+        "ndvi": 0.245,
+        "precipitation_mm": 2.2,
+        "soil_moisture_pct": 7.5,
+        "composite_index": 0.817,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-12",
+        "ndvi": 0.238,
+        "precipitation_mm": 10.5,
+        "soil_moisture_pct": 8.9,
+        "composite_index": 0.769,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-01",
+        "ndvi": 0.213,
+        "precipitation_mm": 18.7,
+        "soil_moisture_pct": 13.3,
+        "composite_index": 0.711,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-02",
+        "ndvi": 0.347,
+        "precipitation_mm": 29.1,
+        "soil_moisture_pct": 14.4,
+        "composite_index": 0.585,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-03",
+        "ndvi": 0.419,
+        "precipitation_mm": 39.7,
+        "soil_moisture_pct": 20.2,
+        "composite_index": 0.457,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-04",
+        "ndvi": 0.576,
+        "precipitation_mm": 35.0,
+        "soil_moisture_pct": 24.4,
+        "composite_index": 0.374,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-05",
+        "ndvi": 0.661,
+        "precipitation_mm": 30.5,
+        "soil_moisture_pct": 28.1,
+        "composite_index": 0.33,
+        "severity": "healthy"
+      },
+      {
+        "month": "2023-06",
+        "ndvi": 0.581,
+        "precipitation_mm": 29.1,
+        "soil_moisture_pct": 24.6,
+        "composite_index": 0.4,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-07",
+        "ndvi": 0.634,
+        "precipitation_mm": 10.1,
+        "soil_moisture_pct": 18.1,
+        "composite_index": 0.512,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-08",
+        "ndvi": 0.516,
+        "precipitation_mm": 9.9,
+        "soil_moisture_pct": 14.4,
+        "composite_index": 0.596,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-09",
+        "ndvi": 0.422,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 9.9,
+        "composite_index": 0.72,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-10",
+        "ndvi": 0.299,
+        "precipitation_mm": 0.7,
+        "soil_moisture_pct": 7.5,
+        "composite_index": 0.797,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-11",
+        "ndvi": 0.291,
+        "precipitation_mm": 0.7,
+        "soil_moisture_pct": 4.8,
+        "composite_index": 0.819,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-12",
+        "ndvi": 0.222,
+        "precipitation_mm": 8.9,
+        "soil_moisture_pct": 6.6,
+        "composite_index": 0.801,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-01",
+        "ndvi": 0.202,
+        "precipitation_mm": 18.9,
+        "soil_moisture_pct": 8.2,
+        "composite_index": 0.75,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-02",
+        "ndvi": 0.296,
+        "precipitation_mm": 21.9,
+        "soil_moisture_pct": 16.0,
+        "composite_index": 0.636,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-03",
+        "ndvi": 0.425,
+        "precipitation_mm": 36.6,
+        "soil_moisture_pct": 19.5,
+        "composite_index": 0.475,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-04",
+        "ndvi": 0.482,
+        "precipitation_mm": 32.3,
+        "soil_moisture_pct": 23.7,
+        "composite_index": 0.44,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-05",
+        "ndvi": 0.586,
+        "precipitation_mm": 29.9,
+        "soil_moisture_pct": 23.6,
+        "composite_index": 0.4,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-06",
+        "ndvi": 0.632,
+        "precipitation_mm": 23.6,
+        "soil_moisture_pct": 22.1,
+        "composite_index": 0.419,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-07",
+        "ndvi": 0.595,
+        "precipitation_mm": 10.0,
+        "soil_moisture_pct": 19.8,
+        "composite_index": 0.52,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-08",
+        "ndvi": 0.509,
+        "precipitation_mm": 12.8,
+        "soil_moisture_pct": 12.6,
+        "composite_index": 0.598,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-09",
+        "ndvi": 0.381,
+        "precipitation_mm": 5.9,
+        "soil_moisture_pct": 7.2,
+        "composite_index": 0.732,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-10",
+        "ndvi": 0.306,
+        "precipitation_mm": 1.8,
+        "soil_moisture_pct": 5.6,
+        "composite_index": 0.801,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-11",
+        "ndvi": 0.199,
+        "precipitation_mm": 2.9,
+        "soil_moisture_pct": 4.5,
+        "composite_index": 0.856,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-12",
+        "ndvi": 0.259,
+        "precipitation_mm": 10.7,
+        "soil_moisture_pct": 10.6,
+        "composite_index": 0.747,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-01",
+        "ndvi": 0.199,
+        "precipitation_mm": 20.9,
+        "soil_moisture_pct": 9.7,
+        "composite_index": 0.731,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-02",
+        "ndvi": 0.359,
+        "precipitation_mm": 34.0,
+        "soil_moisture_pct": 18.0,
+        "composite_index": 0.53,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-03",
+        "ndvi": 0.405,
+        "precipitation_mm": 37.0,
+        "soil_moisture_pct": 19.5,
+        "composite_index": 0.483,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-04",
+        "ndvi": 0.584,
+        "precipitation_mm": 43.5,
+        "soil_moisture_pct": 26.3,
+        "composite_index": 0.315,
+        "severity": "healthy"
+      },
+      {
+        "month": "2025-05",
+        "ndvi": 0.637,
+        "precipitation_mm": 41.4,
+        "soil_moisture_pct": 29.6,
+        "composite_index": 0.277,
+        "severity": "healthy"
+      },
+      {
+        "month": "2025-06",
+        "ndvi": 0.588,
+        "precipitation_mm": 29.4,
+        "soil_moisture_pct": 27.0,
+        "composite_index": 0.379,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-07",
+        "ndvi": 0.62,
+        "precipitation_mm": 23.9,
+        "soil_moisture_pct": 21.0,
+        "composite_index": 0.431,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-08",
+        "ndvi": 0.537,
+        "precipitation_mm": 17.1,
+        "soil_moisture_pct": 17.9,
+        "composite_index": 0.526,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-09",
+        "ndvi": 0.455,
+        "precipitation_mm": 2.8,
+        "soil_moisture_pct": 12.4,
+        "composite_index": 0.676,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-10",
+        "ndvi": 0.379,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 9.0,
+        "composite_index": 0.748,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-11",
+        "ndvi": 0.222,
+        "precipitation_mm": 4.6,
+        "soil_moisture_pct": 7.0,
+        "composite_index": 0.819,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-12",
+        "ndvi": 0.198,
+        "precipitation_mm": 13.8,
+        "soil_moisture_pct": 6.1,
+        "composite_index": 0.791,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-01",
+        "ndvi": 0.224,
+        "precipitation_mm": 19.2,
+        "soil_moisture_pct": 13.2,
+        "composite_index": 0.703,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-02",
+        "ndvi": 0.334,
+        "precipitation_mm": 31.7,
+        "soil_moisture_pct": 14.4,
+        "composite_index": 0.579,
+        "severity": "moderate"
+      },
+      {
+        "month": "2026-03",
+        "ndvi": 0.431,
+        "precipitation_mm": 32.4,
+        "soil_moisture_pct": 19.8,
+        "composite_index": 0.49,
+        "severity": "moderate"
+      }
+    ],
+    "Jambyl": [
+      {
+        "month": "2021-04",
+        "ndvi": 0.417,
+        "precipitation_mm": 27.1,
+        "soil_moisture_pct": 22.0,
+        "composite_index": 0.509,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-05",
+        "ndvi": 0.441,
+        "precipitation_mm": 24.8,
+        "soil_moisture_pct": 22.9,
+        "composite_index": 0.503,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-06",
+        "ndvi": 0.449,
+        "precipitation_mm": 15.9,
+        "soil_moisture_pct": 21.8,
+        "composite_index": 0.551,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-07",
+        "ndvi": 0.46,
+        "precipitation_mm": 7.1,
+        "soil_moisture_pct": 16.8,
+        "composite_index": 0.622,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-08",
+        "ndvi": 0.379,
+        "precipitation_mm": 12.0,
+        "soil_moisture_pct": 11.5,
+        "composite_index": 0.674,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-09",
+        "ndvi": 0.298,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 6.8,
+        "composite_index": 0.803,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-10",
+        "ndvi": 0.217,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 3.8,
+        "composite_index": 0.864,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-11",
+        "ndvi": 0.134,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.917,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-12",
+        "ndvi": 0.146,
+        "precipitation_mm": 4.8,
+        "soil_moisture_pct": 3.5,
+        "composite_index": 0.88,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-01",
+        "ndvi": 0.197,
+        "precipitation_mm": 16.7,
+        "soil_moisture_pct": 9.7,
+        "composite_index": 0.753,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-02",
+        "ndvi": 0.225,
+        "precipitation_mm": 30.0,
+        "soil_moisture_pct": 15.9,
+        "composite_index": 0.632,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-03",
+        "ndvi": 0.329,
+        "precipitation_mm": 23.6,
+        "soil_moisture_pct": 19.7,
+        "composite_index": 0.586,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-04",
+        "ndvi": 0.326,
+        "precipitation_mm": 32.4,
+        "soil_moisture_pct": 25.1,
+        "composite_index": 0.508,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-05",
+        "ndvi": 0.427,
+        "precipitation_mm": 32.9,
+        "soil_moisture_pct": 24.3,
+        "composite_index": 0.459,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-06",
+        "ndvi": 0.485,
+        "precipitation_mm": 20.6,
+        "soil_moisture_pct": 24.1,
+        "composite_index": 0.494,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-07",
+        "ndvi": 0.46,
+        "precipitation_mm": 18.4,
+        "soil_moisture_pct": 20.5,
+        "composite_index": 0.541,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-08",
+        "ndvi": 0.45,
+        "precipitation_mm": 7.2,
+        "soil_moisture_pct": 14.9,
+        "composite_index": 0.64,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-09",
+        "ndvi": 0.232,
+        "precipitation_mm": 7.6,
+        "soil_moisture_pct": 9.8,
+        "composite_index": 0.781,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-10",
+        "ndvi": 0.203,
+        "precipitation_mm": 4.0,
+        "soil_moisture_pct": 8.4,
+        "composite_index": 0.822,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-11",
+        "ndvi": 0.186,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.8,
+        "composite_index": 0.866,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-12",
+        "ndvi": 0.143,
+        "precipitation_mm": 4.9,
+        "soil_moisture_pct": 8.1,
+        "composite_index": 0.85,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-01",
+        "ndvi": 0.119,
+        "precipitation_mm": 13.8,
+        "soil_moisture_pct": 8.1,
+        "composite_index": 0.817,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-02",
+        "ndvi": 0.3,
+        "precipitation_mm": 19.2,
+        "soil_moisture_pct": 8.1,
+        "composite_index": 0.7,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-03",
+        "ndvi": 0.29,
+        "precipitation_mm": 22.8,
+        "soil_moisture_pct": 15.4,
+        "composite_index": 0.638,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-04",
+        "ndvi": 0.421,
+        "precipitation_mm": 18.4,
+        "soil_moisture_pct": 17.2,
+        "composite_index": 0.583,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-05",
+        "ndvi": 0.477,
+        "precipitation_mm": 27.2,
+        "soil_moisture_pct": 21.4,
+        "composite_index": 0.483,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-06",
+        "ndvi": 0.456,
+        "precipitation_mm": 21.5,
+        "soil_moisture_pct": 20.2,
+        "composite_index": 0.53,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-07",
+        "ndvi": 0.483,
+        "precipitation_mm": 14.3,
+        "soil_moisture_pct": 16.2,
+        "composite_index": 0.579,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-08",
+        "ndvi": 0.368,
+        "precipitation_mm": 1.7,
+        "soil_moisture_pct": 12.7,
+        "composite_index": 0.723,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-09",
+        "ndvi": 0.305,
+        "precipitation_mm": 1.5,
+        "soil_moisture_pct": 6.6,
+        "composite_index": 0.796,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-10",
+        "ndvi": 0.227,
+        "precipitation_mm": 0.7,
+        "soil_moisture_pct": 3.2,
+        "composite_index": 0.862,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-11",
+        "ndvi": 0.185,
+        "precipitation_mm": 2.4,
+        "soil_moisture_pct": 3.6,
+        "composite_index": 0.872,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-12",
+        "ndvi": 0.14,
+        "precipitation_mm": 8.4,
+        "soil_moisture_pct": 7.5,
+        "composite_index": 0.838,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-01",
+        "ndvi": 0.164,
+        "precipitation_mm": 14.7,
+        "soil_moisture_pct": 8.1,
+        "composite_index": 0.79,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-02",
+        "ndvi": 0.159,
+        "precipitation_mm": 14.2,
+        "soil_moisture_pct": 9.2,
+        "composite_index": 0.788,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-03",
+        "ndvi": 0.338,
+        "precipitation_mm": 21.1,
+        "soil_moisture_pct": 14.3,
+        "composite_index": 0.63,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-04",
+        "ndvi": 0.411,
+        "precipitation_mm": 19.3,
+        "soil_moisture_pct": 14.9,
+        "composite_index": 0.599,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-05",
+        "ndvi": 0.411,
+        "precipitation_mm": 20.0,
+        "soil_moisture_pct": 16.7,
+        "composite_index": 0.583,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-06",
+        "ndvi": 0.473,
+        "precipitation_mm": 14.3,
+        "soil_moisture_pct": 17.4,
+        "composite_index": 0.576,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-07",
+        "ndvi": 0.475,
+        "precipitation_mm": 15.6,
+        "soil_moisture_pct": 14.6,
+        "composite_index": 0.587,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-08",
+        "ndvi": 0.397,
+        "precipitation_mm": 7.5,
+        "soil_moisture_pct": 11.1,
+        "composite_index": 0.69,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-09",
+        "ndvi": 0.295,
+        "precipitation_mm": 5.3,
+        "soil_moisture_pct": 9.3,
+        "composite_index": 0.763,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-10",
+        "ndvi": 0.298,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 4.8,
+        "composite_index": 0.817,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-11",
+        "ndvi": 0.195,
+        "precipitation_mm": 1.5,
+        "soil_moisture_pct": 4.3,
+        "composite_index": 0.866,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-12",
+        "ndvi": 0.158,
+        "precipitation_mm": 4.9,
+        "soil_moisture_pct": 6.9,
+        "composite_index": 0.85,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-01",
+        "ndvi": 0.187,
+        "precipitation_mm": 13.2,
+        "soil_moisture_pct": 9.3,
+        "composite_index": 0.778,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-02",
+        "ndvi": 0.243,
+        "precipitation_mm": 20.4,
+        "soil_moisture_pct": 11.9,
+        "composite_index": 0.697,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-03",
+        "ndvi": 0.278,
+        "precipitation_mm": 24.2,
+        "soil_moisture_pct": 14.3,
+        "composite_index": 0.645,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-04",
+        "ndvi": 0.398,
+        "precipitation_mm": 22.5,
+        "soil_moisture_pct": 20.3,
+        "composite_index": 0.553,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-05",
+        "ndvi": 0.47,
+        "precipitation_mm": 25.1,
+        "soil_moisture_pct": 19.8,
+        "composite_index": 0.507,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-06",
+        "ndvi": 0.48,
+        "precipitation_mm": 13.6,
+        "soil_moisture_pct": 17.3,
+        "composite_index": 0.577,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-07",
+        "ndvi": 0.443,
+        "precipitation_mm": 14.0,
+        "soil_moisture_pct": 15.9,
+        "composite_index": 0.602,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-08",
+        "ndvi": 0.361,
+        "precipitation_mm": 6.9,
+        "soil_moisture_pct": 11.3,
+        "composite_index": 0.709,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-09",
+        "ndvi": 0.283,
+        "precipitation_mm": 2.7,
+        "soil_moisture_pct": 7.7,
+        "composite_index": 0.794,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-10",
+        "ndvi": 0.274,
+        "precipitation_mm": 2.0,
+        "soil_moisture_pct": 6.2,
+        "composite_index": 0.812,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-11",
+        "ndvi": 0.192,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.6,
+        "composite_index": 0.884,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-12",
+        "ndvi": 0.118,
+        "precipitation_mm": 15.1,
+        "soil_moisture_pct": 3.5,
+        "composite_index": 0.842,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-01",
+        "ndvi": 0.176,
+        "precipitation_mm": 10.8,
+        "soil_moisture_pct": 6.9,
+        "composite_index": 0.812,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-02",
+        "ndvi": 0.221,
+        "precipitation_mm": 12.3,
+        "soil_moisture_pct": 9.5,
+        "composite_index": 0.765,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-03",
+        "ndvi": 0.273,
+        "precipitation_mm": 21.9,
+        "soil_moisture_pct": 13.6,
+        "composite_index": 0.663,
+        "severity": "severe"
+      }
+    ],
+    "Karaganda": [
+      {
+        "month": "2021-04",
+        "ndvi": 0.349,
+        "precipitation_mm": 25.8,
+        "soil_moisture_pct": 18.1,
+        "composite_index": 0.576,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-05",
+        "ndvi": 0.451,
+        "precipitation_mm": 22.3,
+        "soil_moisture_pct": 20.3,
+        "composite_index": 0.528,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-06",
+        "ndvi": 0.402,
+        "precipitation_mm": 20.8,
+        "soil_moisture_pct": 18.3,
+        "composite_index": 0.573,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-07",
+        "ndvi": 0.435,
+        "precipitation_mm": 13.6,
+        "soil_moisture_pct": 15.7,
+        "composite_index": 0.61,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-08",
+        "ndvi": 0.376,
+        "precipitation_mm": 5.1,
+        "soil_moisture_pct": 14.0,
+        "composite_index": 0.693,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-09",
+        "ndvi": 0.326,
+        "precipitation_mm": 3.1,
+        "soil_moisture_pct": 6.2,
+        "composite_index": 0.78,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-10",
+        "ndvi": 0.192,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 4.7,
+        "composite_index": 0.87,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-11",
+        "ndvi": 0.186,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.8,
+        "composite_index": 0.866,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-12",
+        "ndvi": 0.153,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 4.4,
+        "composite_index": 0.892,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-01",
+        "ndvi": 0.095,
+        "precipitation_mm": 13.3,
+        "soil_moisture_pct": 9.1,
+        "composite_index": 0.826,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-02",
+        "ndvi": 0.207,
+        "precipitation_mm": 22.3,
+        "soil_moisture_pct": 14.2,
+        "composite_index": 0.69,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-03",
+        "ndvi": 0.28,
+        "precipitation_mm": 33.5,
+        "soil_moisture_pct": 21.6,
+        "composite_index": 0.549,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-04",
+        "ndvi": 0.335,
+        "precipitation_mm": 34.8,
+        "soil_moisture_pct": 20.9,
+        "composite_index": 0.518,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-05",
+        "ndvi": 0.398,
+        "precipitation_mm": 33.6,
+        "soil_moisture_pct": 21.3,
+        "composite_index": 0.491,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-06",
+        "ndvi": 0.459,
+        "precipitation_mm": 19.5,
+        "soil_moisture_pct": 23.2,
+        "composite_index": 0.518,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-07",
+        "ndvi": 0.417,
+        "precipitation_mm": 20.6,
+        "soil_moisture_pct": 18.5,
+        "composite_index": 0.565,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-08",
+        "ndvi": 0.368,
+        "precipitation_mm": 9.6,
+        "soil_moisture_pct": 14.4,
+        "composite_index": 0.672,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-09",
+        "ndvi": 0.273,
+        "precipitation_mm": 1.9,
+        "soil_moisture_pct": 10.0,
+        "composite_index": 0.787,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-10",
+        "ndvi": 0.252,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.6,
+        "composite_index": 0.834,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-11",
+        "ndvi": 0.182,
+        "precipitation_mm": 1.6,
+        "soil_moisture_pct": 4.7,
+        "composite_index": 0.87,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-12",
+        "ndvi": 0.152,
+        "precipitation_mm": 5.7,
+        "soil_moisture_pct": 5.1,
+        "composite_index": 0.862,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-01",
+        "ndvi": 0.186,
+        "precipitation_mm": 7.9,
+        "soil_moisture_pct": 8.9,
+        "composite_index": 0.809,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-02",
+        "ndvi": 0.232,
+        "precipitation_mm": 13.0,
+        "soil_moisture_pct": 11.1,
+        "composite_index": 0.745,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-03",
+        "ndvi": 0.303,
+        "precipitation_mm": 23.2,
+        "soil_moisture_pct": 16.0,
+        "composite_index": 0.626,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-04",
+        "ndvi": 0.359,
+        "precipitation_mm": 20.2,
+        "soil_moisture_pct": 15.9,
+        "composite_index": 0.613,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-05",
+        "ndvi": 0.393,
+        "precipitation_mm": 18.6,
+        "soil_moisture_pct": 18.2,
+        "composite_index": 0.589,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-06",
+        "ndvi": 0.442,
+        "precipitation_mm": 15.3,
+        "soil_moisture_pct": 15.7,
+        "composite_index": 0.597,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-07",
+        "ndvi": 0.433,
+        "precipitation_mm": 9.7,
+        "soil_moisture_pct": 12.7,
+        "composite_index": 0.651,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-08",
+        "ndvi": 0.365,
+        "precipitation_mm": 4.8,
+        "soil_moisture_pct": 9.1,
+        "composite_index": 0.733,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-09",
+        "ndvi": 0.322,
+        "precipitation_mm": 4.0,
+        "soil_moisture_pct": 7.2,
+        "composite_index": 0.771,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-10",
+        "ndvi": 0.229,
+        "precipitation_mm": 1.6,
+        "soil_moisture_pct": 4.5,
+        "composite_index": 0.848,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-11",
+        "ndvi": 0.199,
+        "precipitation_mm": 6.5,
+        "soil_moisture_pct": 3.7,
+        "composite_index": 0.844,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-12",
+        "ndvi": 0.166,
+        "precipitation_mm": 8.2,
+        "soil_moisture_pct": 4.0,
+        "composite_index": 0.849,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-01",
+        "ndvi": 0.139,
+        "precipitation_mm": 12.9,
+        "soil_moisture_pct": 4.1,
+        "composite_index": 0.839,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-02",
+        "ndvi": 0.279,
+        "precipitation_mm": 17.8,
+        "soil_moisture_pct": 10.0,
+        "composite_index": 0.705,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-03",
+        "ndvi": 0.299,
+        "precipitation_mm": 24.2,
+        "soil_moisture_pct": 11.5,
+        "composite_index": 0.653,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-04",
+        "ndvi": 0.335,
+        "precipitation_mm": 18.5,
+        "soil_moisture_pct": 14.9,
+        "composite_index": 0.641,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-05",
+        "ndvi": 0.392,
+        "precipitation_mm": 19.4,
+        "soil_moisture_pct": 16.4,
+        "composite_index": 0.598,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-06",
+        "ndvi": 0.418,
+        "precipitation_mm": 20.0,
+        "soil_moisture_pct": 13.2,
+        "composite_index": 0.603,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-07",
+        "ndvi": 0.384,
+        "precipitation_mm": 11.3,
+        "soil_moisture_pct": 12.6,
+        "composite_index": 0.667,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-08",
+        "ndvi": 0.382,
+        "precipitation_mm": 3.2,
+        "soil_moisture_pct": 8.1,
+        "composite_index": 0.738,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-09",
+        "ndvi": 0.278,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 7.2,
+        "composite_index": 0.81,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-10",
+        "ndvi": 0.211,
+        "precipitation_mm": 2.3,
+        "soil_moisture_pct": 5.0,
+        "composite_index": 0.85,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-11",
+        "ndvi": 0.204,
+        "precipitation_mm": 4.1,
+        "soil_moisture_pct": 4.4,
+        "composite_index": 0.849,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-12",
+        "ndvi": 0.176,
+        "precipitation_mm": 3.5,
+        "soil_moisture_pct": 3.7,
+        "composite_index": 0.87,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-01",
+        "ndvi": 0.117,
+        "precipitation_mm": 12.9,
+        "soil_moisture_pct": 6.6,
+        "composite_index": 0.833,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-02",
+        "ndvi": 0.237,
+        "precipitation_mm": 19.6,
+        "soil_moisture_pct": 9.4,
+        "composite_index": 0.721,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-03",
+        "ndvi": 0.267,
+        "precipitation_mm": 21.3,
+        "soil_moisture_pct": 14.5,
+        "composite_index": 0.663,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-04",
+        "ndvi": 0.375,
+        "precipitation_mm": 20.5,
+        "soil_moisture_pct": 18.1,
+        "composite_index": 0.589,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-05",
+        "ndvi": 0.372,
+        "precipitation_mm": 15.9,
+        "soil_moisture_pct": 20.2,
+        "composite_index": 0.6,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-06",
+        "ndvi": 0.403,
+        "precipitation_mm": 16.3,
+        "soil_moisture_pct": 15.9,
+        "composite_index": 0.611,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-07",
+        "ndvi": 0.38,
+        "precipitation_mm": 10.8,
+        "soil_moisture_pct": 14.7,
+        "composite_index": 0.658,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-08",
+        "ndvi": 0.399,
+        "precipitation_mm": 7.3,
+        "soil_moisture_pct": 11.1,
+        "composite_index": 0.69,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-09",
+        "ndvi": 0.32,
+        "precipitation_mm": 5.0,
+        "soil_moisture_pct": 8.3,
+        "composite_index": 0.76,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-10",
+        "ndvi": 0.213,
+        "precipitation_mm": 3.1,
+        "soil_moisture_pct": 7.5,
+        "composite_index": 0.828,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-11",
+        "ndvi": 0.192,
+        "precipitation_mm": 6.9,
+        "soil_moisture_pct": 5.2,
+        "composite_index": 0.835,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-12",
+        "ndvi": 0.178,
+        "precipitation_mm": 2.7,
+        "soil_moisture_pct": 3.2,
+        "composite_index": 0.876,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-01",
+        "ndvi": 0.171,
+        "precipitation_mm": 6.0,
+        "soil_moisture_pct": 6.1,
+        "composite_index": 0.844,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-02",
+        "ndvi": 0.251,
+        "precipitation_mm": 14.5,
+        "soil_moisture_pct": 11.3,
+        "composite_index": 0.727,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-03",
+        "ndvi": 0.257,
+        "precipitation_mm": 19.0,
+        "soil_moisture_pct": 15.5,
+        "composite_index": 0.673,
+        "severity": "severe"
+      }
+    ],
+    "Kostanay": [
+      {
+        "month": "2021-04",
+        "ndvi": 0.528,
+        "precipitation_mm": 37.5,
+        "soil_moisture_pct": 30.5,
+        "composite_index": 0.345,
+        "severity": "healthy"
+      },
+      {
+        "month": "2021-05",
+        "ndvi": 0.636,
+        "precipitation_mm": 31.6,
+        "soil_moisture_pct": 31.5,
+        "composite_index": 0.314,
+        "severity": "healthy"
+      },
+      {
+        "month": "2021-06",
+        "ndvi": 0.606,
+        "precipitation_mm": 27.4,
+        "soil_moisture_pct": 28.0,
+        "composite_index": 0.374,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-07",
+        "ndvi": 0.629,
+        "precipitation_mm": 14.9,
+        "soil_moisture_pct": 24.3,
+        "composite_index": 0.449,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-08",
+        "ndvi": 0.538,
+        "precipitation_mm": 11.6,
+        "soil_moisture_pct": 17.4,
+        "composite_index": 0.557,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-09",
+        "ndvi": 0.45,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 13.5,
+        "composite_index": 0.682,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-10",
+        "ndvi": 0.329,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 8.1,
+        "composite_index": 0.779,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-11",
+        "ndvi": 0.249,
+        "precipitation_mm": 1.4,
+        "soil_moisture_pct": 4.8,
+        "composite_index": 0.837,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-12",
+        "ndvi": 0.209,
+        "precipitation_mm": 4.8,
+        "soil_moisture_pct": 10.0,
+        "composite_index": 0.805,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-01",
+        "ndvi": 0.209,
+        "precipitation_mm": 20.7,
+        "soil_moisture_pct": 16.3,
+        "composite_index": 0.683,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-02",
+        "ndvi": 0.336,
+        "precipitation_mm": 36.1,
+        "soil_moisture_pct": 24.2,
+        "composite_index": 0.491,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-03",
+        "ndvi": 0.411,
+        "precipitation_mm": 39.1,
+        "soil_moisture_pct": 30.4,
+        "composite_index": 0.396,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-04",
+        "ndvi": 0.546,
+        "precipitation_mm": 44.3,
+        "soil_moisture_pct": 32.6,
+        "composite_index": 0.288,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-05",
+        "ndvi": 0.634,
+        "precipitation_mm": 44.0,
+        "soil_moisture_pct": 34.4,
+        "composite_index": 0.234,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-06",
+        "ndvi": 0.647,
+        "precipitation_mm": 29.6,
+        "soil_moisture_pct": 33.8,
+        "composite_index": 0.303,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-07",
+        "ndvi": 0.563,
+        "precipitation_mm": 20.7,
+        "soil_moisture_pct": 27.9,
+        "composite_index": 0.429,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-08",
+        "ndvi": 0.504,
+        "precipitation_mm": 13.5,
+        "soil_moisture_pct": 22.3,
+        "composite_index": 0.532,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-09",
+        "ndvi": 0.439,
+        "precipitation_mm": 6.3,
+        "soil_moisture_pct": 14.0,
+        "composite_index": 0.655,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-10",
+        "ndvi": 0.32,
+        "precipitation_mm": 1.6,
+        "soil_moisture_pct": 11.8,
+        "composite_index": 0.753,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-11",
+        "ndvi": 0.27,
+        "precipitation_mm": 7.2,
+        "soil_moisture_pct": 8.8,
+        "composite_index": 0.77,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-12",
+        "ndvi": 0.248,
+        "precipitation_mm": 6.0,
+        "soil_moisture_pct": 10.6,
+        "composite_index": 0.776,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-01",
+        "ndvi": 0.25,
+        "precipitation_mm": 16.5,
+        "soil_moisture_pct": 9.7,
+        "composite_index": 0.728,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-02",
+        "ndvi": 0.305,
+        "precipitation_mm": 25.7,
+        "soil_moisture_pct": 17.0,
+        "composite_index": 0.605,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-03",
+        "ndvi": 0.375,
+        "precipitation_mm": 31.1,
+        "soil_moisture_pct": 20.2,
+        "composite_index": 0.522,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-04",
+        "ndvi": 0.493,
+        "precipitation_mm": 33.8,
+        "soil_moisture_pct": 24.4,
+        "composite_index": 0.422,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-05",
+        "ndvi": 0.577,
+        "precipitation_mm": 28.1,
+        "soil_moisture_pct": 26.7,
+        "composite_index": 0.393,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-06",
+        "ndvi": 0.624,
+        "precipitation_mm": 21.2,
+        "soil_moisture_pct": 23.6,
+        "composite_index": 0.425,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-07",
+        "ndvi": 0.591,
+        "precipitation_mm": 17.5,
+        "soil_moisture_pct": 19.4,
+        "composite_index": 0.487,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-08",
+        "ndvi": 0.537,
+        "precipitation_mm": 5.7,
+        "soil_moisture_pct": 19.9,
+        "composite_index": 0.571,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-09",
+        "ndvi": 0.392,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 10.8,
+        "composite_index": 0.73,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-10",
+        "ndvi": 0.291,
+        "precipitation_mm": 2.5,
+        "soil_moisture_pct": 9.4,
+        "composite_index": 0.78,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-11",
+        "ndvi": 0.232,
+        "precipitation_mm": 2.7,
+        "soil_moisture_pct": 4.5,
+        "composite_index": 0.841,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-12",
+        "ndvi": 0.216,
+        "precipitation_mm": 12.5,
+        "soil_moisture_pct": 8.0,
+        "composite_index": 0.776,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-01",
+        "ndvi": 0.216,
+        "precipitation_mm": 19.4,
+        "soil_moisture_pct": 11.3,
+        "composite_index": 0.719,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-02",
+        "ndvi": 0.333,
+        "precipitation_mm": 20.2,
+        "soil_moisture_pct": 14.4,
+        "composite_index": 0.636,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-03",
+        "ndvi": 0.396,
+        "precipitation_mm": 29.0,
+        "soil_moisture_pct": 18.6,
+        "composite_index": 0.533,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-04",
+        "ndvi": 0.455,
+        "precipitation_mm": 32.4,
+        "soil_moisture_pct": 22.9,
+        "composite_index": 0.458,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-05",
+        "ndvi": 0.629,
+        "precipitation_mm": 27.2,
+        "soil_moisture_pct": 24.1,
+        "composite_index": 0.389,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-06",
+        "ndvi": 0.657,
+        "precipitation_mm": 23.4,
+        "soil_moisture_pct": 23.0,
+        "composite_index": 0.401,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-07",
+        "ndvi": 0.693,
+        "precipitation_mm": 14.3,
+        "soil_moisture_pct": 19.3,
+        "composite_index": 0.453,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-08",
+        "ndvi": 0.574,
+        "precipitation_mm": 5.0,
+        "soil_moisture_pct": 12.7,
+        "composite_index": 0.603,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-09",
+        "ndvi": 0.377,
+        "precipitation_mm": 3.6,
+        "soil_moisture_pct": 10.5,
+        "composite_index": 0.724,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-10",
+        "ndvi": 0.34,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 7.6,
+        "composite_index": 0.777,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-11",
+        "ndvi": 0.279,
+        "precipitation_mm": 1.7,
+        "soil_moisture_pct": 4.8,
+        "composite_index": 0.82,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-12",
+        "ndvi": 0.236,
+        "precipitation_mm": 8.5,
+        "soil_moisture_pct": 7.0,
+        "composite_index": 0.793,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-01",
+        "ndvi": 0.211,
+        "precipitation_mm": 17.0,
+        "soil_moisture_pct": 9.5,
+        "composite_index": 0.747,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-02",
+        "ndvi": 0.337,
+        "precipitation_mm": 27.8,
+        "soil_moisture_pct": 16.8,
+        "composite_index": 0.581,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-03",
+        "ndvi": 0.429,
+        "precipitation_mm": 28.0,
+        "soil_moisture_pct": 23.8,
+        "composite_index": 0.487,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-04",
+        "ndvi": 0.508,
+        "precipitation_mm": 35.4,
+        "soil_moisture_pct": 28.3,
+        "composite_index": 0.38,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-05",
+        "ndvi": 0.574,
+        "precipitation_mm": 36.2,
+        "soil_moisture_pct": 28.4,
+        "composite_index": 0.343,
+        "severity": "healthy"
+      },
+      {
+        "month": "2025-06",
+        "ndvi": 0.625,
+        "precipitation_mm": 27.9,
+        "soil_moisture_pct": 24.8,
+        "composite_index": 0.383,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-07",
+        "ndvi": 0.614,
+        "precipitation_mm": 17.7,
+        "soil_moisture_pct": 24.1,
+        "composite_index": 0.444,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-08",
+        "ndvi": 0.515,
+        "precipitation_mm": 7.7,
+        "soil_moisture_pct": 17.5,
+        "composite_index": 0.588,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-09",
+        "ndvi": 0.418,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 11.0,
+        "composite_index": 0.715,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-10",
+        "ndvi": 0.356,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.8,
+        "composite_index": 0.781,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-11",
+        "ndvi": 0.265,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.5,
+        "composite_index": 0.849,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-12",
+        "ndvi": 0.216,
+        "precipitation_mm": 9.3,
+        "soil_moisture_pct": 7.5,
+        "composite_index": 0.796,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-01",
+        "ndvi": 0.217,
+        "precipitation_mm": 15.6,
+        "soil_moisture_pct": 8.2,
+        "composite_index": 0.759,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-02",
+        "ndvi": 0.325,
+        "precipitation_mm": 19.2,
+        "soil_moisture_pct": 15.3,
+        "composite_index": 0.64,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-03",
+        "ndvi": 0.428,
+        "precipitation_mm": 24.7,
+        "soil_moisture_pct": 19.9,
+        "composite_index": 0.53,
+        "severity": "moderate"
+      }
+    ],
+    "Kyzylorda": [
+      {
+        "month": "2021-04",
+        "ndvi": 0.252,
+        "precipitation_mm": 21.4,
+        "soil_moisture_pct": 11.3,
+        "composite_index": 0.692,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-05",
+        "ndvi": 0.271,
+        "precipitation_mm": 11.9,
+        "soil_moisture_pct": 12.3,
+        "composite_index": 0.723,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-06",
+        "ndvi": 0.321,
+        "precipitation_mm": 14.6,
+        "soil_moisture_pct": 12.3,
+        "composite_index": 0.685,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-07",
+        "ndvi": 0.268,
+        "precipitation_mm": 10.3,
+        "soil_moisture_pct": 11.7,
+        "composite_index": 0.737,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-08",
+        "ndvi": 0.296,
+        "precipitation_mm": 6.0,
+        "soil_moisture_pct": 4.1,
+        "composite_index": 0.795,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-09",
+        "ndvi": 0.175,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.4,
+        "composite_index": 0.874,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-10",
+        "ndvi": 0.14,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.914,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-11",
+        "ndvi": 0.147,
+        "precipitation_mm": 2.9,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.898,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-12",
+        "ndvi": 0.115,
+        "precipitation_mm": 6.2,
+        "soil_moisture_pct": 5.5,
+        "composite_index": 0.875,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-01",
+        "ndvi": 0.075,
+        "precipitation_mm": 12.7,
+        "soil_moisture_pct": 6.1,
+        "composite_index": 0.858,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-02",
+        "ndvi": 0.174,
+        "precipitation_mm": 15.0,
+        "soil_moisture_pct": 7.2,
+        "composite_index": 0.79,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-03",
+        "ndvi": 0.185,
+        "precipitation_mm": 14.0,
+        "soil_moisture_pct": 13.8,
+        "composite_index": 0.746,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-04",
+        "ndvi": 0.227,
+        "precipitation_mm": 19.5,
+        "soil_moisture_pct": 14.5,
+        "composite_index": 0.693,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-05",
+        "ndvi": 0.228,
+        "precipitation_mm": 16.8,
+        "soil_moisture_pct": 17.3,
+        "composite_index": 0.687,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-06",
+        "ndvi": 0.312,
+        "precipitation_mm": 17.7,
+        "soil_moisture_pct": 16.0,
+        "composite_index": 0.649,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-07",
+        "ndvi": 0.299,
+        "precipitation_mm": 6.2,
+        "soil_moisture_pct": 15.1,
+        "composite_index": 0.718,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-08",
+        "ndvi": 0.223,
+        "precipitation_mm": 5.9,
+        "soil_moisture_pct": 11.5,
+        "composite_index": 0.782,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-09",
+        "ndvi": 0.163,
+        "precipitation_mm": 3.8,
+        "soil_moisture_pct": 7.0,
+        "composite_index": 0.852,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-10",
+        "ndvi": 0.211,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 6.4,
+        "composite_index": 0.849,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-11",
+        "ndvi": 0.126,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.6,
+        "composite_index": 0.897,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-12",
+        "ndvi": 0.063,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.8,
+        "composite_index": 0.928,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-01",
+        "ndvi": 0.139,
+        "precipitation_mm": 7.6,
+        "soil_moisture_pct": 4.7,
+        "composite_index": 0.861,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-02",
+        "ndvi": 0.187,
+        "precipitation_mm": 13.3,
+        "soil_moisture_pct": 6.6,
+        "composite_index": 0.796,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-03",
+        "ndvi": 0.206,
+        "precipitation_mm": 10.2,
+        "soil_moisture_pct": 9.3,
+        "composite_index": 0.784,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-04",
+        "ndvi": 0.197,
+        "precipitation_mm": 8.3,
+        "soil_moisture_pct": 10.3,
+        "composite_index": 0.792,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-05",
+        "ndvi": 0.298,
+        "precipitation_mm": 10.6,
+        "soil_moisture_pct": 11.9,
+        "composite_index": 0.719,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-06",
+        "ndvi": 0.238,
+        "precipitation_mm": 13.8,
+        "soil_moisture_pct": 12.0,
+        "composite_index": 0.732,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-07",
+        "ndvi": 0.276,
+        "precipitation_mm": 7.1,
+        "soil_moisture_pct": 8.4,
+        "composite_index": 0.77,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-08",
+        "ndvi": 0.199,
+        "precipitation_mm": 6.2,
+        "soil_moisture_pct": 7.5,
+        "composite_index": 0.819,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-09",
+        "ndvi": 0.207,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 6.7,
+        "composite_index": 0.849,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-10",
+        "ndvi": 0.124,
+        "precipitation_mm": 6.5,
+        "soil_moisture_pct": 2.5,
+        "composite_index": 0.889,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-11",
+        "ndvi": 0.107,
+        "precipitation_mm": 3.0,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.918,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-12",
+        "ndvi": 0.121,
+        "precipitation_mm": 1.8,
+        "soil_moisture_pct": 5.2,
+        "composite_index": 0.896,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-01",
+        "ndvi": 0.13,
+        "precipitation_mm": 8.3,
+        "soil_moisture_pct": 3.5,
+        "composite_index": 0.87,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-02",
+        "ndvi": 0.133,
+        "precipitation_mm": 11.1,
+        "soil_moisture_pct": 3.9,
+        "composite_index": 0.853,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-03",
+        "ndvi": 0.167,
+        "precipitation_mm": 15.4,
+        "soil_moisture_pct": 7.3,
+        "composite_index": 0.79,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-04",
+        "ndvi": 0.267,
+        "precipitation_mm": 11.7,
+        "soil_moisture_pct": 11.4,
+        "composite_index": 0.732,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-05",
+        "ndvi": 0.227,
+        "precipitation_mm": 14.1,
+        "soil_moisture_pct": 12.2,
+        "composite_index": 0.735,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-06",
+        "ndvi": 0.307,
+        "precipitation_mm": 14.2,
+        "soil_moisture_pct": 12.8,
+        "composite_index": 0.69,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-07",
+        "ndvi": 0.267,
+        "precipitation_mm": 3.1,
+        "soil_moisture_pct": 11.2,
+        "composite_index": 0.776,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-08",
+        "ndvi": 0.189,
+        "precipitation_mm": 2.1,
+        "soil_moisture_pct": 8.0,
+        "composite_index": 0.842,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-09",
+        "ndvi": 0.197,
+        "precipitation_mm": 5.7,
+        "soil_moisture_pct": 4.6,
+        "composite_index": 0.842,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-10",
+        "ndvi": 0.088,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 3.2,
+        "composite_index": 0.932,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-11",
+        "ndvi": 0.096,
+        "precipitation_mm": 5.1,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.913,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-12",
+        "ndvi": 0.051,
+        "precipitation_mm": 4.8,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.937,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-01",
+        "ndvi": 0.157,
+        "precipitation_mm": 8.8,
+        "soil_moisture_pct": 3.3,
+        "composite_index": 0.855,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-02",
+        "ndvi": 0.172,
+        "precipitation_mm": 19.1,
+        "soil_moisture_pct": 5.2,
+        "composite_index": 0.784,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-03",
+        "ndvi": 0.211,
+        "precipitation_mm": 16.4,
+        "soil_moisture_pct": 11.2,
+        "composite_index": 0.738,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-04",
+        "ndvi": 0.239,
+        "precipitation_mm": 17.5,
+        "soil_moisture_pct": 11.9,
+        "composite_index": 0.714,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-05",
+        "ndvi": 0.303,
+        "precipitation_mm": 10.9,
+        "soil_moisture_pct": 16.6,
+        "composite_index": 0.683,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-06",
+        "ndvi": 0.319,
+        "precipitation_mm": 8.4,
+        "soil_moisture_pct": 12.9,
+        "composite_index": 0.712,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-07",
+        "ndvi": 0.304,
+        "precipitation_mm": 6.5,
+        "soil_moisture_pct": 10.7,
+        "composite_index": 0.744,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-08",
+        "ndvi": 0.216,
+        "precipitation_mm": 7.5,
+        "soil_moisture_pct": 7.3,
+        "composite_index": 0.806,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-09",
+        "ndvi": 0.183,
+        "precipitation_mm": 2.7,
+        "soil_moisture_pct": 5.1,
+        "composite_index": 0.861,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-10",
+        "ndvi": 0.113,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.928,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-11",
+        "ndvi": 0.071,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.949,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-12",
+        "ndvi": 0.104,
+        "precipitation_mm": 4.2,
+        "soil_moisture_pct": 2.2,
+        "composite_index": 0.913,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-01",
+        "ndvi": 0.076,
+        "precipitation_mm": 4.4,
+        "soil_moisture_pct": 2.9,
+        "composite_index": 0.921,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-02",
+        "ndvi": 0.102,
+        "precipitation_mm": 13.1,
+        "soil_moisture_pct": 5.4,
+        "composite_index": 0.847,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-03",
+        "ndvi": 0.184,
+        "precipitation_mm": 11.8,
+        "soil_moisture_pct": 13.6,
+        "composite_index": 0.758,
+        "severity": "severe"
+      }
+    ],
+    "Mangystau": [
+      {
+        "month": "2021-04",
+        "ndvi": 0.077,
+        "precipitation_mm": 10.0,
+        "soil_moisture_pct": 8.5,
+        "composite_index": 0.855,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-05",
+        "ndvi": 0.126,
+        "precipitation_mm": 9.7,
+        "soil_moisture_pct": 9.8,
+        "composite_index": 0.823,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-06",
+        "ndvi": 0.124,
+        "precipitation_mm": 8.4,
+        "soil_moisture_pct": 9.6,
+        "composite_index": 0.832,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-07",
+        "ndvi": 0.188,
+        "precipitation_mm": 2.9,
+        "soil_moisture_pct": 9.8,
+        "composite_index": 0.826,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-08",
+        "ndvi": 0.125,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 6.5,
+        "composite_index": 0.892,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-09",
+        "ndvi": 0.103,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.2,
+        "composite_index": 0.911,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-10",
+        "ndvi": 0.065,
+        "precipitation_mm": 3.1,
+        "soil_moisture_pct": 2.3,
+        "composite_index": 0.937,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-11",
+        "ndvi": 0.083,
+        "precipitation_mm": 2.7,
+        "soil_moisture_pct": 2.6,
+        "composite_index": 0.928,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-12",
+        "ndvi": 0.05,
+        "precipitation_mm": 5.1,
+        "soil_moisture_pct": 2.4,
+        "composite_index": 0.933,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-01",
+        "ndvi": 0.121,
+        "precipitation_mm": 7.3,
+        "soil_moisture_pct": 5.8,
+        "composite_index": 0.864,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-02",
+        "ndvi": 0.057,
+        "precipitation_mm": 7.5,
+        "soil_moisture_pct": 7.2,
+        "composite_index": 0.886,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-03",
+        "ndvi": 0.07,
+        "precipitation_mm": 7.4,
+        "soil_moisture_pct": 9.2,
+        "composite_index": 0.867,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-04",
+        "ndvi": 0.128,
+        "precipitation_mm": 12.3,
+        "soil_moisture_pct": 12.8,
+        "composite_index": 0.789,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-05",
+        "ndvi": 0.137,
+        "precipitation_mm": 12.9,
+        "soil_moisture_pct": 11.5,
+        "composite_index": 0.79,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-06",
+        "ndvi": 0.15,
+        "precipitation_mm": 9.5,
+        "soil_moisture_pct": 8.0,
+        "composite_index": 0.824,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-07",
+        "ndvi": 0.151,
+        "precipitation_mm": 3.9,
+        "soil_moisture_pct": 8.0,
+        "composite_index": 0.851,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-08",
+        "ndvi": 0.074,
+        "precipitation_mm": 1.6,
+        "soil_moisture_pct": 4.2,
+        "composite_index": 0.927,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-09",
+        "ndvi": 0.131,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.2,
+        "composite_index": 0.917,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-10",
+        "ndvi": 0.059,
+        "precipitation_mm": 2.3,
+        "soil_moisture_pct": 2.1,
+        "composite_index": 0.945,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-11",
+        "ndvi": 0.052,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.2,
+        "composite_index": 0.957,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-12",
+        "ndvi": 0.05,
+        "precipitation_mm": 2.8,
+        "soil_moisture_pct": 2.1,
+        "composite_index": 0.947,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-01",
+        "ndvi": 0.149,
+        "precipitation_mm": 3.6,
+        "soil_moisture_pct": 2.7,
+        "composite_index": 0.889,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-02",
+        "ndvi": 0.109,
+        "precipitation_mm": 5.8,
+        "soil_moisture_pct": 5.5,
+        "composite_index": 0.88,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-03",
+        "ndvi": 0.079,
+        "precipitation_mm": 12.5,
+        "soil_moisture_pct": 5.8,
+        "composite_index": 0.859,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-04",
+        "ndvi": 0.142,
+        "precipitation_mm": 11.8,
+        "soil_moisture_pct": 7.6,
+        "composite_index": 0.82,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-05",
+        "ndvi": 0.149,
+        "precipitation_mm": 9.6,
+        "soil_moisture_pct": 9.5,
+        "composite_index": 0.814,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-06",
+        "ndvi": 0.123,
+        "precipitation_mm": 6.8,
+        "soil_moisture_pct": 6.6,
+        "composite_index": 0.86,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-07",
+        "ndvi": 0.127,
+        "precipitation_mm": 2.2,
+        "soil_moisture_pct": 8.6,
+        "composite_index": 0.868,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-08",
+        "ndvi": 0.178,
+        "precipitation_mm": 9.9,
+        "soil_moisture_pct": 5.0,
+        "composite_index": 0.828,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-09",
+        "ndvi": 0.08,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.8,
+        "composite_index": 0.919,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-10",
+        "ndvi": 0.05,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.959,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-11",
+        "ndvi": 0.113,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 3.3,
+        "composite_index": 0.919,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-12",
+        "ndvi": 0.093,
+        "precipitation_mm": 1.6,
+        "soil_moisture_pct": 2.8,
+        "composite_index": 0.926,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-01",
+        "ndvi": 0.05,
+        "precipitation_mm": 3.5,
+        "soil_moisture_pct": 2.8,
+        "composite_index": 0.939,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-02",
+        "ndvi": 0.05,
+        "precipitation_mm": 7.0,
+        "soil_moisture_pct": 5.1,
+        "composite_index": 0.906,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-03",
+        "ndvi": 0.054,
+        "precipitation_mm": 2.9,
+        "soil_moisture_pct": 5.0,
+        "composite_index": 0.925,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-04",
+        "ndvi": 0.115,
+        "precipitation_mm": 6.7,
+        "soil_moisture_pct": 5.8,
+        "composite_index": 0.87,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-05",
+        "ndvi": 0.119,
+        "precipitation_mm": 8.0,
+        "soil_moisture_pct": 7.0,
+        "composite_index": 0.854,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-06",
+        "ndvi": 0.153,
+        "precipitation_mm": 5.0,
+        "soil_moisture_pct": 8.0,
+        "composite_index": 0.845,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-07",
+        "ndvi": 0.145,
+        "precipitation_mm": 6.4,
+        "soil_moisture_pct": 6.3,
+        "composite_index": 0.854,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-08",
+        "ndvi": 0.157,
+        "precipitation_mm": 5.6,
+        "soil_moisture_pct": 2.4,
+        "composite_index": 0.877,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-09",
+        "ndvi": 0.133,
+        "precipitation_mm": 5.9,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.891,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-10",
+        "ndvi": 0.079,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.6,
+        "composite_index": 0.941,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-11",
+        "ndvi": 0.076,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 3.5,
+        "composite_index": 0.936,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-12",
+        "ndvi": 0.05,
+        "precipitation_mm": 1.5,
+        "soil_moisture_pct": 3.5,
+        "composite_index": 0.944,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-01",
+        "ndvi": 0.119,
+        "precipitation_mm": 3.0,
+        "soil_moisture_pct": 4.8,
+        "composite_index": 0.893,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-02",
+        "ndvi": 0.086,
+        "precipitation_mm": 2.0,
+        "soil_moisture_pct": 4.0,
+        "composite_index": 0.92,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-03",
+        "ndvi": 0.069,
+        "precipitation_mm": 6.9,
+        "soil_moisture_pct": 6.6,
+        "composite_index": 0.887,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-04",
+        "ndvi": 0.131,
+        "precipitation_mm": 12.8,
+        "soil_moisture_pct": 9.2,
+        "composite_index": 0.809,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-05",
+        "ndvi": 0.229,
+        "precipitation_mm": 7.7,
+        "soil_moisture_pct": 10.3,
+        "composite_index": 0.779,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-06",
+        "ndvi": 0.168,
+        "precipitation_mm": 11.3,
+        "soil_moisture_pct": 8.0,
+        "composite_index": 0.806,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-07",
+        "ndvi": 0.175,
+        "precipitation_mm": 9.4,
+        "soil_moisture_pct": 6.2,
+        "composite_index": 0.825,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-08",
+        "ndvi": 0.128,
+        "precipitation_mm": 3.8,
+        "soil_moisture_pct": 4.8,
+        "composite_index": 0.885,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-09",
+        "ndvi": 0.079,
+        "precipitation_mm": 6.1,
+        "soil_moisture_pct": 3.3,
+        "composite_index": 0.908,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-10",
+        "ndvi": 0.132,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.918,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-11",
+        "ndvi": 0.085,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.942,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-12",
+        "ndvi": 0.05,
+        "precipitation_mm": 3.1,
+        "soil_moisture_pct": 2.0,
+        "composite_index": 0.946,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-01",
+        "ndvi": 0.063,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.5,
+        "composite_index": 0.949,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-02",
+        "ndvi": 0.074,
+        "precipitation_mm": 4.6,
+        "soil_moisture_pct": 3.5,
+        "composite_index": 0.916,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-03",
+        "ndvi": 0.078,
+        "precipitation_mm": 7.9,
+        "soil_moisture_pct": 8.9,
+        "composite_index": 0.862,
+        "severity": "severe"
+      }
+    ],
+    "North Kazakhstan": [
+      {
+        "month": "2021-04",
+        "ndvi": 0.556,
+        "precipitation_mm": 45.3,
+        "soil_moisture_pct": 34.8,
+        "composite_index": 0.263,
+        "severity": "healthy"
+      },
+      {
+        "month": "2021-05",
+        "ndvi": 0.694,
+        "precipitation_mm": 42.7,
+        "soil_moisture_pct": 34.6,
+        "composite_index": 0.209,
+        "severity": "healthy"
+      },
+      {
+        "month": "2021-06",
+        "ndvi": 0.715,
+        "precipitation_mm": 34.3,
+        "soil_moisture_pct": 30.1,
+        "composite_index": 0.27,
+        "severity": "healthy"
+      },
+      {
+        "month": "2021-07",
+        "ndvi": 0.662,
+        "precipitation_mm": 17.2,
+        "soil_moisture_pct": 30.1,
+        "composite_index": 0.382,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-08",
+        "ndvi": 0.623,
+        "precipitation_mm": 9.2,
+        "soil_moisture_pct": 22.4,
+        "composite_index": 0.494,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-09",
+        "ndvi": 0.555,
+        "precipitation_mm": 1.2,
+        "soil_moisture_pct": 16.0,
+        "composite_index": 0.61,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-10",
+        "ndvi": 0.375,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 7.3,
+        "composite_index": 0.761,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-11",
+        "ndvi": 0.262,
+        "precipitation_mm": 1.9,
+        "soil_moisture_pct": 3.6,
+        "composite_index": 0.836,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-12",
+        "ndvi": 0.263,
+        "precipitation_mm": 10.6,
+        "soil_moisture_pct": 9.6,
+        "composite_index": 0.751,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-01",
+        "ndvi": 0.266,
+        "precipitation_mm": 37.5,
+        "soil_moisture_pct": 14.9,
+        "composite_index": 0.58,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-02",
+        "ndvi": 0.336,
+        "precipitation_mm": 44.8,
+        "soil_moisture_pct": 29.7,
+        "composite_index": 0.41,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-03",
+        "ndvi": 0.451,
+        "precipitation_mm": 58.6,
+        "soil_moisture_pct": 33.4,
+        "composite_index": 0.301,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-04",
+        "ndvi": 0.637,
+        "precipitation_mm": 57.2,
+        "soil_moisture_pct": 44.5,
+        "composite_index": 0.135,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-05",
+        "ndvi": 0.737,
+        "precipitation_mm": 51.2,
+        "soil_moisture_pct": 47.9,
+        "composite_index": 0.062,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-06",
+        "ndvi": 0.681,
+        "precipitation_mm": 41.8,
+        "soil_moisture_pct": 43.9,
+        "composite_index": 0.158,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-07",
+        "ndvi": 0.662,
+        "precipitation_mm": 26.5,
+        "soil_moisture_pct": 35.0,
+        "composite_index": 0.303,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-08",
+        "ndvi": 0.612,
+        "precipitation_mm": 15.4,
+        "soil_moisture_pct": 25.0,
+        "composite_index": 0.451,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-09",
+        "ndvi": 0.487,
+        "precipitation_mm": 5.7,
+        "soil_moisture_pct": 19.7,
+        "composite_index": 0.597,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-10",
+        "ndvi": 0.374,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 11.1,
+        "composite_index": 0.737,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-11",
+        "ndvi": 0.26,
+        "precipitation_mm": 7.8,
+        "soil_moisture_pct": 6.2,
+        "composite_index": 0.79,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-12",
+        "ndvi": 0.264,
+        "precipitation_mm": 11.0,
+        "soil_moisture_pct": 12.9,
+        "composite_index": 0.726,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-01",
+        "ndvi": 0.302,
+        "precipitation_mm": 21.2,
+        "soil_moisture_pct": 13.3,
+        "composite_index": 0.655,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-02",
+        "ndvi": 0.354,
+        "precipitation_mm": 32.8,
+        "soil_moisture_pct": 18.7,
+        "composite_index": 0.534,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-03",
+        "ndvi": 0.503,
+        "precipitation_mm": 38.4,
+        "soil_moisture_pct": 21.4,
+        "composite_index": 0.414,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-04",
+        "ndvi": 0.583,
+        "precipitation_mm": 45.6,
+        "soil_moisture_pct": 31.9,
+        "composite_index": 0.268,
+        "severity": "healthy"
+      },
+      {
+        "month": "2023-05",
+        "ndvi": 0.687,
+        "precipitation_mm": 37.9,
+        "soil_moisture_pct": 30.9,
+        "composite_index": 0.261,
+        "severity": "healthy"
+      },
+      {
+        "month": "2023-06",
+        "ndvi": 0.734,
+        "precipitation_mm": 32.5,
+        "soil_moisture_pct": 28.2,
+        "composite_index": 0.282,
+        "severity": "healthy"
+      },
+      {
+        "month": "2023-07",
+        "ndvi": 0.704,
+        "precipitation_mm": 24.2,
+        "soil_moisture_pct": 23.7,
+        "composite_index": 0.37,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-08",
+        "ndvi": 0.593,
+        "precipitation_mm": 11.6,
+        "soil_moisture_pct": 19.9,
+        "composite_index": 0.513,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-09",
+        "ndvi": 0.469,
+        "precipitation_mm": 1.2,
+        "soil_moisture_pct": 11.8,
+        "composite_index": 0.681,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-10",
+        "ndvi": 0.376,
+        "precipitation_mm": 1.3,
+        "soil_moisture_pct": 7.9,
+        "composite_index": 0.753,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-11",
+        "ndvi": 0.238,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 7.2,
+        "composite_index": 0.83,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-12",
+        "ndvi": 0.211,
+        "precipitation_mm": 10.9,
+        "soil_moisture_pct": 7.4,
+        "composite_index": 0.79,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-01",
+        "ndvi": 0.261,
+        "precipitation_mm": 18.7,
+        "soil_moisture_pct": 13.9,
+        "composite_index": 0.683,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-02",
+        "ndvi": 0.373,
+        "precipitation_mm": 27.0,
+        "soil_moisture_pct": 14.9,
+        "composite_index": 0.579,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-03",
+        "ndvi": 0.497,
+        "precipitation_mm": 38.1,
+        "soil_moisture_pct": 23.7,
+        "composite_index": 0.403,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-04",
+        "ndvi": 0.633,
+        "precipitation_mm": 38.7,
+        "soil_moisture_pct": 25.0,
+        "composite_index": 0.324,
+        "severity": "healthy"
+      },
+      {
+        "month": "2024-05",
+        "ndvi": 0.682,
+        "precipitation_mm": 36.3,
+        "soil_moisture_pct": 29.5,
+        "composite_index": 0.28,
+        "severity": "healthy"
+      },
+      {
+        "month": "2024-06",
+        "ndvi": 0.7,
+        "precipitation_mm": 27.7,
+        "soil_moisture_pct": 27.5,
+        "composite_index": 0.328,
+        "severity": "healthy"
+      },
+      {
+        "month": "2024-07",
+        "ndvi": 0.722,
+        "precipitation_mm": 21.6,
+        "soil_moisture_pct": 23.7,
+        "composite_index": 0.373,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-08",
+        "ndvi": 0.61,
+        "precipitation_mm": 6.2,
+        "soil_moisture_pct": 15.4,
+        "composite_index": 0.561,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-09",
+        "ndvi": 0.478,
+        "precipitation_mm": 5.6,
+        "soil_moisture_pct": 12.0,
+        "composite_index": 0.653,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-10",
+        "ndvi": 0.381,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.0,
+        "composite_index": 0.773,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-11",
+        "ndvi": 0.312,
+        "precipitation_mm": 2.4,
+        "soil_moisture_pct": 3.7,
+        "composite_index": 0.807,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-12",
+        "ndvi": 0.274,
+        "precipitation_mm": 10.1,
+        "soil_moisture_pct": 11.6,
+        "composite_index": 0.735,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-01",
+        "ndvi": 0.316,
+        "precipitation_mm": 23.0,
+        "soil_moisture_pct": 13.2,
+        "composite_index": 0.638,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-02",
+        "ndvi": 0.371,
+        "precipitation_mm": 32.7,
+        "soil_moisture_pct": 18.0,
+        "composite_index": 0.531,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-03",
+        "ndvi": 0.509,
+        "precipitation_mm": 41.9,
+        "soil_moisture_pct": 22.8,
+        "composite_index": 0.384,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-04",
+        "ndvi": 0.579,
+        "precipitation_mm": 41.5,
+        "soil_moisture_pct": 33.3,
+        "composite_index": 0.281,
+        "severity": "healthy"
+      },
+      {
+        "month": "2025-05",
+        "ndvi": 0.682,
+        "precipitation_mm": 45.5,
+        "soil_moisture_pct": 31.2,
+        "composite_index": 0.223,
+        "severity": "healthy"
+      },
+      {
+        "month": "2025-06",
+        "ndvi": 0.683,
+        "precipitation_mm": 36.2,
+        "soil_moisture_pct": 30.9,
+        "composite_index": 0.272,
+        "severity": "healthy"
+      },
+      {
+        "month": "2025-07",
+        "ndvi": 0.652,
+        "precipitation_mm": 20.4,
+        "soil_moisture_pct": 25.8,
+        "composite_index": 0.4,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-08",
+        "ndvi": 0.614,
+        "precipitation_mm": 14.4,
+        "soil_moisture_pct": 17.8,
+        "composite_index": 0.502,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-09",
+        "ndvi": 0.473,
+        "precipitation_mm": 3.0,
+        "soil_moisture_pct": 13.6,
+        "composite_index": 0.658,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-10",
+        "ndvi": 0.389,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 7.7,
+        "composite_index": 0.752,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-11",
+        "ndvi": 0.245,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 6.2,
+        "composite_index": 0.834,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-12",
+        "ndvi": 0.248,
+        "precipitation_mm": 13.8,
+        "soil_moisture_pct": 8.0,
+        "composite_index": 0.754,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-01",
+        "ndvi": 0.349,
+        "precipitation_mm": 19.9,
+        "soil_moisture_pct": 11.6,
+        "composite_index": 0.649,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-02",
+        "ndvi": 0.376,
+        "precipitation_mm": 27.3,
+        "soil_moisture_pct": 18.8,
+        "composite_index": 0.55,
+        "severity": "moderate"
+      },
+      {
+        "month": "2026-03",
+        "ndvi": 0.419,
+        "precipitation_mm": 39.7,
+        "soil_moisture_pct": 24.8,
+        "composite_index": 0.427,
+        "severity": "moderate"
+      }
+    ],
+    "Pavlodar": [
+      {
+        "month": "2021-04",
+        "ndvi": 0.507,
+        "precipitation_mm": 35.0,
+        "soil_moisture_pct": 24.2,
+        "composite_index": 0.41,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-05",
+        "ndvi": 0.545,
+        "precipitation_mm": 37.0,
+        "soil_moisture_pct": 28.4,
+        "composite_index": 0.354,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-06",
+        "ndvi": 0.58,
+        "precipitation_mm": 27.2,
+        "soil_moisture_pct": 26.8,
+        "composite_index": 0.396,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-07",
+        "ndvi": 0.63,
+        "precipitation_mm": 20.6,
+        "soil_moisture_pct": 22.7,
+        "composite_index": 0.43,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-08",
+        "ndvi": 0.487,
+        "precipitation_mm": 14.0,
+        "soil_moisture_pct": 16.4,
+        "composite_index": 0.577,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-09",
+        "ndvi": 0.376,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 9.8,
+        "composite_index": 0.744,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-10",
+        "ndvi": 0.294,
+        "precipitation_mm": 2.3,
+        "soil_moisture_pct": 8.4,
+        "composite_index": 0.786,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-11",
+        "ndvi": 0.268,
+        "precipitation_mm": 2.8,
+        "soil_moisture_pct": 6.8,
+        "composite_index": 0.807,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-12",
+        "ndvi": 0.275,
+        "precipitation_mm": 11.4,
+        "soil_moisture_pct": 9.4,
+        "composite_index": 0.743,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-01",
+        "ndvi": 0.188,
+        "precipitation_mm": 19.1,
+        "soil_moisture_pct": 12.5,
+        "composite_index": 0.727,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-02",
+        "ndvi": 0.224,
+        "precipitation_mm": 32.3,
+        "soil_moisture_pct": 22.6,
+        "composite_index": 0.576,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-03",
+        "ndvi": 0.386,
+        "precipitation_mm": 40.4,
+        "soil_moisture_pct": 26.0,
+        "composite_index": 0.431,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-04",
+        "ndvi": 0.485,
+        "precipitation_mm": 43.6,
+        "soil_moisture_pct": 30.5,
+        "composite_index": 0.336,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-05",
+        "ndvi": 0.607,
+        "precipitation_mm": 34.1,
+        "soil_moisture_pct": 34.6,
+        "composite_index": 0.295,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-06",
+        "ndvi": 0.583,
+        "precipitation_mm": 36.5,
+        "soil_moisture_pct": 33.4,
+        "composite_index": 0.303,
+        "severity": "healthy"
+      },
+      {
+        "month": "2022-07",
+        "ndvi": 0.509,
+        "precipitation_mm": 14.1,
+        "soil_moisture_pct": 25.8,
+        "composite_index": 0.503,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-08",
+        "ndvi": 0.485,
+        "precipitation_mm": 10.1,
+        "soil_moisture_pct": 20.5,
+        "composite_index": 0.57,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-09",
+        "ndvi": 0.423,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 10.9,
+        "composite_index": 0.713,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-10",
+        "ndvi": 0.312,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 8.5,
+        "composite_index": 0.785,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-11",
+        "ndvi": 0.214,
+        "precipitation_mm": 2.3,
+        "soil_moisture_pct": 9.1,
+        "composite_index": 0.821,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-12",
+        "ndvi": 0.158,
+        "precipitation_mm": 7.0,
+        "soil_moisture_pct": 9.6,
+        "composite_index": 0.822,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-01",
+        "ndvi": 0.28,
+        "precipitation_mm": 14.8,
+        "soil_moisture_pct": 7.9,
+        "composite_index": 0.733,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-02",
+        "ndvi": 0.245,
+        "precipitation_mm": 23.9,
+        "soil_moisture_pct": 12.9,
+        "composite_index": 0.673,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-03",
+        "ndvi": 0.468,
+        "precipitation_mm": 35.7,
+        "soil_moisture_pct": 20.0,
+        "composite_index": 0.454,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-04",
+        "ndvi": 0.515,
+        "precipitation_mm": 30.4,
+        "soil_moisture_pct": 25.0,
+        "composite_index": 0.424,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-05",
+        "ndvi": 0.572,
+        "precipitation_mm": 28.9,
+        "soil_moisture_pct": 26.6,
+        "composite_index": 0.392,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-06",
+        "ndvi": 0.617,
+        "precipitation_mm": 29.5,
+        "soil_moisture_pct": 20.8,
+        "composite_index": 0.406,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-07",
+        "ndvi": 0.555,
+        "precipitation_mm": 12.7,
+        "soil_moisture_pct": 20.9,
+        "composite_index": 0.52,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-08",
+        "ndvi": 0.485,
+        "precipitation_mm": 9.5,
+        "soil_moisture_pct": 13.0,
+        "composite_index": 0.623,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-09",
+        "ndvi": 0.4,
+        "precipitation_mm": 9.0,
+        "soil_moisture_pct": 12.3,
+        "composite_index": 0.673,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-10",
+        "ndvi": 0.248,
+        "precipitation_mm": 1.1,
+        "soil_moisture_pct": 7.5,
+        "composite_index": 0.821,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-11",
+        "ndvi": 0.218,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.9,
+        "composite_index": 0.849,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-12",
+        "ndvi": 0.21,
+        "precipitation_mm": 9.3,
+        "soil_moisture_pct": 6.0,
+        "composite_index": 0.808,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-01",
+        "ndvi": 0.303,
+        "precipitation_mm": 11.2,
+        "soil_moisture_pct": 8.2,
+        "composite_index": 0.738,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-02",
+        "ndvi": 0.32,
+        "precipitation_mm": 23.1,
+        "soil_moisture_pct": 11.3,
+        "composite_index": 0.649,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-03",
+        "ndvi": 0.441,
+        "precipitation_mm": 21.7,
+        "soil_moisture_pct": 17.9,
+        "composite_index": 0.552,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-04",
+        "ndvi": 0.491,
+        "precipitation_mm": 25.8,
+        "soil_moisture_pct": 22.8,
+        "composite_index": 0.473,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-05",
+        "ndvi": 0.501,
+        "precipitation_mm": 23.9,
+        "soil_moisture_pct": 21.0,
+        "composite_index": 0.49,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-06",
+        "ndvi": 0.624,
+        "precipitation_mm": 25.6,
+        "soil_moisture_pct": 22.3,
+        "composite_index": 0.411,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-07",
+        "ndvi": 0.614,
+        "precipitation_mm": 7.3,
+        "soil_moisture_pct": 18.1,
+        "composite_index": 0.536,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-08",
+        "ndvi": 0.459,
+        "precipitation_mm": 5.9,
+        "soil_moisture_pct": 13.8,
+        "composite_index": 0.65,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-09",
+        "ndvi": 0.405,
+        "precipitation_mm": 6.0,
+        "soil_moisture_pct": 6.0,
+        "composite_index": 0.728,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-10",
+        "ndvi": 0.28,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 3.2,
+        "composite_index": 0.836,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-11",
+        "ndvi": 0.263,
+        "precipitation_mm": 2.4,
+        "soil_moisture_pct": 6.8,
+        "composite_index": 0.811,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-12",
+        "ndvi": 0.243,
+        "precipitation_mm": 7.2,
+        "soil_moisture_pct": 4.2,
+        "composite_index": 0.815,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-01",
+        "ndvi": 0.263,
+        "precipitation_mm": 14.4,
+        "soil_moisture_pct": 8.7,
+        "composite_index": 0.738,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-02",
+        "ndvi": 0.27,
+        "precipitation_mm": 25.1,
+        "soil_moisture_pct": 17.7,
+        "composite_index": 0.621,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-03",
+        "ndvi": 0.404,
+        "precipitation_mm": 34.5,
+        "soil_moisture_pct": 21.2,
+        "composite_index": 0.484,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-04",
+        "ndvi": 0.487,
+        "precipitation_mm": 41.2,
+        "soil_moisture_pct": 27.7,
+        "composite_index": 0.366,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-05",
+        "ndvi": 0.578,
+        "precipitation_mm": 28.3,
+        "soil_moisture_pct": 24.0,
+        "composite_index": 0.41,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-06",
+        "ndvi": 0.61,
+        "precipitation_mm": 24.0,
+        "soil_moisture_pct": 25.7,
+        "composite_index": 0.404,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-07",
+        "ndvi": 0.581,
+        "precipitation_mm": 17.8,
+        "soil_moisture_pct": 22.8,
+        "composite_index": 0.468,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-08",
+        "ndvi": 0.51,
+        "precipitation_mm": 6.1,
+        "soil_moisture_pct": 14.7,
+        "composite_index": 0.617,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-09",
+        "ndvi": 0.42,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 11.6,
+        "composite_index": 0.71,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-10",
+        "ndvi": 0.326,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.5,
+        "composite_index": 0.798,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-11",
+        "ndvi": 0.18,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.8,
+        "composite_index": 0.889,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-12",
+        "ndvi": 0.208,
+        "precipitation_mm": 6.9,
+        "soil_moisture_pct": 5.3,
+        "composite_index": 0.826,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-01",
+        "ndvi": 0.259,
+        "precipitation_mm": 15.5,
+        "soil_moisture_pct": 9.7,
+        "composite_index": 0.728,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-02",
+        "ndvi": 0.321,
+        "precipitation_mm": 25.8,
+        "soil_moisture_pct": 12.1,
+        "composite_index": 0.63,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-03",
+        "ndvi": 0.424,
+        "precipitation_mm": 22.8,
+        "soil_moisture_pct": 18.1,
+        "composite_index": 0.553,
+        "severity": "moderate"
+      }
+    ],
+    "Turkestan": [
+      {
+        "month": "2021-04",
+        "ndvi": 0.367,
+        "precipitation_mm": 24.1,
+        "soil_moisture_pct": 18.1,
+        "composite_index": 0.575,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-05",
+        "ndvi": 0.391,
+        "precipitation_mm": 24.8,
+        "soil_moisture_pct": 15.8,
+        "composite_index": 0.576,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-06",
+        "ndvi": 0.394,
+        "precipitation_mm": 16.6,
+        "soil_moisture_pct": 20.2,
+        "composite_index": 0.585,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-07",
+        "ndvi": 0.416,
+        "precipitation_mm": 14.1,
+        "soil_moisture_pct": 13.3,
+        "composite_index": 0.632,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-08",
+        "ndvi": 0.405,
+        "precipitation_mm": 6.9,
+        "soil_moisture_pct": 9.3,
+        "composite_index": 0.701,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-09",
+        "ndvi": 0.342,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.9,
+        "composite_index": 0.787,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-10",
+        "ndvi": 0.198,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.4,
+        "composite_index": 0.862,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-11",
+        "ndvi": 0.165,
+        "precipitation_mm": 1.8,
+        "soil_moisture_pct": 6.5,
+        "composite_index": 0.865,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-12",
+        "ndvi": 0.09,
+        "precipitation_mm": 9.6,
+        "soil_moisture_pct": 3.4,
+        "composite_index": 0.884,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-01",
+        "ndvi": 0.201,
+        "precipitation_mm": 19.3,
+        "soil_moisture_pct": 12.4,
+        "composite_index": 0.72,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-02",
+        "ndvi": 0.2,
+        "precipitation_mm": 16.9,
+        "soil_moisture_pct": 13.9,
+        "composite_index": 0.723,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-03",
+        "ndvi": 0.27,
+        "precipitation_mm": 20.1,
+        "soil_moisture_pct": 19.0,
+        "composite_index": 0.638,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-04",
+        "ndvi": 0.309,
+        "precipitation_mm": 31.5,
+        "soil_moisture_pct": 22.6,
+        "composite_index": 0.537,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-05",
+        "ndvi": 0.377,
+        "precipitation_mm": 25.5,
+        "soil_moisture_pct": 22.0,
+        "composite_index": 0.538,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-06",
+        "ndvi": 0.389,
+        "precipitation_mm": 29.7,
+        "soil_moisture_pct": 19.8,
+        "composite_index": 0.525,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-07",
+        "ndvi": 0.387,
+        "precipitation_mm": 16.6,
+        "soil_moisture_pct": 17.3,
+        "composite_index": 0.608,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-08",
+        "ndvi": 0.318,
+        "precipitation_mm": 2.8,
+        "soil_moisture_pct": 15.2,
+        "composite_index": 0.725,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-09",
+        "ndvi": 0.293,
+        "precipitation_mm": 3.2,
+        "soil_moisture_pct": 6.7,
+        "composite_index": 0.793,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-10",
+        "ndvi": 0.22,
+        "precipitation_mm": 0.9,
+        "soil_moisture_pct": 5.2,
+        "composite_index": 0.851,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-11",
+        "ndvi": 0.116,
+        "precipitation_mm": 1.7,
+        "soil_moisture_pct": 3.2,
+        "composite_index": 0.913,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-12",
+        "ndvi": 0.142,
+        "precipitation_mm": 7.0,
+        "soil_moisture_pct": 5.2,
+        "composite_index": 0.86,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-01",
+        "ndvi": 0.184,
+        "precipitation_mm": 9.6,
+        "soil_moisture_pct": 7.2,
+        "composite_index": 0.812,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-02",
+        "ndvi": 0.218,
+        "precipitation_mm": 17.7,
+        "soil_moisture_pct": 8.2,
+        "composite_index": 0.748,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-03",
+        "ndvi": 0.261,
+        "precipitation_mm": 21.0,
+        "soil_moisture_pct": 13.1,
+        "composite_index": 0.677,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-04",
+        "ndvi": 0.371,
+        "precipitation_mm": 21.8,
+        "soil_moisture_pct": 14.6,
+        "composite_index": 0.608,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-05",
+        "ndvi": 0.412,
+        "precipitation_mm": 17.5,
+        "soil_moisture_pct": 17.5,
+        "composite_index": 0.59,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-06",
+        "ndvi": 0.459,
+        "precipitation_mm": 18.0,
+        "soil_moisture_pct": 18.7,
+        "composite_index": 0.556,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-07",
+        "ndvi": 0.339,
+        "precipitation_mm": 8.1,
+        "soil_moisture_pct": 12.5,
+        "composite_index": 0.707,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-08",
+        "ndvi": 0.325,
+        "precipitation_mm": 6.0,
+        "soil_moisture_pct": 9.1,
+        "composite_index": 0.747,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-09",
+        "ndvi": 0.304,
+        "precipitation_mm": 4.3,
+        "soil_moisture_pct": 7.1,
+        "composite_index": 0.779,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-10",
+        "ndvi": 0.175,
+        "precipitation_mm": 1.6,
+        "soil_moisture_pct": 5.1,
+        "composite_index": 0.87,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-11",
+        "ndvi": 0.168,
+        "precipitation_mm": 1.4,
+        "soil_moisture_pct": 5.3,
+        "composite_index": 0.874,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-12",
+        "ndvi": 0.123,
+        "precipitation_mm": 3.8,
+        "soil_moisture_pct": 5.1,
+        "composite_index": 0.886,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-01",
+        "ndvi": 0.173,
+        "precipitation_mm": 11.4,
+        "soil_moisture_pct": 5.4,
+        "composite_index": 0.82,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-02",
+        "ndvi": 0.166,
+        "precipitation_mm": 9.6,
+        "soil_moisture_pct": 8.1,
+        "composite_index": 0.815,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-03",
+        "ndvi": 0.295,
+        "precipitation_mm": 19.0,
+        "soil_moisture_pct": 9.0,
+        "composite_index": 0.698,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-04",
+        "ndvi": 0.353,
+        "precipitation_mm": 17.5,
+        "soil_moisture_pct": 12.3,
+        "composite_index": 0.654,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-05",
+        "ndvi": 0.451,
+        "precipitation_mm": 17.4,
+        "soil_moisture_pct": 15.9,
+        "composite_index": 0.582,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-06",
+        "ndvi": 0.48,
+        "precipitation_mm": 11.6,
+        "soil_moisture_pct": 13.2,
+        "composite_index": 0.614,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-07",
+        "ndvi": 0.43,
+        "precipitation_mm": 5.0,
+        "soil_moisture_pct": 11.8,
+        "composite_index": 0.681,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-08",
+        "ndvi": 0.339,
+        "precipitation_mm": 7.4,
+        "soil_moisture_pct": 9.4,
+        "composite_index": 0.731,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-09",
+        "ndvi": 0.244,
+        "precipitation_mm": 4.1,
+        "soil_moisture_pct": 7.1,
+        "composite_index": 0.81,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-10",
+        "ndvi": 0.174,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.9,
+        "composite_index": 0.891,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-11",
+        "ndvi": 0.123,
+        "precipitation_mm": 4.4,
+        "soil_moisture_pct": 2.4,
+        "composite_index": 0.9,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-12",
+        "ndvi": 0.131,
+        "precipitation_mm": 1.3,
+        "soil_moisture_pct": 3.1,
+        "composite_index": 0.907,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-01",
+        "ndvi": 0.202,
+        "precipitation_mm": 12.7,
+        "soil_moisture_pct": 4.5,
+        "composite_index": 0.806,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-02",
+        "ndvi": 0.176,
+        "precipitation_mm": 17.7,
+        "soil_moisture_pct": 9.6,
+        "composite_index": 0.76,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-03",
+        "ndvi": 0.255,
+        "precipitation_mm": 17.0,
+        "soil_moisture_pct": 11.8,
+        "composite_index": 0.709,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-04",
+        "ndvi": 0.34,
+        "precipitation_mm": 19.9,
+        "soil_moisture_pct": 18.1,
+        "composite_index": 0.61,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-05",
+        "ndvi": 0.383,
+        "precipitation_mm": 16.7,
+        "soil_moisture_pct": 18.3,
+        "composite_index": 0.603,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-06",
+        "ndvi": 0.443,
+        "precipitation_mm": 13.5,
+        "soil_moisture_pct": 13.8,
+        "composite_index": 0.619,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-07",
+        "ndvi": 0.371,
+        "precipitation_mm": 6.5,
+        "soil_moisture_pct": 16.3,
+        "composite_index": 0.674,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-08",
+        "ndvi": 0.295,
+        "precipitation_mm": 4.3,
+        "soil_moisture_pct": 12.6,
+        "composite_index": 0.747,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-09",
+        "ndvi": 0.297,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.7,
+        "composite_index": 0.811,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-10",
+        "ndvi": 0.2,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 6.6,
+        "composite_index": 0.853,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-11",
+        "ndvi": 0.153,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 4.9,
+        "composite_index": 0.888,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-12",
+        "ndvi": 0.171,
+        "precipitation_mm": 4.6,
+        "soil_moisture_pct": 5.5,
+        "composite_index": 0.855,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-01",
+        "ndvi": 0.159,
+        "precipitation_mm": 6.0,
+        "soil_moisture_pct": 6.2,
+        "composite_index": 0.849,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-02",
+        "ndvi": 0.171,
+        "precipitation_mm": 12.5,
+        "soil_moisture_pct": 8.1,
+        "composite_index": 0.798,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-03",
+        "ndvi": 0.281,
+        "precipitation_mm": 18.5,
+        "soil_moisture_pct": 10.7,
+        "composite_index": 0.696,
+        "severity": "severe"
+      }
+    ],
+    "West Kazakhstan": [
+      {
+        "month": "2021-04",
+        "ndvi": 0.342,
+        "precipitation_mm": 26.2,
+        "soil_moisture_pct": 19.6,
+        "composite_index": 0.567,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-05",
+        "ndvi": 0.425,
+        "precipitation_mm": 17.8,
+        "soil_moisture_pct": 21.9,
+        "composite_index": 0.552,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-06",
+        "ndvi": 0.495,
+        "precipitation_mm": 24.4,
+        "soil_moisture_pct": 19.7,
+        "composite_index": 0.499,
+        "severity": "moderate"
+      },
+      {
+        "month": "2021-07",
+        "ndvi": 0.443,
+        "precipitation_mm": 11.1,
+        "soil_moisture_pct": 16.3,
+        "composite_index": 0.614,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-08",
+        "ndvi": 0.336,
+        "precipitation_mm": 6.9,
+        "soil_moisture_pct": 9.9,
+        "composite_index": 0.732,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-09",
+        "ndvi": 0.315,
+        "precipitation_mm": 0.7,
+        "soil_moisture_pct": 9.2,
+        "composite_index": 0.778,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-10",
+        "ndvi": 0.231,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 6.3,
+        "composite_index": 0.84,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-11",
+        "ndvi": 0.137,
+        "precipitation_mm": 1.0,
+        "soil_moisture_pct": 3.2,
+        "composite_index": 0.905,
+        "severity": "severe"
+      },
+      {
+        "month": "2021-12",
+        "ndvi": 0.175,
+        "precipitation_mm": 6.3,
+        "soil_moisture_pct": 5.5,
+        "composite_index": 0.844,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-01",
+        "ndvi": 0.188,
+        "precipitation_mm": 9.1,
+        "soil_moisture_pct": 8.5,
+        "composite_index": 0.804,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-02",
+        "ndvi": 0.229,
+        "precipitation_mm": 27.3,
+        "soil_moisture_pct": 15.7,
+        "composite_index": 0.645,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-03",
+        "ndvi": 0.337,
+        "precipitation_mm": 29.5,
+        "soil_moisture_pct": 19.9,
+        "composite_index": 0.551,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-04",
+        "ndvi": 0.355,
+        "precipitation_mm": 31.0,
+        "soil_moisture_pct": 22.1,
+        "composite_index": 0.52,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-05",
+        "ndvi": 0.406,
+        "precipitation_mm": 29.6,
+        "soil_moisture_pct": 23.7,
+        "composite_index": 0.491,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-06",
+        "ndvi": 0.443,
+        "precipitation_mm": 18.8,
+        "soil_moisture_pct": 24.0,
+        "composite_index": 0.524,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-07",
+        "ndvi": 0.428,
+        "precipitation_mm": 17.5,
+        "soil_moisture_pct": 19.1,
+        "composite_index": 0.571,
+        "severity": "moderate"
+      },
+      {
+        "month": "2022-08",
+        "ndvi": 0.355,
+        "precipitation_mm": 11.0,
+        "soil_moisture_pct": 14.6,
+        "composite_index": 0.67,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-09",
+        "ndvi": 0.357,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 9.5,
+        "composite_index": 0.756,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-10",
+        "ndvi": 0.191,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 5.1,
+        "composite_index": 0.868,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-11",
+        "ndvi": 0.158,
+        "precipitation_mm": 4.5,
+        "soil_moisture_pct": 3.2,
+        "composite_index": 0.877,
+        "severity": "severe"
+      },
+      {
+        "month": "2022-12",
+        "ndvi": 0.171,
+        "precipitation_mm": 3.8,
+        "soil_moisture_pct": 5.7,
+        "composite_index": 0.858,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-01",
+        "ndvi": 0.212,
+        "precipitation_mm": 13.0,
+        "soil_moisture_pct": 7.5,
+        "composite_index": 0.779,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-02",
+        "ndvi": 0.244,
+        "precipitation_mm": 19.2,
+        "soil_moisture_pct": 11.6,
+        "composite_index": 0.704,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-03",
+        "ndvi": 0.34,
+        "precipitation_mm": 18.6,
+        "soil_moisture_pct": 14.1,
+        "composite_index": 0.643,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-04",
+        "ndvi": 0.389,
+        "precipitation_mm": 25.6,
+        "soil_moisture_pct": 17.7,
+        "composite_index": 0.56,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-05",
+        "ndvi": 0.462,
+        "precipitation_mm": 20.2,
+        "soil_moisture_pct": 15.8,
+        "composite_index": 0.563,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-06",
+        "ndvi": 0.48,
+        "precipitation_mm": 17.5,
+        "soil_moisture_pct": 16.0,
+        "composite_index": 0.566,
+        "severity": "moderate"
+      },
+      {
+        "month": "2023-07",
+        "ndvi": 0.424,
+        "precipitation_mm": 10.4,
+        "soil_moisture_pct": 15.7,
+        "composite_index": 0.631,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-08",
+        "ndvi": 0.396,
+        "precipitation_mm": 6.8,
+        "soil_moisture_pct": 11.5,
+        "composite_index": 0.691,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-09",
+        "ndvi": 0.298,
+        "precipitation_mm": 4.6,
+        "soil_moisture_pct": 3.6,
+        "composite_index": 0.804,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-10",
+        "ndvi": 0.19,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 3.9,
+        "composite_index": 0.876,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-11",
+        "ndvi": 0.144,
+        "precipitation_mm": 3.4,
+        "soil_moisture_pct": 2.1,
+        "composite_index": 0.897,
+        "severity": "severe"
+      },
+      {
+        "month": "2023-12",
+        "ndvi": 0.16,
+        "precipitation_mm": 6.2,
+        "soil_moisture_pct": 4.6,
+        "composite_index": 0.859,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-01",
+        "ndvi": 0.147,
+        "precipitation_mm": 10.0,
+        "soil_moisture_pct": 8.3,
+        "composite_index": 0.821,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-02",
+        "ndvi": 0.242,
+        "precipitation_mm": 18.8,
+        "soil_moisture_pct": 9.6,
+        "composite_index": 0.722,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-03",
+        "ndvi": 0.246,
+        "precipitation_mm": 18.3,
+        "soil_moisture_pct": 12.7,
+        "composite_index": 0.7,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-04",
+        "ndvi": 0.409,
+        "precipitation_mm": 24.6,
+        "soil_moisture_pct": 15.9,
+        "composite_index": 0.567,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-05",
+        "ndvi": 0.397,
+        "precipitation_mm": 20.1,
+        "soil_moisture_pct": 15.8,
+        "composite_index": 0.596,
+        "severity": "moderate"
+      },
+      {
+        "month": "2024-06",
+        "ndvi": 0.435,
+        "precipitation_mm": 12.2,
+        "soil_moisture_pct": 16.0,
+        "composite_index": 0.615,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-07",
+        "ndvi": 0.422,
+        "precipitation_mm": 13.0,
+        "soil_moisture_pct": 10.7,
+        "composite_index": 0.653,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-08",
+        "ndvi": 0.336,
+        "precipitation_mm": 16.2,
+        "soil_moisture_pct": 8.4,
+        "composite_index": 0.695,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-09",
+        "ndvi": 0.306,
+        "precipitation_mm": 2.7,
+        "soil_moisture_pct": 5.0,
+        "composite_index": 0.8,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-10",
+        "ndvi": 0.277,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 4.3,
+        "composite_index": 0.83,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-11",
+        "ndvi": 0.227,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 2.5,
+        "composite_index": 0.867,
+        "severity": "severe"
+      },
+      {
+        "month": "2024-12",
+        "ndvi": 0.143,
+        "precipitation_mm": 1.2,
+        "soil_moisture_pct": 4.5,
+        "composite_index": 0.893,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-01",
+        "ndvi": 0.187,
+        "precipitation_mm": 13.0,
+        "soil_moisture_pct": 8.6,
+        "composite_index": 0.784,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-02",
+        "ndvi": 0.251,
+        "precipitation_mm": 19.8,
+        "soil_moisture_pct": 11.1,
+        "composite_index": 0.702,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-03",
+        "ndvi": 0.334,
+        "precipitation_mm": 21.2,
+        "soil_moisture_pct": 17.4,
+        "composite_index": 0.611,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-04",
+        "ndvi": 0.364,
+        "precipitation_mm": 27.3,
+        "soil_moisture_pct": 20.8,
+        "composite_index": 0.543,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-05",
+        "ndvi": 0.355,
+        "precipitation_mm": 22.7,
+        "soil_moisture_pct": 18.5,
+        "composite_index": 0.586,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-06",
+        "ndvi": 0.493,
+        "precipitation_mm": 17.5,
+        "soil_moisture_pct": 22.2,
+        "composite_index": 0.518,
+        "severity": "moderate"
+      },
+      {
+        "month": "2025-07",
+        "ndvi": 0.377,
+        "precipitation_mm": 13.5,
+        "soil_moisture_pct": 14.7,
+        "composite_index": 0.646,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-08",
+        "ndvi": 0.385,
+        "precipitation_mm": 4.6,
+        "soil_moisture_pct": 10.8,
+        "composite_index": 0.713,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-09",
+        "ndvi": 0.243,
+        "precipitation_mm": 2.0,
+        "soil_moisture_pct": 5.4,
+        "composite_index": 0.833,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-10",
+        "ndvi": 0.186,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 4.7,
+        "composite_index": 0.873,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-11",
+        "ndvi": 0.203,
+        "precipitation_mm": 0.5,
+        "soil_moisture_pct": 4.4,
+        "composite_index": 0.866,
+        "severity": "severe"
+      },
+      {
+        "month": "2025-12",
+        "ndvi": 0.163,
+        "precipitation_mm": 5.3,
+        "soil_moisture_pct": 3.6,
+        "composite_index": 0.868,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-01",
+        "ndvi": 0.17,
+        "precipitation_mm": 14.1,
+        "soil_moisture_pct": 6.4,
+        "composite_index": 0.802,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-02",
+        "ndvi": 0.251,
+        "precipitation_mm": 16.4,
+        "soil_moisture_pct": 13.1,
+        "composite_index": 0.706,
+        "severity": "severe"
+      },
+      {
+        "month": "2026-03",
+        "ndvi": 0.298,
+        "precipitation_mm": 20.9,
+        "soil_moisture_pct": 11.6,
+        "composite_index": 0.669,
+        "severity": "severe"
+      }
+    ]
+  }
+}

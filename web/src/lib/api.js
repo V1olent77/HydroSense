@@ -30,3 +30,9 @@ export const fetchNodes = () => get('/api/nodes');
 export const fetchAlerts = () => get('/api/alerts');
 
 export const fetchHealth = () => get('/api/health');
+
+// Oblast endpoints — Level 2/3 satellite + LSTM data.
+export const fetchOblasts          = ()         => get('/api/oblasts');
+export const fetchOblast           = (name)     => get(`/api/oblasts/${encodeURIComponent(name)}`);
+export const fetchOblastHistory    = (name, m=60) => get(`/api/oblasts/${encodeURIComponent(name)}/history?months=${m}`);
+export const fetchOblastForecast   = (name)     => get(`/api/oblasts/${encodeURIComponent(name)}/forecast`);

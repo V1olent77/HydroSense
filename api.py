@@ -7,13 +7,18 @@ Run locally:
     PORT=8080 python api.py  # override the port
 
 Endpoints:
-    POST /api/data       Receive one reading from a sensor node
-    GET  /api/latest     Single most recent reading for a node (UI fast path)
-    GET  /api/recent     Recent readings (with hours window)
-    GET  /api/nodes      Registered sensor nodes
-    GET  /api/alerts     Alert history
-    GET  /api/stats      Headline counters for the landing
-    GET  /api/health     Health check
+    POST /api/data                 Receive one reading from a sensor node
+    GET  /api/latest               Single most recent reading for a node
+    GET  /api/recent               Recent readings (with hours window)
+    GET  /api/nodes                Registered sensor nodes
+    GET  /api/alerts               Alert history
+    GET  /api/stats                Headline counters for the landing
+    GET  /api/health               Health check
+
+    GET  /api/oblasts                       List all 14 oblasts + current state
+    GET  /api/oblasts/<name>                One oblast: current + history + forecast
+    GET  /api/oblasts/<name>/history        Monthly time series (5y)
+    GET  /api/oblasts/<name>/forecast       8-week LSTM forecast
 """
 import os
 import sqlite3
@@ -202,20 +207,112 @@ def list_alerts():
 
 @app.route("/api/stats", methods=["GET"])
 def stats():
-    """Headline numbers for the landing stat-bar. Honest counts, not
-    aspirational — the React side decides how to label them."""
+    """Headline numbers for the landing stat-bar. Honest counts."""
     with db() as conn:
         n_nodes = conn.execute("SELECT COUNT(*) FROM nodes").fetchone()[0]
         n_readings = conn.execute("SELECT COUNT(*) FROM readings").fetchone()[0]
-        n_oblasts = conn.execute(
-            "SELECT COUNT(DISTINCT oblast) FROM nodes WHERE oblast IS NOT NULL"
-        ).fetchone()[0]
+        n_oblasts = conn.execute("SELECT COUNT(*) FROM oblast_indices").fetchone()[0]
+        n_forecasts = conn.execute("SELECT COUNT(*) FROM oblast_forecasts").fetchone()[0]
     return jsonify({
         "nodes": n_nodes,
         "readings": n_readings,
-        "oblasts_with_nodes": n_oblasts,
-        "data_sources": 6,         # MODIS, CHIRPS, ERA5, Sentinel-2, GRACE-FO, Kazhydromet
-        "regions_total": 14,       # KZ administrative oblasts
+        "oblasts_tracked": n_oblasts,
+        "forecasts_active": n_forecasts,
+        "data_sources": 6,
+        "regions_total": 14,
+    })
+
+
+# ---------------------------------------------------------------- OBLASTS
+@app.route("/api/oblasts", methods=["GET"])
+def list_oblasts():
+    """All 14 oblasts with current composite drought index. Used by the
+    SatelliteCard heatmap on the landing."""
+    with db() as conn:
+        rows = conn.execute(
+            "SELECT * FROM oblast_indices ORDER BY composite_index DESC"
+        ).fetchall()
+    return jsonify({
+        "count": len(rows),
+        "oblasts": [dict(r) for r in rows],
+    })
+
+
+@app.route("/api/oblasts/<name>", methods=["GET"])
+def oblast_detail(name):
+    """One oblast bundle: current + last 12mo history + full LSTM forecast."""
+    with db() as conn:
+        current = conn.execute(
+            "SELECT * FROM oblast_indices WHERE oblast = ? COLLATE NOCASE",
+            (name,),
+        ).fetchone()
+        if not current:
+            return jsonify({"error": f"unknown oblast {name!r}"}), 404
+
+        history = conn.execute(
+            "SELECT month, ndvi, precipitation_mm, soil_moisture_pct, composite_index "
+            "FROM oblast_history WHERE oblast = ? COLLATE NOCASE "
+            "ORDER BY month DESC LIMIT 12",
+            (name,),
+        ).fetchall()
+
+        forecast = conn.execute(
+            "SELECT week_offset, forecast_date, composite_index, "
+            "       confidence_lower, confidence_upper, model_version "
+            "FROM oblast_forecasts WHERE oblast = ? COLLATE NOCASE "
+            "ORDER BY week_offset ASC",
+            (name,),
+        ).fetchall()
+
+    return jsonify({
+        "current":  dict(current),
+        "history":  [dict(r) for r in reversed(history)],   # oldest→newest
+        "forecast": [dict(r) for r in forecast],
+    })
+
+
+@app.route("/api/oblasts/<name>/history", methods=["GET"])
+def oblast_history_route(name):
+    """Full monthly history (5y default). Optional ?months=N."""
+    try:
+        months = min(int(request.args.get("months", 60)), 240)
+    except ValueError:
+        return jsonify({"error": "months must be an integer"}), 400
+    with db() as conn:
+        rows = conn.execute(
+            "SELECT month, ndvi, precipitation_mm, soil_moisture_pct, composite_index "
+            "FROM oblast_history WHERE oblast = ? COLLATE NOCASE "
+            "ORDER BY month DESC LIMIT ?",
+            (name, months),
+        ).fetchall()
+    if not rows:
+        return jsonify({"error": f"no history for oblast {name!r}"}), 404
+    return jsonify({
+        "oblast": name,
+        "count": len(rows),
+        "history": [dict(r) for r in reversed(rows)],
+    })
+
+
+@app.route("/api/oblasts/<name>/forecast", methods=["GET"])
+def oblast_forecast_route(name):
+    """8-week LSTM forecast for one oblast. Used by AIModelCard."""
+    with db() as conn:
+        rows = conn.execute(
+            "SELECT week_offset, forecast_date, composite_index, "
+            "       confidence_lower, confidence_upper, model_version, generated_at "
+            "FROM oblast_forecasts WHERE oblast = ? COLLATE NOCASE "
+            "ORDER BY week_offset ASC",
+            (name,),
+        ).fetchall()
+    if not rows:
+        return jsonify({"error": f"no forecast for oblast {name!r}"}), 404
+    return jsonify({
+        "oblast": name,
+        "horizon_weeks": len(rows),
+        "model_version": rows[0]["model_version"],
+        "generated_at": rows[0]["generated_at"],
+        "forecast": [dict(r) for r in rows],
     })
 
 

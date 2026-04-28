@@ -3,7 +3,7 @@ import {
   Satellite, Leaf, Cpu, Droplets, ArrowRight, ArrowUpRight, Plus,
   Activity, Sprout, Layers, Zap, Globe, Send, Thermometer
 } from 'lucide-react';
-import { fetchLatest, fetchStats } from './lib/api.js';
+import { fetchLatest, fetchStats, fetchOblasts, fetchOblastForecast } from './lib/api.js';
 
 /**
  * HydroSense — Landing page
@@ -29,32 +29,43 @@ import { fetchLatest, fetchStats } from './lib/api.js';
  */
 export default function HydroSenseLanding() {
   const [openFaq, setOpenFaq] = useState(0);
-  const [latest,  setLatest]  = useState(null);   // /api/latest payload
-  const [stats,   setStats]   = useState(null);   // /api/stats payload
-  const [apiUp,   setApiUp]   = useState(true);   // false = backend unreachable
+  const [latest,    setLatest]    = useState(null);
+  const [stats,     setStats]     = useState(null);
+  const [oblasts,   setOblasts]   = useState(null);   // /api/oblasts list
+  const [selectedOblast, setSelectedOblast] = useState('Kyzylorda');
+  const [forecast,  setForecast]  = useState(null);   // /api/oblasts/:name/forecast
+  const [apiUp,     setApiUp]     = useState(true);
 
-  // Poll the backend for live readings + headline counts. Soft-fails:
-  // if the API is down we just keep showing whatever we had (or em-dashes).
+  // Poll: live readings + stats + oblast list (every 30s).
   useEffect(() => {
     let cancelled = false;
-
     const tick = async () => {
       try {
-        const [l, s] = await Promise.all([fetchLatest('node_01'), fetchStats()]);
+        const [l, s, o] = await Promise.all([
+          fetchLatest('node_01'),
+          fetchStats(),
+          fetchOblasts(),
+        ]);
         if (cancelled) return;
-        setLatest(l);
-        setStats(s);
-        setApiUp(true);
+        setLatest(l); setStats(s); setOblasts(o); setApiUp(true);
       } catch {
         if (cancelled) return;
         setApiUp(false);
       }
     };
-
     tick();
-    const id = setInterval(tick, 30_000);   // refresh every 30s
+    const id = setInterval(tick, 30_000);
     return () => { cancelled = true; clearInterval(id); };
   }, []);
+
+  // Refetch forecast whenever the user picks a different oblast in the AI card.
+  useEffect(() => {
+    let cancelled = false;
+    fetchOblastForecast(selectedOblast)
+      .then(f => { if (!cancelled) setForecast(f); })
+      .catch(() => { if (!cancelled) setForecast(null); });
+    return () => { cancelled = true; };
+  }, [selectedOblast]);
 
   // Number formatter that gracefully degrades to an em-dash when no data yet.
   const fmt = (v, digits = 1) =>
@@ -414,9 +425,15 @@ export default function HydroSenseLanding() {
 
           {/* Bento grid */}
           <div className="grid grid-cols-1 md:grid-cols-6 gap-4 lg:gap-5 auto-rows-[minmax(180px,auto)]">
-            {/* (1) BIG — Satellite imagery (deep green) */}
+            {/* (1) BIG — Satellite imagery (deep green) — wired to /api/oblasts */}
             <div className="md:col-span-4 md:row-span-2 bg-[#1a3a2e] text-[#f5f1e8] p-7 lg:p-9 relative overflow-hidden">
-              <SatelliteCard heatmap={heatmap} heatColors={heatColors} />
+              <SatelliteCard
+                oblasts={oblasts}
+                onSelect={setSelectedOblast}
+                selected={selectedOblast}
+                fallbackHeatmap={heatmap}
+                heatColors={heatColors}
+              />
             </div>
 
             {/* (2) IoT sensor (pale green) — wired to /api/latest */}
@@ -424,9 +441,14 @@ export default function HydroSenseLanding() {
               <IoTSensorCard latest={latest} apiUp={apiUp} fmt={fmt} />
             </div>
 
-            {/* (3) AI Models (white w/ border) */}
+            {/* (3) AI Models — wired to /api/oblasts/:name/forecast */}
             <div className="md:col-span-2 bg-[#fafaf7] border border-[#1a3a2e]/15 p-7 relative">
-              <AIModelCard />
+              <AIModelCard
+                forecast={forecast}
+                oblastName={selectedOblast}
+                oblasts={oblasts}
+                onSelect={setSelectedOblast}
+              />
             </div>
 
             {/* (4) Sustainable interventions (white) */}
@@ -718,7 +740,49 @@ function Reading({ label, value, unit, color, pct }) {
 }
 
 /* ----- BENTO: Satellite ----- */
-function SatelliteCard({ heatmap, heatColors }) {
+// `oblasts` is the response of /api/oblasts: { count, oblasts: [...] }.
+// We render one tile per oblast, colored by its composite drought index,
+// and let the user pick one to drive the AI forecast card on the right.
+// Falls back to the synthetic 8×12 heatmap if the API can't be reached.
+function SatelliteCard({ oblasts, onSelect, selected, fallbackHeatmap, heatColors }) {
+  const list = oblasts?.oblasts ?? [];
+  const haveData = list.length > 0;
+
+  // Map composite index (0 healthy → 1 severe) onto the existing 6-step palette.
+  const colorForIndex = (ci) => {
+    if (ci == null || Number.isNaN(ci)) return 'bg-[#1a3a2e]/30';
+    if (ci < 0.15) return heatColors[0];
+    if (ci < 0.30) return heatColors[1];
+    if (ci < 0.45) return heatColors[2];
+    if (ci < 0.60) return heatColors[3];
+    if (ci < 0.75) return heatColors[4];
+    return heatColors[5];
+  };
+
+  // Severity buckets → percentages for the right-hand sidebar.
+  const counts = list.reduce(
+    (acc, o) => {
+      const sev = (o.severity || '').toLowerCase();
+      if (sev === 'healthy') acc.healthy += 1;
+      else if (sev === 'severe') acc.drought += 1;
+      else acc.stressed += 1; // moderate / unknown → stressed bucket
+      return acc;
+    },
+    { healthy: 0, stressed: 0, drought: 0 },
+  );
+  const total = list.length || 1;
+  const pct = (n) => Math.round((n / total) * 100);
+
+  // The selected oblast drives the readout under the heatmap.
+  const sel = list.find(
+    (o) => (o.oblast || '').toLowerCase() === (selected || '').toLowerCase(),
+  );
+
+  // Compact UTC stamp, e.g. "2026-04-25 ▸ 16:42".
+  const stamp = sel?.updated_at
+    ? sel.updated_at.replace('T', ' ▸ ').slice(0, 19)
+    : '—';
+
   return (
     <div className="h-full flex flex-col">
       <div className="flex items-start justify-between mb-7">
@@ -734,7 +798,7 @@ function SatelliteCard({ heatmap, heatColors }) {
         </div>
         <div className="hidden md:flex flex-col items-end font-mono-c text-[0.6rem] uppercase tracking-[0.2em] text-[#dde5d2]/55 gap-1 shrink-0 ml-6">
           <span>Source ▸ MODIS Terra</span>
-          <span>Tile ▸ H22V04</span>
+          <span>Tile ▸ {haveData ? `${list.length} oblasts` : 'H22V04'}</span>
         </div>
       </div>
 
@@ -748,62 +812,102 @@ function SatelliteCard({ heatmap, heatColors }) {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c9824a] opacity-75" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#d4a574]" />
               </span>
-              Live
+              {haveData ? 'Live' : 'Offline'}
             </span>
-            <span className="text-[#dde5d2]/55 hidden sm:inline">NDVI ▸ Oblast 04 ▸ 250m</span>
+            <span className="text-[#dde5d2]/55 hidden sm:inline">
+              NDVI ▸ {sel ? sel.oblast : 'select oblast'} ▸ 250m
+            </span>
           </div>
           <div className="flex items-center gap-3 text-[#dde5d2]/55">
-            <span className="hidden md:inline">2026-04-25 ▸ 16:42:08 UTC</span>
+            <span className="hidden md:inline">{stamp} UTC</span>
             <Layers className="w-3 h-3" />
           </div>
         </div>
 
         <div className="grid grid-cols-12 gap-4">
-          {/* Heatmap */}
+          {/* Oblast tiles (or fallback synthetic heatmap) */}
           <div className="col-span-12 md:col-span-8 relative">
-            <div className="grid grid-cols-12 gap-[2px] relative">
-              {heatmap.flat().map((level, i) => (
-                <div key={i} className={`aspect-square ${heatColors[level]} relative`}>
-                  {level >= 4 && <div className="absolute inset-0 bg-[#c9824a]/30 animate-pulse-soft" />}
-                </div>
-              ))}
-              {/* scan line */}
-              <div className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4a574]/70 to-transparent animate-scan-line pointer-events-none" />
-
-              {/* crosshair callout */}
-              <div className="absolute pointer-events-none" style={{ left: '63%', top: '55%' }}>
-                <div className="relative -translate-x-1/2 -translate-y-1/2">
-                  <div className="w-9 h-9 border border-[#d4a574] rounded-full" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-[#d4a574] rounded-full" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-px bg-[#d4a574]/60" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-9 bg-[#d4a574]/60" />
-                </div>
-                <div className="absolute top-full left-1/2 mt-2 -translate-x-1/2 whitespace-nowrap font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#d4a574] bg-[#0e2820] px-1.5 py-0.5 border border-[#d4a574]/30">
-                  Almaty ▸ NDVI 0.42
-                </div>
+            {haveData ? (
+              <div className="grid grid-cols-4 sm:grid-cols-7 gap-[3px] relative">
+                {list.map((o) => {
+                  const isSel =
+                    (o.oblast || '').toLowerCase() ===
+                    (selected || '').toLowerCase();
+                  const sev = (o.severity || '').toLowerCase();
+                  return (
+                    <button
+                      key={o.oblast}
+                      type="button"
+                      onClick={() => onSelect?.(o.oblast)}
+                      title={`${o.oblast} — composite ${Number(o.composite_index ?? 0).toFixed(2)} (${o.severity})`}
+                      className={`aspect-square ${colorForIndex(o.composite_index)} relative ring-1 ring-inset ring-[#d4a574]/10 hover:ring-[#d4a574]/70 focus:outline-none focus:ring-[#d4a574] transition`}
+                    >
+                      {sev === 'severe' && (
+                        <div className="absolute inset-0 bg-[#c9824a]/30 animate-pulse-soft pointer-events-none" />
+                      )}
+                      {isSel && (
+                        <>
+                          <div className="absolute inset-0 ring-1 ring-[#d4a574] pointer-events-none" />
+                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div className="w-3 h-3 border border-[#f5f1e8] rounded-full" />
+                          </div>
+                        </>
+                      )}
+                    </button>
+                  );
+                })}
+                {/* scan line */}
+                <div className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4a574]/70 to-transparent animate-scan-line pointer-events-none" />
               </div>
-            </div>
+            ) : (
+              <div className="grid grid-cols-12 gap-[2px] relative">
+                {fallbackHeatmap.flat().map((level, i) => (
+                  <div key={i} className={`aspect-square ${heatColors[level]} relative`}>
+                    {level >= 4 && <div className="absolute inset-0 bg-[#c9824a]/30 animate-pulse-soft" />}
+                  </div>
+                ))}
+                <div className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4a574]/70 to-transparent animate-scan-line pointer-events-none" />
+              </div>
+            )}
 
-            <div className="hidden lg:flex justify-between mt-2 font-mono-c text-[0.55rem] uppercase tracking-[0.15em] text-[#dde5d2]/40">
-              <span>72°E</span><span>76°E</span><span>80°E</span><span>84°E</span>
+            {/* Readout for the selected oblast */}
+            <div className="mt-3 flex items-baseline justify-between font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#dde5d2]/65 gap-3">
+              {sel ? (
+                <>
+                  <span>
+                    {sel.oblast} ▸ NDVI {Number(sel.ndvi ?? 0).toFixed(2)} ▸ Soil {Number(sel.soil_moisture_pct ?? 0).toFixed(0)}% ▸ Comp {Number(sel.composite_index ?? 0).toFixed(2)}
+                  </span>
+                  <span className="text-[#d4a574]">{sel.severity}</span>
+                </>
+              ) : (
+                <span>{haveData ? 'Pick a tile to inspect' : 'Loading oblasts…'}</span>
+              )}
             </div>
           </div>
 
-          {/* Sidebar */}
+          {/* Sidebar — real severity counts + per-oblast bars */}
           <div className="col-span-12 md:col-span-4 space-y-4">
-            <SatStat label="Healthy"  value="68" color="#6b8e5a" />
-            <SatStat label="Stressed" value="22" color="#d4a574" />
-            <SatStat label="Drought"  value="10" color="#c9824a" />
+            <SatStat label="Healthy"  value={pct(counts.healthy)}  color="#6b8e5a" />
+            <SatStat label="Stressed" value={pct(counts.stressed)} color="#d4a574" />
+            <SatStat label="Drought"  value={pct(counts.drought)}  color="#c9824a" />
 
             <div className="pt-3 mt-3 border-t border-[#d4a574]/15">
               <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#dde5d2]/55 mb-2 flex justify-between">
-                <span>Trend ▸ 30d</span>
-                <span className="text-[#d4a574]">+ 4.1%</span>
+                <span>Composite ▸ All</span>
+                <span className="text-[#d4a574]">{list.length} obl.</span>
               </div>
               <div className="flex items-end gap-[2px] h-10">
-                {[3,4,3,5,4,6,5,7,6,8,7,9,8,7,9,8,7,6,7,8,9,8,7,6,5,6,7,8,9,8].map((h, i) => (
-                  <div key={i} className="flex-1 bg-[#d4a574]/55" style={{ height: `${h * 8}%` }} />
-                ))}
+                {(haveData ? list : Array.from({ length: 14 })).map((o, i) => {
+                  const ci = haveData ? Number(o.composite_index ?? 0) : 0.3 + (i % 5) * 0.1;
+                  return (
+                    <div
+                      key={i}
+                      className="flex-1 bg-[#d4a574]/55"
+                      style={{ height: `${Math.max(8, ci * 100)}%` }}
+                      title={haveData ? `${o.oblast}: ${ci.toFixed(2)}` : undefined}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -879,38 +983,140 @@ function IoTSensorCard({ latest, apiUp, fmt }) {
 }
 
 /* ----- BENTO: AI Models ----- */
-function AIModelCard() {
+// Renders the real LSTM forecast for the currently-selected oblast.
+// `forecast` is the response of /api/oblasts/:name/forecast:
+//   { oblast, horizon_weeks, model_version, generated_at,
+//     forecast: [{ week_offset, forecast_date, composite_index,
+//                  confidence_lower, confidence_upper, ... }] }
+// `oblasts` is the list response so we can offer an oblast picker dropdown.
+function AIModelCard({ forecast, oblastName, oblasts, onSelect }) {
+  const list = oblasts?.oblasts ?? [];
+  const fc   = forecast?.forecast ?? [];
+  const have = fc.length > 0;
+
+  // SVG geometry. Composite index is 0..1; we invert Y so that higher
+  // drought (severity ↑) draws higher on the chart, matching intuition.
+  const W = 200, H = 60, padX = 6, padY = 6;
+  const innerW = W - padX * 2;
+  const innerH = H - padY * 2;
+  const xFor = (i, n) => padX + (n <= 1 ? innerW / 2 : (i / (n - 1)) * innerW);
+  const yFor = (ci) => {
+    const c = Math.max(0, Math.min(1, Number(ci) || 0));
+    return padY + (1 - c) * innerH;
+  };
+
+  const linePath = fc
+    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i, fc.length).toFixed(1)} ${yFor(p.composite_index).toFixed(1)}`)
+    .join(' ');
+  const upperPath = fc
+    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i, fc.length).toFixed(1)} ${yFor(p.confidence_upper).toFixed(1)}`)
+    .join(' ');
+  const lowerPath = fc
+    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i, fc.length).toFixed(1)} ${yFor(p.confidence_lower).toFixed(1)}`)
+    .join(' ');
+  // Confidence band = upper edge forward + lower edge in reverse, closed.
+  const bandPath = have
+    ? fc.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i, fc.length).toFixed(1)} ${yFor(p.confidence_upper).toFixed(1)}`).join(' ')
+      + ' ' +
+      fc.slice().reverse().map((p) => {
+        const idx = fc.indexOf(p);
+        return `L ${xFor(idx, fc.length).toFixed(1)} ${yFor(p.confidence_lower).toFixed(1)}`;
+      }).join(' ')
+      + ' Z'
+    : '';
+
+  // Peak risk in the horizon — surfaces in the header line.
+  const peak = have
+    ? fc.reduce((a, b) => ((b.composite_index ?? 0) > (a.composite_index ?? 0) ? b : a))
+    : null;
+
   return (
     <div className="h-full flex flex-col">
-      <div className="flex items-center gap-2.5 font-mono-c text-[0.65rem] uppercase tracking-[0.22em] text-[#1a3a2e]/65 mb-4">
-        <Zap className="w-3.5 h-3.5" />
-        <span>§ 03 ▸ Intelligence</span>
+      <div className="flex items-center justify-between gap-2 mb-4">
+        <div className="flex items-center gap-2.5 font-mono-c text-[0.65rem] uppercase tracking-[0.22em] text-[#1a3a2e]/65">
+          <Zap className="w-3.5 h-3.5" />
+          <span>§ 03 ▸ Intelligence</span>
+        </div>
+        {list.length > 0 && (
+          <select
+            value={oblastName ?? ''}
+            onChange={(e) => onSelect?.(e.target.value)}
+            className="font-mono-c text-[0.6rem] uppercase tracking-[0.18em] text-[#1a3a2e] bg-transparent border border-[#1a3a2e]/20 px-2 py-0.5 hover:border-[#1a3a2e]/55 focus:outline-none cursor-pointer"
+            aria-label="Select oblast"
+          >
+            {list.map((o) => (
+              <option key={o.oblast} value={o.oblast}>{o.oblast}</option>
+            ))}
+          </select>
+        )}
       </div>
+
       <h3 className="font-display text-2xl lg:text-[1.65rem] tracking-tight leading-[1.1] mb-3 text-[#1a3a2e]">
         AI predictive models.
       </h3>
       <p className="text-sm text-[#1c1f1a]/65 mb-5 leading-relaxed">
-        LSTM ensemble trained on a decade of climate reanalysis — forecasts drought risk eight weeks ahead, oblast by oblast.
+        LSTM {forecast?.model_version ?? 'lstm_v1'} — drought risk for{' '}
+        <span className="text-[#1a3a2e] font-medium">{oblastName ?? '—'}</span>,{' '}
+        {fc.length || 8} weeks ahead.
       </p>
 
       <div className="mt-auto">
         <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.2em] text-[#1a3a2e]/55 mb-2 flex justify-between">
-          <span>Forecast ▸ 8 weeks</span>
-          <span className="text-[#c9824a]">↑ Conf. 95%</span>
+          <span>Forecast ▸ {fc.length || 0} wk</span>
+          <span className="text-[#c9824a]">
+            {peak
+              ? `Peak ${(peak.composite_index * 100).toFixed(0)}% wk +${peak.week_offset}`
+              : '—'}
+          </span>
         </div>
         <svg viewBox="0 0 200 60" className="w-full">
           <defs>
             <linearGradient id="forecast-grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"   stopColor="#1a3a2e" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#1a3a2e" stopOpacity="0" />
+              <stop offset="0%"   stopColor="#c9824a" stopOpacity="0.32" />
+              <stop offset="100%" stopColor="#c9824a" stopOpacity="0" />
             </linearGradient>
           </defs>
-          <path d="M0 45 L20 40 L40 42 L60 35 L80 38 L100 28 L120 30 L140 22 L160 18 L180 12 L200 8" fill="none" stroke="#1a3a2e" strokeWidth="1.5" />
-          <path d="M0 45 L20 40 L40 42 L60 35 L80 38 L100 28 L120 30 L140 22 L160 18 L180 12 L200 8 L200 60 L0 60 Z" fill="url(#forecast-grad)" />
-          <path d="M100 28 L120 24 L140 18 L160 14 L180 10 L200 6" fill="none" stroke="#c9824a" strokeWidth="1.5" strokeDasharray="3 2" />
-          <line x1="100" y1="0" x2="100" y2="60" stroke="#1a3a2e" strokeWidth="0.5" strokeDasharray="2 2" opacity="0.45" />
-          <text x="103" y="10" fill="#1a3a2e" fontSize="6" fontFamily="monospace" opacity="0.6">NOW</text>
+
+          {/* Severe-risk threshold (composite index = 0.7) */}
+          <line
+            x1={padX} x2={W - padX}
+            y1={yFor(0.7)} y2={yFor(0.7)}
+            stroke="#c9824a" strokeWidth="0.4" strokeDasharray="2 2" opacity="0.55"
+          />
+          <text x={W - padX - 18} y={yFor(0.7) - 1} fill="#c9824a" fontSize="4" fontFamily="monospace" opacity="0.75">
+            SEVERE
+          </text>
+
+          {have ? (
+            <>
+              <path d={bandPath}  fill="url(#forecast-grad)" stroke="none" />
+              <path d={upperPath} fill="none" stroke="#c9824a" strokeWidth="0.5" strokeDasharray="1.5 1.5" opacity="0.55" />
+              <path d={lowerPath} fill="none" stroke="#c9824a" strokeWidth="0.5" strokeDasharray="1.5 1.5" opacity="0.55" />
+              <path d={linePath}  fill="none" stroke="#1a3a2e" strokeWidth="1.5" />
+              {fc.map((p, i) => (
+                <circle
+                  key={p.week_offset ?? i}
+                  cx={xFor(i, fc.length)} cy={yFor(p.composite_index)}
+                  r="1.2" fill="#1a3a2e"
+                />
+              ))}
+            </>
+          ) : (
+            <text x={W / 2} y={H / 2 + 2} fill="#1a3a2e" fontSize="6" fontFamily="monospace" textAnchor="middle" opacity="0.5">
+              loading forecast…
+            </text>
+          )}
+
+          {/* "NOW" axis on the left edge */}
+          <line x1={padX} y1={padY} x2={padX} y2={H - padY} stroke="#1a3a2e" strokeWidth="0.5" strokeDasharray="2 2" opacity="0.4" />
+          <text x={padX + 1.5} y={padY + 5} fill="#1a3a2e" fontSize="4" fontFamily="monospace" opacity="0.6">NOW</text>
         </svg>
+
+        <div className="font-mono-c text-[0.5rem] uppercase tracking-[0.18em] text-[#1a3a2e]/55 mt-1 flex justify-between">
+          <span>wk +1</span>
+          {fc.length >= 4 && <span>wk +{Math.ceil(fc.length / 2)}</span>}
+          <span>wk +{fc.length > 0 ? fc[fc.length - 1].week_offset : 8}</span>
+        </div>
       </div>
     </div>
   );
