@@ -3,7 +3,7 @@ import {
   Satellite, Leaf, Cpu, Droplets, ArrowRight, ArrowUpRight, Plus,
   Activity, Sprout, Layers, Zap, Globe, Send, Thermometer
 } from 'lucide-react';
-import { fetchLatest, fetchStats, fetchOblasts, fetchOblastForecast } from './lib/api.js';
+import { fetchLatest, fetchRecent, fetchStats, fetchOblasts, fetchOblastForecast } from './lib/api.js';
 
 /**
  * HydroSense — Landing page
@@ -30,24 +30,26 @@ import { fetchLatest, fetchStats, fetchOblasts, fetchOblastForecast } from './li
 export default function HydroSenseLanding() {
   const [openFaq, setOpenFaq] = useState(0);
   const [latest,    setLatest]    = useState(null);
+  const [recent,    setRecent]    = useState(null);   // last 24h IoT for sparkline
   const [stats,     setStats]     = useState(null);
   const [oblasts,   setOblasts]   = useState(null);   // /api/oblasts list
   const [selectedOblast, setSelectedOblast] = useState('Kyzylorda');
   const [forecast,  setForecast]  = useState(null);   // /api/oblasts/:name/forecast
   const [apiUp,     setApiUp]     = useState(true);
 
-  // Poll: live readings + stats + oblast list (every 30s).
+  // Poll: live readings + recent series + stats + oblast list (every 30s).
   useEffect(() => {
     let cancelled = false;
     const tick = async () => {
       try {
-        const [l, s, o] = await Promise.all([
+        const [l, r, s, o] = await Promise.all([
           fetchLatest('node_01'),
+          fetchRecent('node_01', 24).catch(() => null),
           fetchStats(),
           fetchOblasts(),
         ]);
         if (cancelled) return;
-        setLatest(l); setStats(s); setOblasts(o); setApiUp(true);
+        setLatest(l); setRecent(r); setStats(s); setOblasts(o); setApiUp(true);
       } catch {
         if (cancelled) return;
         setApiUp(false);
@@ -179,6 +181,11 @@ export default function HydroSenseLanding() {
         body { font-family: 'Geist', ui-sans-serif, system-ui, sans-serif; }
         .font-display { font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto; }
         .font-mono-c  { font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace; }
+        /* Helvetica-style numeric face: bold label + light value, e.g. "India: 14.20m". */
+        .font-num     { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif; font-feature-settings: 'tnum' 1, 'lnum' 1; letter-spacing: -0.01em; }
+        .num-label    { font-weight: 700; }
+        .num-value    { font-weight: 300; }
+        .num-unit     { font-weight: 300; opacity: 0.55; margin-left: 0.15em; }
 
         @keyframes pulseSoft { 0%,100% { opacity: 1 } 50% { opacity: 0.4 } }
         @keyframes scanLine  { 0% { transform: translateY(-100%) } 100% { transform: translateY(900%) } }
@@ -423,6 +430,15 @@ export default function HydroSenseLanding() {
             </a>
           </div>
 
+          {/* LIVE SNAPSHOT — the most important numbers, surfaced front and center. */}
+          <LiveSnapshot
+            oblasts={oblasts}
+            selectedOblast={selectedOblast}
+            forecast={forecast}
+            latest={latest}
+            apiUp={apiUp}
+          />
+
           {/* Bento grid */}
           <div className="grid grid-cols-1 md:grid-cols-6 gap-4 lg:gap-5 auto-rows-[minmax(180px,auto)]">
             {/* (1) BIG — Satellite imagery (deep green) — wired to /api/oblasts */}
@@ -436,9 +452,9 @@ export default function HydroSenseLanding() {
               />
             </div>
 
-            {/* (2) IoT sensor (pale green) — wired to /api/latest */}
+            {/* (2) IoT sensor (pale green) — wired to /api/latest + /api/recent */}
             <div className="md:col-span-2 bg-[#dde5d2] p-7 relative">
-              <IoTSensorCard latest={latest} apiUp={apiUp} fmt={fmt} />
+              <IoTSensorCard latest={latest} recent={recent} apiUp={apiUp} fmt={fmt} />
             </div>
 
             {/* (3) AI Models — wired to /api/oblasts/:name/forecast */}
@@ -739,6 +755,125 @@ function Reading({ label, value, unit, color, pct }) {
   );
 }
 
+/* ----- LIVE SNAPSHOT (above the bento) -----
+ * One horizontal strip with the headline numbers from every data source.
+ * Helvetica numerics in bold-label / light-value style; high contrast,
+ * scannable at a glance, no scrolling required.
+ */
+function LiveSnapshot({ oblasts, selectedOblast, forecast, latest, apiUp }) {
+  const list = oblasts?.oblasts ?? [];
+  const sel  = list.find(o => (o.oblast || '').toLowerCase() === (selectedOblast || '').toLowerCase());
+  const fc   = forecast?.forecast ?? [];
+  const peak = fc.length
+    ? fc.reduce((a, b) => ((b.composite_index ?? 0) > (a.composite_index ?? 0) ? b : a))
+    : null;
+
+  // National rollup: how many oblasts in each severity bucket.
+  const buckets = list.reduce(
+    (acc, o) => {
+      const sv = (o.severity || '').toLowerCase();
+      if (sv === 'severe') acc.severe += 1;
+      else if (sv === 'moderate') acc.moderate += 1;
+      else acc.healthy += 1;
+      return acc;
+    },
+    { healthy: 0, moderate: 0, severe: 0 },
+  );
+
+  const r = latest?.reading;
+  const num = (v, d = 1) =>
+    v === null || v === undefined || Number.isNaN(Number(v)) ? '—' : Number(v).toFixed(d);
+
+  return (
+    <div className="mb-10 lg:mb-14">
+      <div className="flex items-center gap-3 mb-4 font-mono-c text-[0.6rem] uppercase tracking-[0.28em] text-[#1a3a2e]/60">
+        <span className="flex items-center gap-1.5">
+          <span className={`w-1.5 h-1.5 rounded-full animate-pulse-soft ${apiUp ? 'bg-[#6b8e5a]' : 'bg-[#c9824a]'}`} />
+          {apiUp ? 'Live data' : 'Backend offline'}
+        </span>
+        <span className="h-px flex-1 bg-[#1a3a2e]/15" />
+        <span>Auto-refresh ▸ 30s</span>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 border border-[#1a3a2e]/15 bg-[#fafaf7] divide-x divide-y sm:divide-y-0 lg:divide-y-0 divide-[#1a3a2e]/10">
+        {/* (1) Selected oblast — composite drought index */}
+        <SnapBlock
+          tag="Composite ▸ Selected"
+          label={sel?.oblast ?? selectedOblast}
+          value={sel ? num(sel.composite_index, 2) : '—'}
+          unit="/ 1.0"
+          accent={sel ? severityColor(sel.severity) : '#1a3a2e'}
+          sub={sel ? `${(sel.severity || '').toUpperCase()} · NDVI ${num(sel.ndvi, 2)}` : 'pick an oblast'}
+        />
+        {/* (2) Soil moisture for the selected oblast (satellite-derived) */}
+        <SnapBlock
+          tag="Soil ▸ ERA5"
+          label="Moisture"
+          value={sel ? num(sel.soil_moisture_pct, 1) : '—'}
+          unit="%"
+          accent="#6b8e5a"
+          sub={sel ? `Precip ${num(sel.precipitation_mm, 0)} mm / 30d` : 'no data'}
+        />
+        {/* (3) LSTM peak forecast for the selected oblast */}
+        <SnapBlock
+          tag="LSTM ▸ 8-week peak"
+          label={`wk +${peak?.week_offset ?? '—'}`}
+          value={peak ? num(peak.composite_index * 100, 0) : '—'}
+          unit="%"
+          accent="#c9824a"
+          sub={peak ? `band ${num(peak.confidence_lower * 100, 0)}–${num(peak.confidence_upper * 100, 0)}%` : 'forecasting…'}
+        />
+        {/* (4) Live IoT moisture from the field node */}
+        <SnapBlock
+          tag="IoT ▸ Node 01"
+          label="Field Soil"
+          value={num(r?.soil_moisture, 1)}
+          unit="%"
+          accent="#1a3a2e"
+          sub={r ? `${num(r?.soil_temperature, 1)}°C · ${(latest?.node?.oblast || 'East KZ')}` : (apiUp ? 'awaiting reading' : 'offline')}
+        />
+        {/* (5) National severity rollup */}
+        <SnapBlock
+          tag="National ▸ 14 oblasts"
+          label="Severe"
+          value={String(buckets.severe)}
+          unit={`/ ${list.length || '—'}`}
+          accent="#c9824a"
+          sub={`${buckets.moderate} moderate · ${buckets.healthy} healthy`}
+        />
+      </div>
+    </div>
+  );
+}
+
+function SnapBlock({ tag, label, value, unit, accent, sub }) {
+  return (
+    <div className="p-5 lg:p-6 relative overflow-hidden">
+      <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.22em] text-[#1a3a2e]/55 mb-3">
+        {tag}
+      </div>
+      <div className="font-num text-[2.4rem] lg:text-[2.75rem] leading-none tracking-tight text-[#1c1f1a] flex items-baseline gap-2">
+        <span className="num-label" style={{ color: accent }}>
+          {label}:
+        </span>
+        <span className="num-value tabular-nums">{value}</span>
+        <span className="num-unit text-[1.1rem] lg:text-[1.25rem]">{unit}</span>
+      </div>
+      <div className="mt-3 font-mono-c text-[0.6rem] uppercase tracking-[0.18em] text-[#1c1f1a]/55">
+        {sub}
+      </div>
+      <div className="absolute left-0 top-0 bottom-0 w-[3px]" style={{ backgroundColor: accent, opacity: 0.6 }} />
+    </div>
+  );
+}
+
+function severityColor(sev) {
+  const s = (sev || '').toLowerCase();
+  if (s === 'severe')   return '#c9824a';
+  if (s === 'moderate') return '#d4a574';
+  return '#6b8e5a';
+}
+
 /* ----- BENTO: Satellite ----- */
 // `oblasts` is the response of /api/oblasts: { count, oblasts: [...] }.
 // We render one tile per oblast, colored by its composite drought index,
@@ -870,18 +1005,36 @@ function SatelliteCard({ oblasts, onSelect, selected, fallbackHeatmap, heatColor
               </div>
             )}
 
-            {/* Readout for the selected oblast */}
-            <div className="mt-3 flex items-baseline justify-between font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#dde5d2]/65 gap-3">
-              {sel ? (
-                <>
-                  <span>
-                    {sel.oblast} ▸ NDVI {Number(sel.ndvi ?? 0).toFixed(2)} ▸ Soil {Number(sel.soil_moisture_pct ?? 0).toFixed(0)}% ▸ Comp {Number(sel.composite_index ?? 0).toFixed(2)}
-                  </span>
-                  <span className="text-[#d4a574]">{sel.severity}</span>
-                </>
-              ) : (
-                <span>{haveData ? 'Pick a tile to inspect' : 'Loading oblasts…'}</span>
-              )}
+            {/* Big readout for the selected oblast — 4 bold metric tiles. */}
+            <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-[3px]">
+              <SatBigStat
+                label="NDVI"
+                value={sel ? Number(sel.ndvi ?? 0).toFixed(2) : '—'}
+                unit="0–1"
+                tone="#a8b89e"
+              />
+              <SatBigStat
+                label="Soil"
+                value={sel ? Number(sel.soil_moisture_pct ?? 0).toFixed(0) : '—'}
+                unit="%"
+                tone="#6b8e5a"
+              />
+              <SatBigStat
+                label="Precip"
+                value={sel ? Number(sel.precipitation_mm ?? 0).toFixed(0) : '—'}
+                unit="mm/30d"
+                tone="#dde5d2"
+              />
+              <SatBigStat
+                label="Comp"
+                value={sel ? Number(sel.composite_index ?? 0).toFixed(2) : '—'}
+                unit={sel ? (sel.severity || '').toUpperCase() : '—'}
+                tone={sel ? severityColor(sel.severity) : '#d4a574'}
+                strong
+              />
+            </div>
+            <div className="mt-2 font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#dde5d2]/55">
+              {sel ? `${sel.oblast} · ${(sel.latitude ?? 0).toFixed(2)}°N · ${(sel.longitude ?? 0).toFixed(2)}°E` : (haveData ? 'Pick a tile to inspect →' : 'Loading oblasts…')}
             </div>
           </div>
 
@@ -935,46 +1088,121 @@ function SatStat({ label, value, color }) {
   );
 }
 
-/* ----- BENTO: IoT Sensor (wired to /api/latest) ----- */
-function IoTSensorCard({ latest, apiUp, fmt }) {
+/* Bold metric tile used by SatelliteCard's per-oblast readout.
+ * Helvetica numerals, label colored by tone, big value front-and-center. */
+function SatBigStat({ label, value, unit, tone, strong }) {
+  return (
+    <div className={`bg-[#0e2820]/80 px-3 py-3 ${strong ? 'ring-1 ring-inset ring-[#d4a574]/35' : ''}`}>
+      <div className="font-mono-c text-[0.5rem] uppercase tracking-[0.22em] mb-1.5" style={{ color: tone, opacity: 0.8 }}>
+        {label}
+      </div>
+      <div className="font-num text-[#f5f1e8] leading-none tracking-tight">
+        <span className="num-value tabular-nums text-[1.6rem] lg:text-[1.85rem]">{value}</span>
+      </div>
+      <div className="font-mono-c text-[0.5rem] uppercase tracking-[0.18em] text-[#dde5d2]/55 mt-1.5">
+        {unit}
+      </div>
+    </div>
+  );
+}
+
+/* ----- BENTO: IoT Sensor (wired to /api/latest + /api/recent) ----- */
+function IoTSensorCard({ latest, recent, apiUp, fmt }) {
   const r = latest?.reading;
+  // Last 24 h: trend arrow + sparkline path. Series oldest→newest.
+  const series = (recent?.readings ?? recent?.data ?? []).slice().reverse?.() ?? [];
+  const moistures = series.map(p => Number(p.soil_moisture)).filter(Number.isFinite);
+  const first = moistures[0];
+  const last  = moistures[moistures.length - 1];
+  const delta = (Number.isFinite(first) && Number.isFinite(last)) ? last - first : null;
+  const deltaUp = delta != null && delta >= 0;
+
+  // Sparkline 100×24 viewBox, simple polyline.
+  const W = 100, H = 24;
+  let sparkPath = '';
+  if (moistures.length > 1) {
+    const min = Math.min(...moistures);
+    const max = Math.max(...moistures);
+    const span = Math.max(0.5, max - min);
+    const step = W / (moistures.length - 1);
+    sparkPath = moistures
+      .map((v, i) => {
+        const x = i * step;
+        const y = H - ((v - min) / span) * H;
+        return `${i === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`;
+      })
+      .join(' ');
+  }
+
   return (
     <div className="h-full flex flex-col">
-      <div className="flex items-center gap-2.5 font-mono-c text-[0.65rem] uppercase tracking-[0.22em] text-[#1a3a2e]/65 mb-4">
-        <Cpu className="w-3.5 h-3.5" />
-        <span>§ 02 ▸ Hardware</span>
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2.5 font-mono-c text-[0.65rem] uppercase tracking-[0.22em] text-[#1a3a2e]/65">
+          <Cpu className="w-3.5 h-3.5" />
+          <span>§ 02 ▸ Hardware</span>
+        </div>
+        <span className="flex items-center gap-1.5 font-mono-c text-[0.55rem] uppercase tracking-[0.2em] text-[#1a3a2e]/65">
+          <span className={`w-1.5 h-1.5 rounded-full animate-pulse-soft ${apiUp ? 'bg-[#6b8e5a]' : 'bg-[#c9824a]'}`} />
+          Node 01 · {apiUp ? 'Live' : 'Offline'}
+        </span>
       </div>
-      <h3 className="font-display text-2xl lg:text-[1.65rem] tracking-tight leading-[1.1] mb-3 text-[#1a3a2e]">
+
+      <h3 className="font-display text-2xl lg:text-[1.65rem] tracking-tight leading-[1.1] mb-2 text-[#1a3a2e]">
         IoT sensor integration.
       </h3>
       <p className="text-sm text-[#1c1f1a]/65 mb-5 leading-relaxed">
-        Field-deployed ESP32 nodes streaming soil moisture and soil temperature every 15 minutes.
+        Field-deployed ESP32 streaming soil moisture + soil temperature every 15&nbsp;min.
       </p>
 
-      <div className="mt-auto bg-[#fafaf7] border border-[#1a3a2e]/15 p-4">
-        <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.2em] text-[#1a3a2e]/55 mb-3 flex justify-between">
-          <span>Node 01 ▸ {apiUp ? 'Live' : 'Offline'}</span>
-          <span className="flex items-center gap-1">
-            <span className={`w-1 h-1 rounded-full animate-pulse-soft ${apiUp ? 'bg-[#6b8e5a]' : 'bg-[#c9824a]'}`} />
-            {apiUp ? 'Online' : '—'}
-          </span>
-        </div>
-        <div className="flex items-end gap-4">
-          <div className="flex-1">
-            <div className="flex items-baseline gap-1">
-              <Droplets className="w-3 h-3 text-[#1a3a2e]" />
-              <span className="font-display text-xl tabular-nums">{fmt(r?.soil_moisture, 1)}</span>
-              <span className="font-mono-c text-[0.62rem] text-[#1c1f1a]/50">%</span>
-            </div>
-            <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#1a3a2e]/55 mt-0.5">Moisture</div>
+      {/* Big primary readout — Helvetica numerics, screenshot-style. */}
+      <div className="bg-[#fafaf7] border border-[#1a3a2e]/15 p-5 mt-auto">
+        <div className="flex items-baseline justify-between mb-1">
+          <div className="font-num text-[2.4rem] lg:text-[2.6rem] leading-none tracking-tight text-[#1c1f1a]">
+            <span className="num-label text-[#1a3a2e]">Soil:</span>{' '}
+            <span className="num-value tabular-nums">{fmt(r?.soil_moisture, 1)}</span>
+            <span className="num-unit text-[1.05rem]">%</span>
           </div>
-          <div className="flex-1">
-            <div className="flex items-baseline gap-1">
-              <Thermometer className="w-3 h-3 text-[#c9824a]" />
-              <span className="font-display text-xl tabular-nums">{fmt(r?.soil_temperature, 1)}</span>
-              <span className="font-mono-c text-[0.62rem] text-[#1c1f1a]/50">°C</span>
+          {delta != null && (
+            <div className={`font-mono-c text-[0.62rem] uppercase tracking-[0.2em] px-2 py-1 ${deltaUp ? 'text-[#6b8e5a] bg-[#6b8e5a]/12' : 'text-[#c9824a] bg-[#c9824a]/12'}`}>
+              {deltaUp ? '↑' : '↓'} {Math.abs(delta).toFixed(1)} pt / 24 h
             </div>
-            <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#1a3a2e]/55 mt-0.5">Soil Temp</div>
+          )}
+        </div>
+
+        {/* Sparkline */}
+        <div className="mt-2 mb-4 h-7">
+          {sparkPath ? (
+            <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" className="w-full h-full">
+              <path d={sparkPath} fill="none" stroke="#1a3a2e" strokeWidth="1.2" />
+              <path d={`${sparkPath} L ${W} ${H} L 0 ${H} Z`} fill="#1a3a2e" opacity="0.08" />
+            </svg>
+          ) : (
+            <div className="w-full h-full border-b border-dashed border-[#1a3a2e]/20 flex items-end justify-end font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#1a3a2e]/40">
+              awaiting 24 h history
+            </div>
+          )}
+        </div>
+
+        <div className="grid grid-cols-2 gap-4 pt-3 border-t border-dashed border-[#1a3a2e]/20">
+          <div>
+            <div className="font-num text-[1.5rem] leading-none tracking-tight text-[#1c1f1a]">
+              <span className="num-label text-[#c9824a]">Temp:</span>{' '}
+              <span className="num-value tabular-nums">{fmt(r?.soil_temperature, 1)}</span>
+              <span className="num-unit text-[0.85rem]">°C</span>
+            </div>
+            <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#1a3a2e]/55 mt-1.5 flex items-center gap-1">
+              <Thermometer className="w-2.5 h-2.5" /> Soil Temperature
+            </div>
+          </div>
+          <div>
+            <div className="font-num text-[1.5rem] leading-none tracking-tight text-[#1c1f1a]">
+              <span className="num-label text-[#d4a574]">Idx:</span>{' '}
+              <span className="num-value tabular-nums">{fmt(r?.drought_index, 2)}</span>
+              <span className="num-unit text-[0.85rem]">/1.0</span>
+            </div>
+            <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#1a3a2e]/55 mt-1.5 flex items-center gap-1">
+              <Droplets className="w-2.5 h-2.5" /> Drought Index
+            </div>
           </div>
         </div>
       </div>
@@ -988,34 +1216,30 @@ function IoTSensorCard({ latest, apiUp, fmt }) {
 //   { oblast, horizon_weeks, model_version, generated_at,
 //     forecast: [{ week_offset, forecast_date, composite_index,
 //                  confidence_lower, confidence_upper, ... }] }
-// `oblasts` is the list response so we can offer an oblast picker dropdown.
+// `oblasts` is the list response so we can offer an oblast picker dropdown
+// AND so we can show the "now" composite_index for delta-vs-forecast.
 function AIModelCard({ forecast, oblastName, oblasts, onSelect }) {
   const list = oblasts?.oblasts ?? [];
   const fc   = forecast?.forecast ?? [];
   const have = fc.length > 0;
+  const sel  = list.find(o => (o.oblast || '').toLowerCase() === (oblastName || '').toLowerCase());
+  const nowCi = sel?.composite_index;
 
-  // SVG geometry. Composite index is 0..1; we invert Y so that higher
+  // SVG geometry. Composite index is 0..1; Y is inverted so higher
   // drought (severity ↑) draws higher on the chart, matching intuition.
-  const W = 200, H = 60, padX = 6, padY = 6;
-  const innerW = W - padX * 2;
-  const innerH = H - padY * 2;
-  const xFor = (i, n) => padX + (n <= 1 ? innerW / 2 : (i / (n - 1)) * innerW);
+  const W = 320, H = 150, padL = 28, padR = 10, padT = 14, padB = 22;
+  const innerW = W - padL - padR;
+  const innerH = H - padT - padB;
+  const xFor = (i, n) => padL + (n <= 1 ? innerW / 2 : (i / (n - 1)) * innerW);
   const yFor = (ci) => {
     const c = Math.max(0, Math.min(1, Number(ci) || 0));
-    return padY + (1 - c) * innerH;
+    return padT + (1 - c) * innerH;
   };
 
-  const linePath = fc
-    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i, fc.length).toFixed(1)} ${yFor(p.composite_index).toFixed(1)}`)
-    .join(' ');
-  const upperPath = fc
-    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i, fc.length).toFixed(1)} ${yFor(p.confidence_upper).toFixed(1)}`)
-    .join(' ');
-  const lowerPath = fc
-    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i, fc.length).toFixed(1)} ${yFor(p.confidence_lower).toFixed(1)}`)
-    .join(' ');
-  // Confidence band = upper edge forward + lower edge in reverse, closed.
-  const bandPath = have
+  const linePath  = fc.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i, fc.length).toFixed(1)} ${yFor(p.composite_index).toFixed(1)}`).join(' ');
+  const upperPath = fc.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i, fc.length).toFixed(1)} ${yFor(p.confidence_upper).toFixed(1)}`).join(' ');
+  const lowerPath = fc.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i, fc.length).toFixed(1)} ${yFor(p.confidence_lower).toFixed(1)}`).join(' ');
+  const bandPath  = have
     ? fc.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i, fc.length).toFixed(1)} ${yFor(p.confidence_upper).toFixed(1)}`).join(' ')
       + ' ' +
       fc.slice().reverse().map((p) => {
@@ -1025,10 +1249,17 @@ function AIModelCard({ forecast, oblastName, oblasts, onSelect }) {
       + ' Z'
     : '';
 
-  // Peak risk in the horizon — surfaces in the header line.
-  const peak = have
-    ? fc.reduce((a, b) => ((b.composite_index ?? 0) > (a.composite_index ?? 0) ? b : a))
-    : null;
+  const peak = have ? fc.reduce((a, b) => ((b.composite_index ?? 0) > (a.composite_index ?? 0) ? b : a)) : null;
+  const peakIdx = peak ? fc.indexOf(peak) : -1;
+  const deltaPts = (peak && nowCi != null) ? (peak.composite_index - nowCi) * 100 : null;
+
+  // Color a forecast value by drought severity bucket (matches API rules).
+  const ciBucketColor = (ci) => {
+    const c = Number(ci) || 0;
+    if (c >= 0.7) return '#c9824a';
+    if (c >= 0.4) return '#d4a574';
+    return '#6b8e5a';
+  };
 
   return (
     <div className="h-full flex flex-col">
@@ -1051,73 +1282,147 @@ function AIModelCard({ forecast, oblastName, oblasts, onSelect }) {
         )}
       </div>
 
-      <h3 className="font-display text-2xl lg:text-[1.65rem] tracking-tight leading-[1.1] mb-3 text-[#1a3a2e]">
+      <h3 className="font-display text-2xl lg:text-[1.65rem] tracking-tight leading-[1.1] mb-1 text-[#1a3a2e]">
         AI predictive models.
       </h3>
-      <p className="text-sm text-[#1c1f1a]/65 mb-5 leading-relaxed">
-        LSTM {forecast?.model_version ?? 'lstm_v1'} — drought risk for{' '}
-        <span className="text-[#1a3a2e] font-medium">{oblastName ?? '—'}</span>,{' '}
-        {fc.length || 8} weeks ahead.
+      <p className="text-xs text-[#1c1f1a]/55 mb-4 leading-relaxed">
+        LSTM <span className="font-mono-c">{forecast?.model_version ?? 'lstm_v1'}</span> · {fc.length || 8} wk horizon · <span className="text-[#1a3a2e]">{oblastName ?? '—'}</span>
       </p>
 
-      <div className="mt-auto">
-        <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.2em] text-[#1a3a2e]/55 mb-2 flex justify-between">
-          <span>Forecast ▸ {fc.length || 0} wk</span>
-          <span className="text-[#c9824a]">
-            {peak
-              ? `Peak ${(peak.composite_index * 100).toFixed(0)}% wk +${peak.week_offset}`
-              : '—'}
-          </span>
-        </div>
-        <svg viewBox="0 0 200 60" className="w-full">
-          <defs>
-            <linearGradient id="forecast-grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"   stopColor="#c9824a" stopOpacity="0.32" />
-              <stop offset="100%" stopColor="#c9824a" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-
-          {/* Severe-risk threshold (composite index = 0.7) */}
-          <line
-            x1={padX} x2={W - padX}
-            y1={yFor(0.7)} y2={yFor(0.7)}
-            stroke="#c9824a" strokeWidth="0.4" strokeDasharray="2 2" opacity="0.55"
-          />
-          <text x={W - padX - 18} y={yFor(0.7) - 1} fill="#c9824a" fontSize="4" fontFamily="monospace" opacity="0.75">
-            SEVERE
-          </text>
-
-          {have ? (
-            <>
-              <path d={bandPath}  fill="url(#forecast-grad)" stroke="none" />
-              <path d={upperPath} fill="none" stroke="#c9824a" strokeWidth="0.5" strokeDasharray="1.5 1.5" opacity="0.55" />
-              <path d={lowerPath} fill="none" stroke="#c9824a" strokeWidth="0.5" strokeDasharray="1.5 1.5" opacity="0.55" />
-              <path d={linePath}  fill="none" stroke="#1a3a2e" strokeWidth="1.5" />
-              {fc.map((p, i) => (
-                <circle
-                  key={p.week_offset ?? i}
-                  cx={xFor(i, fc.length)} cy={yFor(p.composite_index)}
-                  r="1.2" fill="#1a3a2e"
-                />
-              ))}
-            </>
-          ) : (
-            <text x={W / 2} y={H / 2 + 2} fill="#1a3a2e" fontSize="6" fontFamily="monospace" textAnchor="middle" opacity="0.5">
-              loading forecast…
-            </text>
+      {/* Big numeric headline for the peak forecast week, Helvetica style. */}
+      <div className="bg-[#fafaf7] border border-[#1a3a2e]/15 px-4 py-3 mb-3">
+        <div className="flex items-baseline justify-between gap-3 flex-wrap">
+          <div className="font-num text-[1.85rem] lg:text-[2.1rem] leading-none tracking-tight text-[#1c1f1a]">
+            <span className="num-label" style={{ color: peak ? ciBucketColor(peak.composite_index) : '#1a3a2e' }}>
+              {peak ? `wk +${peak.week_offset}:` : 'wk —:'}
+            </span>{' '}
+            <span className="num-value tabular-nums">
+              {peak ? (peak.composite_index * 100).toFixed(0) : '—'}
+            </span>
+            <span className="num-unit text-[1rem]">%</span>
+          </div>
+          {deltaPts != null && (
+            <div className={`font-mono-c text-[0.6rem] uppercase tracking-[0.2em] px-2 py-1 ${deltaPts >= 0 ? 'text-[#c9824a] bg-[#c9824a]/12' : 'text-[#6b8e5a] bg-[#6b8e5a]/12'}`}>
+              {deltaPts >= 0 ? '↑' : '↓'} {Math.abs(deltaPts).toFixed(0)} pt vs now
+            </div>
           )}
-
-          {/* "NOW" axis on the left edge */}
-          <line x1={padX} y1={padY} x2={padX} y2={H - padY} stroke="#1a3a2e" strokeWidth="0.5" strokeDasharray="2 2" opacity="0.4" />
-          <text x={padX + 1.5} y={padY + 5} fill="#1a3a2e" fontSize="4" fontFamily="monospace" opacity="0.6">NOW</text>
-        </svg>
-
-        <div className="font-mono-c text-[0.5rem] uppercase tracking-[0.18em] text-[#1a3a2e]/55 mt-1 flex justify-between">
-          <span>wk +1</span>
-          {fc.length >= 4 && <span>wk +{Math.ceil(fc.length / 2)}</span>}
-          <span>wk +{fc.length > 0 ? fc[fc.length - 1].week_offset : 8}</span>
+        </div>
+        <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.18em] text-[#1c1f1a]/55 mt-1.5">
+          Peak drought risk over forecast horizon
         </div>
       </div>
+
+      {/* Chart */}
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto">
+        <defs>
+          <linearGradient id="forecast-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stopColor="#c9824a" stopOpacity="0.30" />
+            <stop offset="100%" stopColor="#c9824a" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+
+        {/* Y-axis grid + tick labels (0%, 35%, 70%, 100%) */}
+        {[0, 0.35, 0.7, 1].map((tick) => (
+          <g key={tick}>
+            <line x1={padL} x2={W - padR} y1={yFor(tick)} y2={yFor(tick)} stroke="#1a3a2e" strokeWidth="0.4" opacity={tick === 0.7 ? 0.45 : 0.12} strokeDasharray={tick === 0.7 ? '3 2' : '0'} />
+            <text x={padL - 4} y={yFor(tick) + 3} fill="#1a3a2e" fontSize="8" fontFamily="Helvetica, Arial, sans-serif" textAnchor="end" opacity="0.7" className="tabular-nums">
+              {(tick * 100).toFixed(0)}%
+            </text>
+          </g>
+        ))}
+
+        {/* Threshold labels for moderate (35%) + severe (70%) zones */}
+        <text x={W - padR} y={yFor(0.7) - 2} fill="#c9824a" fontSize="7" fontFamily="Helvetica, Arial, sans-serif" textAnchor="end" opacity="0.85">SEVERE ≥ 70%</text>
+        <text x={W - padR} y={yFor(0.35) - 2} fill="#d4a574" fontSize="7" fontFamily="Helvetica, Arial, sans-serif" textAnchor="end" opacity="0.7">MODERATE ≥ 35%</text>
+
+        {have ? (
+          <>
+            <path d={bandPath}  fill="url(#forecast-grad)" stroke="none" />
+            <path d={upperPath} fill="none" stroke="#c9824a" strokeWidth="0.7" strokeDasharray="2 2" opacity="0.55" />
+            <path d={lowerPath} fill="none" stroke="#c9824a" strokeWidth="0.7" strokeDasharray="2 2" opacity="0.55" />
+            <path d={linePath}  fill="none" stroke="#1a3a2e" strokeWidth="1.8" />
+
+            {/* "Now" reference line + dot for current state, if we have it. */}
+            {nowCi != null && (
+              <>
+                <line x1={padL} x2={W - padR} y1={yFor(nowCi)} y2={yFor(nowCi)} stroke="#1a3a2e" strokeWidth="0.5" strokeDasharray="1 2" opacity="0.45" />
+                <circle cx={padL} cy={yFor(nowCi)} r="2.4" fill="#1a3a2e" />
+                <text x={padL + 4} y={yFor(nowCi) - 3} fill="#1a3a2e" fontSize="7" fontFamily="Helvetica, Arial, sans-serif" opacity="0.8" className="tabular-nums">
+                  NOW {(nowCi * 100).toFixed(0)}%
+                </text>
+              </>
+            )}
+
+            {/* Forecast points */}
+            {fc.map((p, i) => (
+              <circle
+                key={p.week_offset ?? i}
+                cx={xFor(i, fc.length)} cy={yFor(p.composite_index)}
+                r={i === peakIdx ? 3 : 1.8}
+                fill={i === peakIdx ? '#c9824a' : '#1a3a2e'}
+                stroke={i === peakIdx ? '#0e2820' : 'none'}
+                strokeWidth={i === peakIdx ? 0.8 : 0}
+              />
+            ))}
+
+            {/* Peak callout */}
+            {peak && (
+              <g>
+                <line
+                  x1={xFor(peakIdx, fc.length)} x2={xFor(peakIdx, fc.length)}
+                  y1={yFor(peak.composite_index) - 4} y2={padT - 2}
+                  stroke="#c9824a" strokeWidth="0.5" strokeDasharray="1 1.5" opacity="0.7"
+                />
+                <text
+                  x={xFor(peakIdx, fc.length)}
+                  y={padT - 4}
+                  fill="#c9824a" fontSize="8" fontFamily="Helvetica, Arial, sans-serif"
+                  textAnchor="middle" opacity="0.95"
+                >
+                  PEAK {(peak.composite_index * 100).toFixed(0)}%
+                </text>
+              </g>
+            )}
+          </>
+        ) : (
+          <text x={W / 2} y={H / 2} fill="#1a3a2e" fontSize="10" fontFamily="Helvetica, Arial, sans-serif" textAnchor="middle" opacity="0.5">
+            loading forecast…
+          </text>
+        )}
+
+        {/* X-axis week labels — show every other week to avoid crowding. */}
+        {fc.map((p, i) => (i % 2 === 0 || i === fc.length - 1) && (
+          <text
+            key={`xt-${i}`}
+            x={xFor(i, fc.length)} y={H - 6}
+            fill="#1a3a2e" fontSize="7" fontFamily="Helvetica, Arial, sans-serif"
+            textAnchor="middle" opacity="0.7"
+          >
+            wk +{p.week_offset}
+          </text>
+        ))}
+      </svg>
+
+      {/* Per-week numeric pills — explicit values so judges can read the forecast. */}
+      {have && (
+        <div className="mt-3 grid grid-cols-4 sm:grid-cols-8 gap-[3px]">
+          {fc.map((p, i) => (
+            <div
+              key={`pill-${p.week_offset ?? i}`}
+              className={`px-1.5 py-1 text-center ${i === peakIdx ? 'ring-1 ring-inset ring-[#c9824a]' : 'border border-[#1a3a2e]/10'}`}
+              style={{ backgroundColor: `${ciBucketColor(p.composite_index)}1a` }}
+              title={`Week +${p.week_offset} · ${(p.composite_index * 100).toFixed(0)}% (${(p.confidence_lower * 100).toFixed(0)}–${(p.confidence_upper * 100).toFixed(0)}%)`}
+            >
+              <div className="font-mono-c text-[0.5rem] uppercase tracking-[0.15em] text-[#1a3a2e]/65 leading-none">
+                +{p.week_offset}
+              </div>
+              <div className="font-num num-value text-[0.95rem] tabular-nums leading-tight" style={{ color: ciBucketColor(p.composite_index) }}>
+                {(p.composite_index * 100).toFixed(0)}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
