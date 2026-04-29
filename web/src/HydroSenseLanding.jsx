@@ -825,7 +825,7 @@ function SnapBlock({ tag, label, value, unit, accent, sub }) {
   // below their intrinsic content width and `truncate` actually clips.
   return (
     <div className="p-5 lg:p-6 relative overflow-hidden min-w-0">
-      <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.22em] text-[#1a3a2e]/55 mb-3 truncate">
+      <div className="font-num text-[0.7rem] uppercase tracking-[0.14em] text-[#1a3a2e]/55 mb-3 truncate" style={{ fontWeight: 600 }}>
         {tag}
       </div>
       <div
@@ -843,7 +843,7 @@ function SnapBlock({ tag, label, value, unit, accent, sub }) {
           {unit}
         </span>
       </div>
-      <div className="mt-3 font-mono-c text-[0.6rem] uppercase tracking-[0.18em] text-[#1c1f1a]/55 truncate" title={sub}>
+      <div className="mt-3 font-num text-[0.74rem] text-[#1c1f1a]/60 truncate tracking-tight" title={sub}>
         {sub}
       </div>
       <div className="absolute left-0 top-0 bottom-0 w-[3px]" style={{ backgroundColor: accent, opacity: 0.6 }} />
@@ -1007,12 +1007,12 @@ function SatelliteCard({ oblasts, onSelect, selected, heatColors, apiUp }) {
 
             {/* SELECTION BLOCK below the grid */}
             <div className="mt-6">
-              <div className="font-mono-c text-[0.55rem] uppercase tracking-[0.22em] text-[#dde5d2]/55 mb-3 flex items-baseline justify-between">
+              <div className="font-num text-[0.78rem] text-[#dde5d2]/65 mb-3 flex items-baseline justify-between tracking-tight">
                 <span>
-                  ▸ <span className="text-[#d4a574]">{sel ? sel.oblast : 'Selection'}</span>
+                  ▸ <span className="num-label text-[#d4a574]">{sel ? sel.oblast : 'Selection'}</span>
                 </span>
                 {sel && (
-                  <span className="tabular-nums">
+                  <span className="num-value tabular-nums">
                     {(sel.latitude ?? 0).toFixed(2)}°N · {(sel.longitude ?? 0).toFixed(2)}°E
                   </span>
                 )}
@@ -1304,8 +1304,8 @@ function AIModelCard({ forecast, oblastName, oblasts, onSelect }) {
       <h3 className="font-display text-2xl lg:text-[1.65rem] tracking-tight leading-[1.1] mb-1 text-[#1a3a2e]">
         AI predictive models.
       </h3>
-      <p className="text-xs text-[#1c1f1a]/55 mb-4 leading-relaxed">
-        LSTM <span className="font-mono-c">{forecast?.model_version ?? 'lstm_v1'}</span> · {fc.length || 8} wk horizon · <span className="text-[#1a3a2e]">{oblastName ?? '—'}</span>
+      <p className="font-num text-[0.78rem] text-[#1c1f1a]/65 mb-4 leading-relaxed tracking-tight">
+        LSTM <span className="num-label text-[#1a3a2e]">{forecast?.model_version ?? 'lstm_v1'}</span> · {fc.length || 8} wk horizon · <span className="num-label text-[#1a3a2e]">{oblastName ?? '—'}</span>
       </p>
 
       {/* Big numeric headline for the peak forecast week, Helvetica style. */}
