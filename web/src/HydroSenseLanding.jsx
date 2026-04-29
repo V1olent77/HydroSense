@@ -174,9 +174,14 @@ export default function HydroSenseLanding() {
 
         body { font-family: 'Geist', ui-sans-serif, system-ui, sans-serif; }
         .font-display { font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto; }
-        .font-mono-c  { font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace; }
-        /* Helvetica-style numeric face: bold label + light value, e.g. "India: 14.20m". */
-        .font-num     { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif; font-feature-settings: 'tnum' 1, 'lnum' 1; letter-spacing: -0.01em; }
+        /* Helvetica numeric face — single sans-serif source for every label, tag,
+         * tick, and big number. We used to split this into Geist Mono ("font-mono-c")
+         * for typewriter-style metadata + Helvetica ("font-num") for numerals; the
+         * mono face fought the Helvetica everywhere and the user asked for one
+         * consistent sans family. .font-mono-c is now an alias of .font-num so the
+         * existing class name keeps working without a 45-spot find/replace. */
+        .font-num,
+        .font-mono-c  { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif; font-feature-settings: 'tnum' 1, 'lnum' 1; letter-spacing: -0.005em; }
         .num-label    { font-weight: 700; }
         .num-value    { font-weight: 300; }
         .num-unit     { font-weight: 300; opacity: 0.55; margin-left: 0.15em; }
@@ -1546,7 +1551,7 @@ function CropIllustration() {
         </g>
       ))}
       <rect x="120" y="65" width="78" height="58" fill="none" stroke="#d4a574" strokeWidth="1.2" strokeDasharray="3 2" />
-      <text x="124" y="60" fill="#d4a574" fontSize="8" fontFamily="monospace">PARCEL 47B</text>
+      <text x="124" y="60" fill="#d4a574" fontSize="8" fontFamily="Helvetica, Arial, sans-serif">PARCEL 47B</text>
     </svg>
   );
 }
@@ -1566,8 +1571,8 @@ function IrrigationIllustration() {
       <circle cx="150" cy="115" r="40" fill="none" stroke="#d4a574" strokeWidth="0.6" opacity="0.8" />
       <circle cx="150" cy="115" r="22" fill="#d4a574" opacity="0.18" />
       <circle cx="150" cy="115" r="3" fill="#d4a574" />
-      <text x="158" y="113" fill="#f5f1e8" fontSize="7" fontFamily="monospace">VALVE 03</text>
-      <text x="158" y="123" fill="#d4a574" fontSize="7" fontFamily="monospace">▸ ACTIVE</text>
+      <text x="158" y="113" fill="#f5f1e8" fontSize="7" fontFamily="Helvetica, Arial, sans-serif">VALVE 03</text>
+      <text x="158" y="123" fill="#d4a574" fontSize="7" fontFamily="Helvetica, Arial, sans-serif">▸ ACTIVE</text>
     </svg>
   );
 }
@@ -1577,8 +1582,8 @@ function YieldIllustration() {
   return (
     <svg viewBox="0 0 300 225" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
       <rect width="300" height="225" fill="#1a3a2e" />
-      <text x="22" y="22" fill="#dde5d2" fontSize="8" fontFamily="monospace">YIELD ▸ tonnes/ha</text>
-      <text x="200" y="22" fill="#d4a574" fontSize="8" fontFamily="monospace">FORECAST ▸</text>
+      <text x="22" y="22" fill="#dde5d2" fontSize="8" fontFamily="Helvetica, Arial, sans-serif">YIELD ▸ tonnes/ha</text>
+      <text x="200" y="22" fill="#d4a574" fontSize="8" fontFamily="Helvetica, Arial, sans-serif">FORECAST ▸</text>
       {data.map((h, i) => (
         <g key={i}>
           <rect x={20 + i * 25} y={210 - h} width="18" height={h}
