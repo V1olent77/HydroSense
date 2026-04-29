@@ -131,7 +131,7 @@ export default function HydroSenseLanding() {
   const faqs = [
     {
       q: 'How accurate is the satellite data?',
-      a: 'Our composite drought index achieves 95% directional accuracy at the oblast level, validated against ground-truth from 10,000+ IoT sensors. Spatial resolution is 250m for NDVI and 5km for precipitation, refreshed every 16 days from MODIS and daily from CHIRPS.',
+      a: 'The composite index fuses three independently-validated public datasets: MODIS Terra NDVI (250 m, 16-day cadence), CHIRPS precipitation (5 km, daily), and ERA5-Land soil moisture (~9 km, hourly). Each source carries its own published uncertainty; the ensemble reduces noise but is still a remote-sensing estimate, not a direct measurement. We currently operate one reference ESP32 ground node in East Kazakhstan oblast (Ust-Kamenogorsk) for in-situ validation, with more deployments planned as the network expands.',
     },
     {
       q: 'What do NDVI, soil moisture, precipitation, and the composite index actually measure?',
@@ -144,7 +144,7 @@ export default function HydroSenseLanding() {
     },
     {
       q: 'How early do drought warnings arrive?',
-      a: 'The LSTM forecast model issues a 2-month early warning at 95% confidence. Severe-onset alerts (composite index >0.7) reach you via SMS, dashboard push, and webhook within seconds of the model run.',
+      a: 'Our LSTM model produces an 8-week forecast with a per-week confidence band (lower / upper bounds shown on the AI card). The model is retrained as new monthly indices land. We do not yet operate SMS or webhook alerting — alerts are surfaced on the dashboard, with the composite-index threshold (>0.6 severe) clearly marked on every chart.',
     },
     {
       q: 'Which regions of Kazakhstan are covered?',
@@ -272,7 +272,7 @@ export default function HydroSenseLanding() {
                   </em>
                 </h1>
                 <p className="mt-9 text-[1.05rem] lg:text-lg text-[#1c1f1a]/70 max-w-xl leading-relaxed">
-                  We fuse multi-spectral satellite imagery with a continental network of IoT soil sensors to deliver actionable, oblast-level drought forecasts — eight weeks ahead of the field.
+                  We fuse multi-spectral satellite imagery (MODIS NDVI, CHIRPS precipitation, ERA5 soil moisture) with an open-source ESP32 ground node to deliver actionable, oblast-level drought forecasts — eight weeks ahead of the field.
                 </p>
                 <div className="mt-10 flex flex-wrap items-center gap-4">
                   <a
@@ -464,7 +464,7 @@ export default function HydroSenseLanding() {
                 Next-gen solutions for <em className="italic">arid climates.</em>
               </h2>
               <p className="mt-6 text-[#1c1f1a]/65 max-w-xl mx-auto">
-                Deployed across pilot farms in East Kazakhstan, Almaty, and Kyzylorda oblasts since 2026.
+                Reference ESP32 ground node deployed in East Kazakhstan oblast (Ust-Kamenogorsk), 2026 — paired with national-scale satellite coverage of all 14 oblasts.
               </p>
             </div>
 
