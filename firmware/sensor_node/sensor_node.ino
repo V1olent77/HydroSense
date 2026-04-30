@@ -16,10 +16,10 @@
 // --- Configuration ---------------------------------------------------
 // SECURITY: do NOT commit real Wi-Fi creds to a public repo. Replace
 // these with placeholders before pushing to GitHub.
-const char* ssid      = "iPhone";
-const char* password  = "Alan2009";
-const char* serverURL = "https://hydrosense-api.onrender.com/api/data";
-const char* healthURL = "https://hydrosense-api.onrender.com/api/health";
+const char* ssid      = "Teachers";
+const char* password  = "EEwwQQ2026!";
+const char* serverURL = "https://hydrosense-api-jg8i.onrender.com/api/data";
+const char* healthURL = "https://hydrosense-api-jg8i.onrender.com/api/health";
 const char* nodeId    = "node_01";
 
 // --- Sensor pins -----------------------------------------------------

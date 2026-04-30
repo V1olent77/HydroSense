@@ -2,7 +2,7 @@
 // Base URL comes from Vite env. In dev defaults to localhost:5001 so
 // `npm run dev` + `python api.py` Just Works.
 //
-// In production (Vercel), set VITE_API_BASE=https://hydrosense-api.onrender.com
+// In production (Vercel), set VITE_API_BASE=https://hydrosense-api-jg8i.onrender.com
 // in the project env before deploying.
 
 export const API_BASE =
